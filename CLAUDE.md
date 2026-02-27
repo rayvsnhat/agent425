@@ -57,6 +57,12 @@
 - When comparing, be specific: "heading is 32px but reference shows ~24px", "card gap is 16px but should be 24px"
 - Check: spacing/padding, font size/weight/line-height, colors (exact hex), alignment, border-radius, shadows, image sizing
 
+## GitHub / Version Control
+
+- **Never push to GitHub unless the user explicitly says to.** All changes stay local (localhost) by default.
+- Do not run `git push`, create commits, or interact with the remote repo unless directly instructed.
+- When told to push, confirm the files/changes being committed before proceeding.
+
 ## Hard Rules
 
 - Do not use `transition-all`
