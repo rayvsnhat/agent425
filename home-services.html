@@ -159,6 +159,12 @@
     .pricing-check-item:last-child{border-bottom:none;padding-bottom:0;}
     .pricing-check-item svg{flex-shrink:0;margin-top:1px;}
     .pricing-card .btn-primary{box-shadow:none;}
+    /* ── Founder Cards (moving glow border) ── */
+    .about-glow-wrap{position:relative;border-radius:14px;padding:2px;background:rgba(165,172,175,0.22);transition:transform 0.25s ease-out,box-shadow 0.25s ease-out;}
+    .dark .about-glow-wrap{background:rgba(165,172,175,0.1);}
+    .about-glow-wrap:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,34,68,0.12);}
+    .dark .about-glow-wrap:hover{box-shadow:0 16px 48px rgba(105,190,40,0.1);}
+    .about-inner-card{border-radius:12px;padding:40px 32px;background:var(--surface);height:100%;}
     /* ── Mobile hamburger & full-screen menu ── */
     .hamburger-btn{display:flex;flex-direction:column;justify-content:center;align-items:center;width:40px;height:40px;gap:5.5px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
     @media(min-width:768px){.hamburger-btn{display:none;}}
@@ -565,29 +571,33 @@
       <span class="accent-line"></span>
       <h2 class="fade-in" style="font-size:clamp(1.8rem,3.5vw,2.8rem);max-width:600px;margin-bottom:56px;">The team behind Seattle AI Consultants</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="fade-in" style="border:2px solid var(--border);border-radius:12px;padding:40px 32px;background:var(--surface);">
-          <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:24px;">
-            <img src="https://placehold.co/80x80/002244/69BE28?text=N" alt="Nhat" loading="lazy" style="width:80px;height:80px;border-radius:8px;flex-shrink:0;">
-            <div>
-              <h3 style="font-size:22px;letter-spacing:-0.02em;margin:0 0 4px;">Nhat</h3>
-              <p style="font-size:13px;color:var(--green);font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin:0;">Co-Founder</p>
+        <div class="about-glow-wrap fade-in">
+          <div class="about-inner-card">
+            <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:24px;">
+              <img src="https://placehold.co/80x80/002244/69BE28?text=N" alt="Nhat" loading="lazy" style="width:80px;height:80px;border-radius:8px;flex-shrink:0;">
+              <div>
+                <h3 style="font-size:22px;letter-spacing:-0.02em;margin:0 0 4px;">Nhat</h3>
+                <p style="font-size:13px;color:var(--green);font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin:0;">Co-Founder</p>
+              </div>
             </div>
+            <p style="font-size:15px;color:var(--text-secondary);line-height:1.75;margin:0;font-family:'Roboto',sans-serif;">
+              Nhat designs and builds the AI systems at the core of every client engagement. His expertise in automation architecture means every tool we implement is purpose-built for your business — not a generic off-the-shelf solution repurposed to fit.
+            </p>
           </div>
-          <p style="font-size:15px;color:var(--text-secondary);line-height:1.75;margin:0;font-family:'Roboto',sans-serif;">
-            Nhat designs and builds the AI systems at the core of every client engagement. His expertise in automation architecture means every tool we implement is purpose-built for your business — not a generic off-the-shelf solution repurposed to fit.
-          </p>
         </div>
-        <div class="fade-in" style="border:2px solid var(--border);border-radius:12px;padding:40px 32px;background:var(--surface);transition-delay:0.1s;">
-          <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:24px;">
-            <img src="https://placehold.co/80x80/69BE28/002244?text=E" alt="Ebrima" loading="lazy" style="width:80px;height:80px;border-radius:8px;flex-shrink:0;">
-            <div>
-              <h3 style="font-size:22px;letter-spacing:-0.02em;margin:0 0 4px;">Ebrima</h3>
-              <p style="font-size:13px;color:var(--green);font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin:0;">Co-Founder</p>
+        <div class="about-glow-wrap fade-in" style="transition-delay:0.1s;">
+          <div class="about-inner-card">
+            <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:24px;">
+              <img src="https://placehold.co/80x80/69BE28/002244?text=E" alt="Ebrima" loading="lazy" style="width:80px;height:80px;border-radius:8px;flex-shrink:0;">
+              <div>
+                <h3 style="font-size:22px;letter-spacing:-0.02em;margin:0 0 4px;">Ebrima</h3>
+                <p style="font-size:13px;color:var(--green);font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin:0;">Co-Founder</p>
+              </div>
             </div>
+            <p style="font-size:15px;color:var(--text-secondary);line-height:1.75;margin:0;font-family:'Roboto',sans-serif;">
+              Ebrima's background in operations consulting means he sees home service businesses the way their owners do — through the lens of jobs, margins, and customer experience. He translates operational pain points into precise automation requirements.
+            </p>
           </div>
-          <p style="font-size:15px;color:var(--text-secondary);line-height:1.75;margin:0;font-family:'Roboto',sans-serif;">
-            Ebrima's background in operations consulting means he sees home service businesses the way their owners do — through the lens of jobs, margins, and customer experience. He translates operational pain points into precise automation requirements.
-          </p>
         </div>
       </div>
     </div>
@@ -872,6 +882,23 @@
       closeBtn.addEventListener('click',closeMenu);
       document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
       menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+    })();
+  </script>
+
+  <script>
+    // Moving glow border — founder cards
+    (function(){
+      var COLORS='rgba(0,34,68,0.06) 0deg,rgba(105,190,40,0.9) 36deg,rgba(255,255,255,0.75) 58deg,rgba(165,172,175,0.55) 82deg,rgba(0,34,68,0.06) 118deg,rgba(0,34,68,0.06) 360deg';
+      document.querySelectorAll('.about-glow-wrap').forEach(function(wrap){
+        wrap.addEventListener('mousemove',function(e){
+          var r=wrap.getBoundingClientRect();
+          var angle=Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*(180/Math.PI)+180;
+          wrap.style.background='conic-gradient(from '+angle+'deg at 50% 50%,'+COLORS+')';
+        });
+        wrap.addEventListener('mouseleave',function(){
+          wrap.style.background='';
+        });
+      });
     })();
   </script>
 </body>
