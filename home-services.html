@@ -33,31 +33,30 @@
     a{text-decoration:none;}
     body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;}
 
-    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid rgba(100,149,237,0.65);border-right:1px solid rgba(100,149,237,0.28);border-bottom:1px solid rgba(100,149,237,0.08);border-left:1px solid rgba(100,149,237,0.28);cursor:pointer;box-shadow:0 0 20px rgba(0,34,68,0.5),0 4px 14px rgba(0,34,68,0.4),inset 0 1px 0 rgba(255,255,255,0.06);transition:background-color 0.2s ease-out,transform 0.2s ease-out,box-shadow 0.2s ease-out,border-color 0.2s ease-out;white-space:nowrap;}
-    .btn-primary:hover{background:var(--green);border-top-color:rgba(105,190,40,0.85);border-right-color:rgba(105,190,40,0.38);border-bottom-color:rgba(105,190,40,0.12);border-left-color:rgba(105,190,40,0.38);transform:scale(1.04);box-shadow:0 0 26px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);}
-    .btn-primary:active{background:var(--green-dark);transform:scale(0.98);}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border:2px solid transparent;cursor:pointer;box-shadow:0 0 20px rgba(0,34,68,0.5),0 4px 14px rgba(0,34,68,0.4),inset 0 1px 0 rgba(255,255,255,0.06);transition:transform 0.2s ease-out,box-shadow 0.2s ease-out;white-space:nowrap;position:relative;}
+    .btn-primary:hover{transform:scale(1.04);}
+    .btn-primary:active{transform:scale(0.98);}
     .btn-primary:focus-visible{outline:2px solid var(--green);outline-offset:3px;}
-    .dark .btn-primary{background:var(--navy);border-top-color:rgba(100,149,237,0.55);border-right-color:rgba(100,149,237,0.22);border-bottom-color:rgba(100,149,237,0.07);border-left-color:rgba(100,149,237,0.22);box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);}
-    .dark .btn-primary:hover{background:var(--green);border-top-color:rgba(105,190,40,0.8);border-right-color:rgba(105,190,40,0.32);border-bottom-color:rgba(105,190,40,0.1);border-left-color:rgba(105,190,40,0.32);box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);}
+    .dark .btn-primary{box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);}
 
-    footer .btn-primary{background:var(--navy);border-top-color:rgba(100,149,237,0.55);border-right-color:rgba(100,149,237,0.22);border-bottom-color:rgba(100,149,237,0.07);border-left-color:rgba(100,149,237,0.22);box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);}
-    footer .btn-primary:hover{background:var(--green);border-top-color:rgba(105,190,40,0.8);border-right-color:rgba(105,190,40,0.32);border-bottom-color:rgba(105,190,40,0.1);border-left-color:rgba(105,190,40,0.32);box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);}
+    footer .btn-primary{box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);}
 
     /* Nav hero button — matches index.html */
-    .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid rgba(100,149,237,0.55);border-right:1px solid rgba(100,149,237,0.22);border-bottom:1px solid rgba(100,149,237,0.07);border-left:1px solid rgba(100,149,237,0.22);cursor:pointer;box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);transition:background-color 0.2s ease-out,transform 0.2s ease-out,box-shadow 0.2s ease-out,border-color 0.2s ease-out;white-space:nowrap;}
-    .hero-btn:hover{background:var(--green);border-top-color:rgba(105,190,40,0.8);border-right-color:rgba(105,190,40,0.32);border-bottom-color:rgba(105,190,40,0.1);border-left-color:rgba(105,190,40,0.32);transform:scale(1.04);box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);}
-    .hero-btn:active{background:var(--green-dark);transform:scale(0.98);}
+    .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border:2px solid transparent;cursor:pointer;box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);transition:transform 0.2s ease-out,box-shadow 0.2s ease-out;white-space:nowrap;position:relative;}
+    .hero-btn:hover{transform:scale(1.04);}
+    .hero-btn:active{transform:scale(0.98);}
     .hero-btn:focus-visible{outline:2px solid var(--green);outline-offset:3px;}
-    html:not(.dark) .hero-btn{box-shadow:0 2px 8px rgba(0,34,68,0.12);}
-    html:not(.dark) .hero-btn:hover{box-shadow:0 4px 16px rgba(105,190,40,0.25);}
     footer .hero-btn{box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05) !important;}
-    footer .hero-btn:hover{box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3) !important;}
 
-    .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid var(--border-t);border-right:1px solid var(--border-s);border-bottom:1px solid var(--border-b);border-left:1px solid var(--border-s);cursor:pointer;transition:background-color 0.2s ease-out,transform 0.2s ease-out,box-shadow 0.2s ease-out,border-color 0.2s ease-out,color 0.2s ease-out;}
+    .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border:2px solid transparent;cursor:pointer;transition:transform 0.2s ease-out,box-shadow 0.2s ease-out,color 0.2s ease-out;position:relative;}
     .dark .btn-outline{color:#fff;}
-    .btn-outline:hover{background:var(--green);color:#fff;border-top-color:rgba(105,190,40,0.85);border-right-color:rgba(105,190,40,0.38);border-bottom-color:rgba(105,190,40,0.12);border-left-color:rgba(105,190,40,0.38);transform:scale(1.04);box-shadow:0 0 22px rgba(105,190,40,0.45),0 4px 16px rgba(105,190,40,0.25);}
-    .btn-outline:active{background:var(--green-dark);transform:scale(0.98);}
+    .btn-outline:hover{transform:scale(1.04);}
+    .btn-outline:active{transform:scale(0.98);}
     .btn-outline:focus-visible{outline:2px solid var(--green);outline-offset:3px;}
+
+    /* Animated glow border for all buttons */
+    .btn-primary::after,.hero-btn::after,.btn-outline::after{content:'';position:absolute;inset:-2px;border-radius:52px;padding:2px;background:var(--btn-glow,rgba(165,172,175,0.22));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+    .dark .btn-primary::after,.dark .hero-btn::after,.dark .btn-outline::after{background:var(--btn-glow,rgba(165,172,175,0.1));}
 
     .nav-link{color:var(--text);font-size:11.5px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.65;transition:opacity 0.2s ease-out;}
     .nav-link:hover{opacity:1;}
@@ -133,10 +132,7 @@
     .about-stat{font-family:'Inter',sans-serif;font-weight:900;font-size:2.2rem;color:var(--green);letter-spacing:-0.03em;line-height:1;margin:0 0 8px;text-shadow:0 0 24px rgba(105,190,40,0.4),0 2px 10px rgba(105,190,40,0.25);}
 
     /* Hero button — always dark navy style */
-    .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid rgba(100,149,237,0.55);border-right:1px solid rgba(100,149,237,0.22);border-bottom:1px solid rgba(100,149,237,0.07);border-left:1px solid rgba(100,149,237,0.22);cursor:pointer;box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);transition:background-color 0.2s ease-out,transform 0.2s ease-out,box-shadow 0.2s ease-out,border-color 0.2s ease-out;white-space:nowrap;}
-    .hero-btn:hover{background:var(--green);border-top-color:rgba(105,190,40,0.8);border-right-color:rgba(105,190,40,0.32);border-bottom-color:rgba(105,190,40,0.1);border-left-color:rgba(105,190,40,0.32);transform:scale(1.04);box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);}
-    .hero-btn:active{background:var(--green-dark);transform:scale(0.98);}
-    .hero-btn:focus-visible{outline:2px solid var(--green);outline-offset:3px;}
+    /* (base styles defined above; duplicate removed) */
 
     /* Hero slide animation */
     .hero-slide-wrap{display:inline-block;overflow:hidden;vertical-align:bottom;height:1.3em;clip-path:inset(0.1em 0 0 0);}
@@ -237,7 +233,7 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             Book a Consultation
           </a>
-          <a href="#services" class="btn-outline" style="color:#fff;border-top-color:rgba(255,255,255,0.45);border-right-color:rgba(255,255,255,0.18);border-bottom-color:rgba(255,255,255,0.06);border-left-color:rgba(255,255,255,0.18);box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);">
+          <a href="#services" class="btn-outline" style="color:#fff;box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);">
             See our services
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -302,7 +298,7 @@
         </div>
       </div>
 
-      <div style="overflow:hidden;padding-top:12px;margin-top:-12px;" id="roiCarouselWrap">
+      <div style="overflow:hidden;padding:12px 16px 0;margin:-12px -16px 0;" id="roiCarouselWrap">
         <div class="carousel-track" id="roiTrack">
           <!-- Slide 1 -->
           <div class="carousel-slide">
@@ -386,7 +382,7 @@
       <span class="accent-line"></span>
       <div class="mb-12">
         <h2 class="fade-in" style="font-size:clamp(2rem,4.5vw,3.8rem);">What your AI actually does</h2>
-        <p class="fade-in mt-4" style="font-size:16px;color:var(--text-secondary);max-width:480px;transition-delay:0.1s;font-family:'Roboto',sans-serif;">From your first call to the 5-star review — we automate the whole journey.</p>
+        <p class="fade-in mt-4" style="font-size:16px;color:var(--text-secondary);max-width:480px;transition-delay:0.1s;font-family:'Roboto',sans-serif;">Some of the many things AI can help your business.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -396,9 +392,6 @@
           </div>
           <h3 style="font-size:20px;letter-spacing:-0.02em;margin:0 0 10px;">AI Scheduling & Dispatch</h3>
           <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin:0;font-family:'Roboto',sans-serif;">Automated job scheduling that matches technicians to jobs based on location, skills, and live availability. Eliminates double-bookings and routing waste.</p>
-          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
-            <p style="font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);">Phase 2: Audit → Implementation</p>
-          </div>
         </div>
 
         <div class="service-card fade-in" style="transition-delay:0.1s;">
@@ -407,9 +400,6 @@
           </div>
           <h3 style="font-size:20px;letter-spacing:-0.02em;margin:0 0 10px;">24/7 AI Phone Agent</h3>
           <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin:0;font-family:'Roboto',sans-serif;">An AI voice agent answers every call, books appointments, and captures job details — even at 2am on a Sunday. Never miss a job again.</p>
-          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
-            <p style="font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);">Phase 3: Implementation</p>
-          </div>
         </div>
 
         <div class="service-card fade-in" style="transition-delay:0.2s;">
@@ -418,9 +408,6 @@
           </div>
           <h3 style="font-size:20px;letter-spacing:-0.02em;margin:0 0 10px;">Customer Service Automation</h3>
           <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin:0;font-family:'Roboto',sans-serif;">AI chat and SMS agents handle pricing questions, appointment reminders, technician ETAs, and post-job follow-ups — automatically.</p>
-          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
-            <p style="font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);">Phase 2: Audit → Implementation</p>
-          </div>
         </div>
 
         <div class="service-card fade-in" style="transition-delay:0.3s;">
@@ -429,9 +416,6 @@
           </div>
           <h3 style="font-size:20px;letter-spacing:-0.02em;margin:0 0 10px;">Operations Workflow Audit</h3>
           <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin:0;font-family:'Roboto',sans-serif;">We map your entire job lifecycle — from first call to invoice — identifying every friction point, revenue leak, and automation opportunity.</p>
-          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
-            <p style="font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);">Phase 1: Starting Point</p>
-          </div>
         </div>
 
         <div class="service-card fade-in" style="transition-delay:0.4s;">
@@ -440,9 +424,6 @@
           </div>
           <h3 style="font-size:20px;letter-spacing:-0.02em;margin:0 0 10px;">Review Generation System</h3>
           <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin:0;font-family:'Roboto',sans-serif;">Automated post-job SMS and email sequences that request Google reviews at the perfect moment — turning satisfied customers into 5-star reviews.</p>
-          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
-            <p style="font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);">Phase 3: Implementation</p>
-          </div>
         </div>
 
         <!-- CTA card -->
@@ -896,7 +877,7 @@
   </script>
 
   <script>
-    // Moving glow border — founder cards
+    // Moving glow border — founder cards + buttons
     (function(){
       var COLORS='rgba(0,34,68,0.06) 0deg,rgba(105,190,40,0.9) 36deg,rgba(255,255,255,0.75) 58deg,rgba(165,172,175,0.55) 82deg,rgba(0,34,68,0.06) 118deg,rgba(0,34,68,0.06) 360deg';
       document.querySelectorAll('.about-glow-wrap').forEach(function(wrap){
@@ -907,6 +888,17 @@
         });
         wrap.addEventListener('mouseleave',function(){
           wrap.style.background='';
+        });
+      });
+      // Same effect on all buttons
+      document.querySelectorAll('.btn-primary,.hero-btn,.btn-outline').forEach(function(btn){
+        btn.addEventListener('mousemove',function(e){
+          var r=btn.getBoundingClientRect();
+          var angle=Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*(180/Math.PI)+180;
+          btn.style.setProperty('--btn-glow','conic-gradient(from '+angle+'deg at 50% 50%,'+COLORS+')');
+        });
+        btn.addEventListener('mouseleave',function(){
+          btn.style.removeProperty('--btn-glow');
         });
       });
     })();
