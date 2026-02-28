@@ -29,17 +29,23 @@
     a{text-decoration:none;}
     body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;}
 
-    .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid rgba(100,149,237,0.55);border-right:1px solid rgba(100,149,237,0.22);border-bottom:1px solid rgba(100,149,237,0.07);border-left:1px solid rgba(100,149,237,0.22);cursor:pointer;box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);transition:background-color 0.2s ease-out,transform 0.2s ease-out,box-shadow 0.2s ease-out,border-color 0.2s ease-out;white-space:nowrap;}
-    .hero-btn:hover{background:var(--green);border-top-color:rgba(105,190,40,0.8);border-right-color:rgba(105,190,40,0.32);border-bottom-color:rgba(105,190,40,0.1);border-left-color:rgba(105,190,40,0.32);transform:scale(1.04);box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);}
-    .hero-btn:active{background:var(--green-dark);transform:scale(0.98);}
+    /* Nav hero button — matches law-firms.html */
+    .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border:2px solid transparent;cursor:pointer;box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);transition:transform 0.2s ease-out,box-shadow 0.2s ease-out;white-space:nowrap;position:relative;}
+    .hero-btn:hover{transform:scale(1.04);}
+    .hero-btn:active{transform:scale(0.98);}
     .hero-btn:focus-visible{outline:2px solid var(--green);outline-offset:3px;}
-    html:not(.dark) .hero-btn{box-shadow:0 2px 8px rgba(0,34,68,0.12);}
-    html:not(.dark) .hero-btn:hover{box-shadow:0 4px 16px rgba(105,190,40,0.25);}
     footer .hero-btn{box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05) !important;}
-    footer .hero-btn:hover{box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3) !important;}
 
-    .nav-link{color:var(--text);font-size:11.5px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.65;transition:opacity 0.2s ease-out;}
-    .nav-link:hover{opacity:1;}
+    /* Animated glow border for hero-btn */
+    .hero-btn::after{content:'';position:absolute;inset:-2px;border-radius:52px;padding:2px;background:var(--btn-glow,rgba(165,172,175,0.22));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+    .dark .hero-btn::after{background:var(--btn-glow,rgba(165,172,175,0.1));}
+    html:not(.dark) nav .hero-btn::after{display:none;}
+    html:not(.dark) nav .hero-btn{box-shadow:0 2px 8px rgba(0,34,68,0.12),0 1px 3px rgba(0,34,68,0.08);}
+    html:not(.dark) .closing-cta-section .hero-btn::after{display:none;}
+    html:not(.dark) .closing-cta-section .hero-btn{box-shadow:0 2px 8px rgba(0,34,68,0.12),0 1px 3px rgba(0,34,68,0.08);}
+
+    .nav-link{color:var(--text);font-size:11.5px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.65;transition:opacity 0.2s ease-out,color 0.2s ease-out;}
+    .nav-link:hover{opacity:1;color:var(--green);}
 
     .dark-toggle{width:72px;height:36px;display:flex;align-items:center;border-radius:50px;background:#FFFFFF;cursor:pointer;position:relative;padding:0;border:1px solid rgba(0,34,68,0.15);flex-shrink:0;transition:background 0.3s ease-out,border-color 0.2s ease-out;}
     .dark .dark-toggle{background:#1a1f2e;border-color:rgba(165,172,175,0.2);}
@@ -94,8 +100,10 @@
       <a href="index.html" class="flex items-center gap-3 flex-shrink-0" aria-label="Agent 425 home">
         <img src="LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Agent 425 Logo" style="height:42px;width:auto;">
       </a>
-      <div class="hidden md:flex items-center gap-7 ml-auto mr-4">
+      <div class="hidden md:flex items-center gap-6 ml-auto mr-4">
         <a href="index.html" class="nav-link">Home</a>
+        <a href="law-firms.html" class="nav-link">Law Firms</a>
+        <a href="home-services.html" class="nav-link">Home Services</a>
         <a href="case-studies.html" class="nav-link">Case Studies</a>
         <a href="insights.html" class="nav-link" style="opacity:1;color:var(--green);">Insights</a>
       </div>
@@ -111,7 +119,7 @@
         </button>
         <a href="index.html#contact" class="hero-btn hidden md:inline-flex" style="padding:12px 24px;">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Book a Call
+          Book a Consultation
         </a>
         <button class="hamburger-btn" id="hambBtn" aria-label="Open navigation menu">
           <span class="hamburger-line"></span>
@@ -239,7 +247,7 @@
         <div style="flex-shrink:0;padding-bottom:8px;">
           <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:340px;margin:0 0 28px;font-family:'Roboto',sans-serif;">Every day you wait, the gap widens. Book a confidential discovery call to identify exactly where AI will move the needle for your business.</p>
           <a href="index.html#contact" class="hero-btn" style="font-size:13px;padding:16px 32px;">
-            Book a Free Call
+            Book a Consultation
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -353,7 +361,7 @@
     <div class="mob-cta-wrap">
       <a href="index.html#contact" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#69BE28;color:#fff;padding:16px 28px;border-radius:50px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.2s ease;" onmouseover="this.style.background='#5AA023'" onmouseout="this.style.background='#69BE28'">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Book a Call
+        Book a Consultation
       </a>
     </div>
   </div>
@@ -370,6 +378,26 @@
       closeBtn.addEventListener('click',closeMenu);
       document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
       menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+    })();
+  </script>
+
+  <script>
+    // Moving glow border — buttons
+    (function(){
+      var COLORS='rgba(0,34,68,0.06) 0deg,rgba(105,190,40,0.9) 36deg,rgba(255,255,255,0.75) 58deg,rgba(165,172,175,0.55) 82deg,rgba(0,34,68,0.06) 118deg,rgba(0,34,68,0.06) 360deg';
+      document.querySelectorAll('.hero-btn').forEach(function(btn){
+        btn.addEventListener('mousemove',function(e){
+          var isLight=!document.documentElement.classList.contains('dark');
+          if(isLight && btn.closest('nav')){return;}
+          if(isLight && btn.closest('.closing-cta-section')){return;}
+          var r=btn.getBoundingClientRect();
+          var angle=Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*(180/Math.PI)+180;
+          btn.style.setProperty('--btn-glow','conic-gradient(from '+angle+'deg at 50% 50%,'+COLORS+')');
+        });
+        btn.addEventListener('mouseleave',function(){
+          btn.style.removeProperty('--btn-glow');
+        });
+      });
     })();
   </script>
 </body>

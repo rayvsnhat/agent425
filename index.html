@@ -35,8 +35,8 @@
       --border-s: rgba(165,172,175,0.13);
       --border-b: rgba(165,172,175,0.04);
     }
-    .dark .industry-card { background: #012244; }
-    .dark .industry-card:hover { background: var(--navy); }
+    .dark .industry-card { background: var(--surface); }
+    .dark .ind-glow-wrap:hover .industry-card { background: var(--surface); }
     .dark .form-input { background: #011a33; color: #fff; }
     *, *::before, *::after { box-sizing: border-box; }
     html { font-size: 16px; }
@@ -66,39 +66,19 @@
       z-index:9999;
     }
 
-    /* ── Buttons: pill shape, matches law-firms hero-btn exactly ── */
-    .hero-btn {
-      display:inline-flex; align-items:center; gap:8px;
-      background:var(--navy); color:#fff;
-      padding:14px 28px; border-radius:50px;
-      font-family:'IBM Plex Mono','Courier New',monospace; font-weight:500;
-      font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
-      border-top:1px solid rgba(100,149,237,0.55); border-right:1px solid rgba(100,149,237,0.22);
-      border-bottom:1px solid rgba(100,149,237,0.07); border-left:1px solid rgba(100,149,237,0.22);
-      cursor:pointer;
-      box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);
-      transition: background-color 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
-      white-space:nowrap;
-    }
-    .hero-btn:hover {
-      background:var(--green);
-      border-top-color:rgba(105,190,40,0.8); border-right-color:rgba(105,190,40,0.32);
-      border-bottom-color:rgba(105,190,40,0.1); border-left-color:rgba(105,190,40,0.32);
-      transform:scale(1.04);
-      box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);
-    }
-    .hero-btn:active { background:var(--green-dark); transform:scale(0.98); }
-    .hero-btn:focus-visible { outline:2px solid var(--green); outline-offset:3px; }
-    html:not(.dark) .hero-btn {
-      box-shadow:0 2px 8px rgba(0,34,68,0.12);
-    }
-    html:not(.dark) .hero-btn:hover {
-      box-shadow:0 4px 16px rgba(105,190,40,0.25);
-    }
-
-    /* Footer buttons always use dark appearance */
+    /* ── Nav hero button — matches law-firms.html ── */
+    .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);transition:transform 0.2s ease-out,box-shadow 0.2s ease-out;white-space:nowrap;position:relative;}
+    .hero-btn:hover{transform:scale(1.04);}
+    .hero-btn:active{transform:scale(0.98);}
+    .hero-btn:focus-visible{outline:2px solid var(--green);outline-offset:3px;}
     footer .hero-btn{box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05) !important;}
-    footer .hero-btn:hover{box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3) !important;}
+
+    /* Animated glow border for hero-btn */
+    .hero-btn::after{content:'';position:absolute;inset:-2px;border-radius:52px;padding:2px;background:var(--btn-glow,rgba(165,172,175,0.22));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+    .dark .hero-btn::after{background:var(--btn-glow,rgba(165,172,175,0.1));}
+    html:not(.dark) .hero-btn{box-shadow:none;}
+    html:not(.dark) .closing-cta-section .hero-btn::after{display:none;}
+    html:not(.dark) .closing-cta-section .hero-btn{box-shadow:0 2px 8px rgba(0,34,68,0.12),0 1px 3px rgba(0,34,68,0.08);}
 
     /* Pill dark/light toggle */
     .dark-toggle {
@@ -129,7 +109,7 @@
     .toggle-icon svg { stroke:#002244; transition:stroke 0.3s ease-out; }
     .dark .toggle-icon svg { stroke:#ffffff; }
 
-    /* Industry cards */
+    /* Industry cards — inside .ind-glow-wrap, wrapper handles transform/shadow */
     .industry-card {
       display:flex; flex-direction:column;
       padding:32px 28px;
@@ -138,9 +118,10 @@
       border-radius:12px;
       background:var(--surface);
       color:var(--text); cursor:pointer;
-      transition: background-color 0.25s ease-out, transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out, color 0.25s ease-out;
+      transition: background-color 0.25s ease-out, border-color 0.25s ease-out, color 0.25s ease-out;
       text-decoration:none;
       position:relative; overflow:hidden;
+      flex:1;
     }
     .industry-card::before {
       content:'';
@@ -149,21 +130,18 @@
       opacity:0;
       transition: opacity 0.25s ease-out;
     }
-    .industry-card:hover::before { opacity:1; }
-    .industry-card:hover {
-      background:var(--navy); color:#fff;
+    .ind-glow-wrap:hover .industry-card::before { opacity:1; }
+    .ind-glow-wrap:hover .industry-card {
       border-top-color:rgba(105,190,40,0.55);
       border-right-color:rgba(105,190,40,0.22);
       border-bottom-color:rgba(105,190,40,0.08);
       border-left-color:rgba(105,190,40,0.22);
-      transform:translateY(-6px);
-      box-shadow:0 20px 50px rgba(0,34,68,0.18), 0 0 0 1px rgba(105,190,40,0.25);
     }
-    .dark .industry-card:hover {
-      box-shadow:0 20px 50px rgba(105,190,40,0.15), 0 0 0 1px rgba(105,190,40,0.3);
-    }
-    .industry-card:active { transform:translateY(-3px) scale(0.99); }
-    .industry-card:focus-visible { outline:2px solid var(--green); outline-offset:3px; }
+    /* Light mode: match founder card (no navy flip, just glow border + lift) */
+    html:not(.dark) .ind-glow-wrap:hover .industry-card { background:var(--surface); color:var(--text); }
+    /* Dark mode: keep surface (matches founder card) */
+    .dark .ind-glow-wrap:hover .industry-card { background:var(--surface); color:#fff; }
+    .industry-card:focus-visible { outline:none; }
 
     /* Form input */
     .form-input {
@@ -212,6 +190,11 @@
       background:radial-gradient(circle, rgba(0,34,68,0.06) 0%, transparent 65%);
     }
 
+    /* Nav links */
+    .nav-link{color:var(--text);font-size:11.5px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.65;transition:opacity 0.2s ease-out,color 0.2s ease-out;}
+    .nav-link:hover{opacity:1;color:var(--green);}
+    .nav-link:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px;}
+
     /* Sticky nav bg */
     .nav-backdrop {
       background:rgba(255,255,255,0.92);
@@ -221,6 +204,14 @@
     .dark .nav-backdrop {
       background:rgba(0,17,43,0.92);
     }
+
+    /* Industry card glow wrapper — light mode = founder card style, dark mode = hero-btn border style */
+    .ind-glow-wrap{position:relative;border-radius:14px;padding:2px;background:var(--ind-glow,rgba(165,172,175,0.22));transition:transform 0.25s ease-out,box-shadow 0.25s ease-out;display:flex;flex-direction:column;}
+    .dark .ind-glow-wrap{background:var(--ind-glow,rgba(165,172,175,0.1));}
+    .ind-glow-wrap:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,34,68,0.18),0 0 0 1px rgba(105,190,40,0.25);}
+    .dark .ind-glow-wrap:hover{box-shadow:0 16px 48px rgba(105,190,40,0.1);}
+    .ind-glow-wrap:active{transform:translateY(-3px) scale(0.99);}
+    .ind-glow-wrap:focus-visible{outline:2px solid var(--green);outline-offset:3px;}
 
     /* Section */
     .section-divider { border-top:1px solid var(--border); }
@@ -280,8 +271,14 @@
         <img src="LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Seattle AI Consultants Logo" style="height:42px;width:auto;">
       </a>
 
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center gap-6 ml-auto mr-4">
+        <a href="case-studies.html" class="nav-link">Case Studies</a>
+        <a href="insights.html" class="nav-link">Insights</a>
+      </div>
+
       <!-- Right controls -->
-      <div class="flex items-center gap-3 ml-auto">
+      <div class="flex items-center gap-3">
         <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark/light mode">
           <span class="toggle-highlight" id="toggleHL"></span>
           <span class="toggle-icon">
@@ -293,7 +290,7 @@
         </button>
         <a href="#contact" class="hero-btn hidden md:inline-flex" style="padding:12px 24px;">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Book a Call
+          Book a Consultation
         </a>
         <button class="hamburger-btn" id="hambBtn" aria-label="Open navigation menu">
           <span class="hamburger-line"></span>
@@ -305,7 +302,7 @@
   </nav>
 
   <!-- ═══════════════════════ HERO SECTION ═══════════════════════ -->
-  <section class="relative overflow-hidden" style="min-height:calc(100vh - 72px);">
+  <section class="relative overflow-hidden hero-section" style="min-height:calc(100vh - 72px);">
     <!-- Background glows -->
     <div class="glow-green" style="width:700px;height:700px;top:-200px;left:-250px;"></div>
     <div class="glow-navy" style="width:500px;height:500px;bottom:-100px;right:-150px;"></div>
@@ -336,35 +333,39 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
 
           <!-- Law Firms card -->
-          <a href="law-firms.html" class="industry-card" aria-label="Go to Law Firms page">
-            <div class="flex items-center justify-between w-full mb-5">
-              <div style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69BE28" stroke-width="2">
-                  <rect x="2" y="7" width="20" height="14" rx="1.5"/>
-                  <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-                  <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
-                </svg>
+          <div class="ind-glow-wrap">
+            <a href="law-firms.html" class="industry-card" aria-label="Go to Law Firms page">
+              <div class="flex items-center justify-between w-full mb-5">
+                <div style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69BE28" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="1.5"/>
+                    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                    <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+                  </svg>
+                </div>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.35;"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </div>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.35;"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </div>
-            <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.02em;margin-bottom:6px;">Law Firms</h3>
-            <p style="font-size:14px;opacity:0.68;line-height:1.6;font-family:'Roboto',sans-serif;">AI for legal research, case management & client communications.</p>
-          </a>
+              <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.02em;margin-bottom:6px;">Law Firms</h3>
+              <p style="font-size:14px;opacity:0.68;line-height:1.6;font-family:'Roboto',sans-serif;">AI for legal research, case management & client communications.</p>
+            </a>
+          </div>
 
           <!-- Home Services card -->
-          <a href="home-services.html" class="industry-card" aria-label="Go to Home Services page">
-            <div class="flex items-center justify-between w-full mb-5">
-              <div style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69BE28" stroke-width="2">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                  <polyline points="9 22 9 12 15 12 15 22"/>
-                </svg>
+          <div class="ind-glow-wrap">
+            <a href="home-services.html" class="industry-card" aria-label="Go to Home Services page">
+              <div class="flex items-center justify-between w-full mb-5">
+                <div style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69BE28" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                  </svg>
+                </div>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.35;"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </div>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.35;"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </div>
-            <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.02em;margin-bottom:6px;">Home Services</h3>
-            <p style="font-size:14px;opacity:0.68;line-height:1.6;font-family:'Roboto',sans-serif;">AI for HVAC, plumbing & electrical scheduling and field ops.</p>
-          </a>
+              <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.02em;margin-bottom:6px;">Home Services</h3>
+              <p style="font-size:14px;opacity:0.68;line-height:1.6;font-family:'Roboto',sans-serif;">AI for HVAC, plumbing & electrical scheduling and field ops.</p>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -540,15 +541,13 @@
     <div style="height:1px;background:rgba(105,190,40,0.4);flex-shrink:0;"></div>
     <nav style="flex:1;display:flex;flex-direction:column;justify-content:flex-start;gap:0;padding:32px 0 20px;" aria-label="Mobile navigation">
       <a href="index.html" class="mob-nav-link" style="transition-delay:.04s;">Home</a>
-      <a href="law-firms.html" class="mob-nav-link" style="transition-delay:.08s;">Law Firms</a>
-      <a href="home-services.html" class="mob-nav-link" style="transition-delay:.12s;">Home Services</a>
-      <a href="case-studies.html" class="mob-nav-link" style="transition-delay:.16s;">Case Studies</a>
-      <a href="insights.html" class="mob-nav-link" style="transition-delay:.20s;">Insights</a>
+      <a href="case-studies.html" class="mob-nav-link" style="transition-delay:.08s;">Case Studies</a>
+      <a href="insights.html" class="mob-nav-link" style="transition-delay:.12s;">Insights</a>
     </nav>
     <div class="mob-cta-wrap">
       <a href="#contact" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#69BE28;color:#fff;padding:16px 28px;border-radius:50px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.2s ease;" onmouseover="this.style.background='#5AA023'" onmouseout="this.style.background='#69BE28'">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Book a Call
+        Book a Consultation
       </a>
     </div>
   </div>
@@ -565,6 +564,36 @@
       closeBtn.addEventListener('click',closeMenu);
       document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
       menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+    })();
+  </script>
+
+  <script>
+    // Moving glow border — buttons
+    (function(){
+      var COLORS='rgba(0,34,68,0.06) 0deg,rgba(105,190,40,0.9) 36deg,rgba(255,255,255,0.75) 58deg,rgba(165,172,175,0.55) 82deg,rgba(0,34,68,0.06) 118deg,rgba(0,34,68,0.06) 360deg';
+      document.querySelectorAll('.hero-btn').forEach(function(btn){
+        btn.addEventListener('mousemove',function(e){
+          var isLight=!document.documentElement.classList.contains('dark');
+          if(isLight && btn.closest('.closing-cta-section')){return;}
+          var r=btn.getBoundingClientRect();
+          var angle=Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*(180/Math.PI)+180;
+          btn.style.setProperty('--btn-glow','conic-gradient(from '+angle+'deg at 50% 50%,'+COLORS+')');
+        });
+        btn.addEventListener('mouseleave',function(){
+          btn.style.removeProperty('--btn-glow');
+        });
+      });
+      // Moving glow border — industry card wrappers
+      document.querySelectorAll('.ind-glow-wrap').forEach(function(wrap){
+        wrap.addEventListener('mousemove',function(e){
+          var r=wrap.getBoundingClientRect();
+          var angle=Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*(180/Math.PI)+180;
+          wrap.style.setProperty('--ind-glow','conic-gradient(from '+angle+'deg at 50% 50%,'+COLORS+')');
+        });
+        wrap.addEventListener('mouseleave',function(){
+          wrap.style.removeProperty('--ind-glow');
+        });
+      });
     })();
   </script>
 </body>

@@ -32,8 +32,8 @@
     .hero-btn:active{background:var(--green-dark);transform:scale(0.98);}
     .dark .hero-btn{box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);}
 
-    .nav-link{color:var(--text);font-size:11.5px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.65;transition:opacity 0.2s ease-out;}
-    .nav-link:hover{opacity:1;}
+    .nav-link{color:var(--text);font-size:11.5px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.65;transition:opacity 0.2s ease-out,color 0.2s ease-out;}
+    .nav-link:hover{opacity:1;color:var(--green);}
     .nav-link.active{opacity:1;color:var(--green);}
 
     .dark-toggle{width:72px;height:36px;display:flex;align-items:center;border-radius:50px;background:#FFFFFF;cursor:pointer;position:relative;padding:0;border:1px solid rgba(0,34,68,0.15);flex-shrink:0;transition:background 0.3s ease-out,border-color 0.2s ease-out;}
@@ -100,8 +100,10 @@
       <a href="../index.html" class="flex items-center gap-3 flex-shrink-0" aria-label="Agent 425 home">
         <img src="../LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Agent 425 Logo" style="height:42px;width:auto;">
       </a>
-      <div class="hidden md:flex items-center gap-7 ml-auto mr-4">
+      <div class="hidden md:flex items-center gap-6 ml-auto mr-4">
         <a href="../index.html" class="nav-link">Home</a>
+        <a href="../law-firms.html" class="nav-link">Law Firms</a>
+        <a href="../home-services.html" class="nav-link">Home Services</a>
         <a href="../case-studies.html" class="nav-link">Case Studies</a>
         <a href="../insights.html" class="nav-link active">Insights</a>
       </div>
@@ -117,7 +119,7 @@
         </button>
         <a href="../index.html#contact" class="hero-btn hidden md:inline-flex" style="padding:12px 24px;">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Book a Call
+          Book a Consultation
         </a>
         <button class="hamburger-btn" id="hambBtn" aria-label="Open navigation menu">
           <span class="hamburger-line"></span>
@@ -260,7 +262,7 @@
         <div style="flex-shrink:0;padding-bottom:8px;">
           <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:340px;margin:0 0 28px;font-family:'Roboto',sans-serif;">Find out exactly how much revenue your voicemail is costing you. Book a free 30-minute discovery call with Agent 425.</p>
           <a href="../index.html#contact" class="hero-btn" style="font-size:13px;padding:16px 32px;">
-            Book a Free Call
+            Book a Consultation
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -320,7 +322,7 @@
     <div class="mob-cta-wrap">
       <a href="../index.html#contact" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#69BE28;color:#fff;padding:16px 28px;border-radius:50px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.2s ease;" onmouseover="this.style.background='#5AA023'" onmouseout="this.style.background='#69BE28'">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Book a Call
+        Book a Consultation
       </a>
     </div>
   </div>
