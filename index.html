@@ -35,8 +35,8 @@
       --border-s: rgba(165,172,175,0.13);
       --border-b: rgba(165,172,175,0.04);
     }
-    .dark .industry-card { background: var(--surface); }
-    .dark .ind-glow-wrap:hover .industry-card { background: var(--surface); }
+    .dark .industry-card { background: #002244; }
+    .dark .ind-glow-wrap:hover .industry-card { background: #002244; }
     .dark .form-input { background: #011a33; color: #fff; }
     *, *::before, *::after { box-sizing: border-box; }
     html { font-size: 16px; }
@@ -113,11 +113,11 @@
     .industry-card {
       display:flex; flex-direction:column;
       padding:32px 28px;
-      border-top:1px solid var(--border-t); border-right:1px solid var(--border-s);
-      border-bottom:1px solid var(--border-b); border-left:1px solid var(--border-s);
+      border-top:1px solid rgba(255,255,255,0.08); border-right:1px solid rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(0,0,0,0.12); border-left:1px solid rgba(255,255,255,0.05);
       border-radius:12px;
-      background:var(--surface);
-      color:var(--text); cursor:pointer;
+      background:#002244;
+      color:#fff; cursor:pointer;
       transition: background-color 0.25s ease-out, border-color 0.25s ease-out, color 0.25s ease-out;
       text-decoration:none;
       position:relative; overflow:hidden;
@@ -126,7 +126,7 @@
     .industry-card::before {
       content:'';
       position:absolute; inset:0;
-      background:linear-gradient(135deg, rgba(105,190,40,0.05) 0%, transparent 60%);
+      background:linear-gradient(135deg, rgba(105,190,40,0.08) 0%, transparent 60%);
       opacity:0;
       transition: opacity 0.25s ease-out;
     }
@@ -137,10 +137,9 @@
       border-bottom-color:rgba(105,190,40,0.08);
       border-left-color:rgba(105,190,40,0.22);
     }
-    /* Light mode: match founder card (no navy flip, just glow border + lift) */
-    html:not(.dark) .ind-glow-wrap:hover .industry-card { background:var(--surface); color:var(--text); }
-    /* Dark mode: keep surface (matches founder card) */
-    .dark .ind-glow-wrap:hover .industry-card { background:var(--surface); color:#fff; }
+    /* Both modes: keep navy bg */
+    html:not(.dark) .ind-glow-wrap:hover .industry-card { background:#002244; color:#fff; }
+    .dark .ind-glow-wrap:hover .industry-card { background:#002244; color:#fff; }
     .industry-card:focus-visible { outline:none; }
 
     /* Form input */
