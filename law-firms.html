@@ -111,6 +111,14 @@
     .stat-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,34,68,0.18),0 0 0 1px rgba(105,190,40,0.25);border-top-color:rgba(105,190,40,0.55);border-right-color:rgba(105,190,40,0.22);border-bottom-color:rgba(105,190,40,0.08);border-left-color:rgba(105,190,40,0.22);}
     .dark .stat-card{box-shadow:0 6px 28px rgba(0,5,20,0.55),inset 0 1px 0 rgba(255,255,255,0.05);}
     .dark .stat-card:hover{box-shadow:0 20px 50px rgba(105,190,40,0.15),0 0 0 1px rgba(105,190,40,0.3);}
+    .roi-arrow{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border:none;border-radius:50%;cursor:pointer;background:rgba(165,172,175,0.28);box-shadow:0 2px 6px rgba(0,0,0,0.12),0 4px 12px rgba(0,0,0,0.08),inset 0 1px 0 rgba(255,255,255,0.35);transition:transform 0.2s ease-out,box-shadow 0.2s ease-out,background 0.2s ease-out;}
+    .roi-arrow svg{stroke:var(--navy);}
+    .roi-arrow:hover{transform:scale(1.1);background:rgba(165,172,175,0.4);box-shadow:0 4px 14px rgba(0,0,0,0.18),0 6px 20px rgba(0,0,0,0.1),inset 0 1px 0 rgba(255,255,255,0.4);}
+    .roi-arrow:active{transform:scale(0.95);}
+    .roi-arrow:focus-visible{outline:2px solid var(--green);outline-offset:3px;}
+    .dark .roi-arrow{background:#002244;box-shadow:0 2px 10px rgba(0,34,68,0.5),0 4px 18px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.08);}
+    .dark .roi-arrow svg{stroke:#fff;}
+    .dark .roi-arrow:hover{background:#002d5c;box-shadow:0 4px 18px rgba(0,34,68,0.6),0 6px 24px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.1);}
 
     /* Green stat numbers pop */
     .stat-number{font-family:'Inter',sans-serif;font-weight:900;font-size:3rem;color:var(--green);letter-spacing:-0.04em;line-height:1;margin:0 0 12px;}
@@ -394,12 +402,12 @@
       </div>
 
       <div class="flex items-center justify-center gap-4 mt-8">
-        <button id="roiPrev" aria-label="Previous" style="width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;background:rgba(120,120,120,0.55);border:none;border-radius:50%;cursor:pointer;transition:transform 0.2s ease-out,background 0.2s ease-out;" onmouseenter="this.style.transform='scale(1.08)';this.style.background='rgba(120,120,120,0.7)'" onmouseleave="this.style.transform='scale(1)';this.style.background='rgba(120,120,120,0.55)'">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        <button id="roiPrev" class="roi-arrow" aria-label="Previous">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
         <div id="roiDotsInline" class="flex gap-2"></div>
-        <button id="roiNext" aria-label="Next" style="width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.92);border:none;border-radius:50%;cursor:pointer;transition:transform 0.2s ease-out,background 0.2s ease-out;" onmouseenter="this.style.transform='scale(1.08)';this.style.background='rgba(255,255,255,1)'" onmouseleave="this.style.transform='scale(1)';this.style.background='rgba(255,255,255,0.92)'">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        <button id="roiNext" class="roi-arrow" aria-label="Next">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
         </button>
       </div>
     </div>
