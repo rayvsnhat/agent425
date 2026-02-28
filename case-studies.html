@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#00112b">
   <title>Case Studies — Agent 425</title>
   <meta name="description" content="Real results from Washington businesses that deployed AI with Agent 425. See how law firms and home service companies transformed their operations.">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -348,6 +349,7 @@
       html.classList.toggle('dark', on);
       hl.style.transform = on ? 'translateX(0)' : 'translateX(36px)';
       localStorage.setItem('darkMode', on ? '1' : '0');
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', on ? '#00112b' : '#ffffff');
     }
     const saved = localStorage.getItem('darkMode');
     applyDark(saved === '1');

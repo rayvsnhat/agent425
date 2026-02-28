@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#00112b">
   <title>Seattle AI Consultants — AI-Powered Efficiency for Washington Businesses</title>
   <meta name="description" content="Seattle AI Consultants helps Washington law firms and home services businesses unlock AI-powered efficiency. Book a free consultation today.">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -492,6 +493,7 @@
       html.classList.toggle('dark', on);
       hl.style.transform = on ? 'translateX(0)' : 'translateX(36px)';
       localStorage.setItem('darkMode', on ? '1' : '0');
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', on ? '#00112b' : '#ffffff');
     }
     const saved = localStorage.getItem('darkMode');
     applyDark(saved === '1');
