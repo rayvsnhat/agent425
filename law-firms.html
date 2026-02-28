@@ -127,11 +127,8 @@
 
     /* ── Carousel ── */
     .carousel-track{display:flex;gap:0;transition:transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);}
-    .carousel-slide{flex:0 0 100%;min-width:100%;box-sizing:border-box;}
-    @media(max-width:639px){
-      #roiCarouselWrap{padding:0 !important;margin:0 !important;}
-      .carousel-slide{padding:0 4px;}
-    }
+    .carousel-slide{flex:0 0 100%;min-width:100%;box-sizing:border-box;padding:0 4px;}
+    #roiCarouselWrap{padding:12px 0 0 !important;margin:-12px 0 0 !important;}
 
     /* ── Glow ── */
     .glow-green{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(105,190,40,0.08) 0%,transparent 65%);}
