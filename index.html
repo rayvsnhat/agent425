@@ -35,7 +35,6 @@
       --border-s: rgba(165,172,175,0.13);
       --border-b: rgba(165,172,175,0.04);
     }
-    .dark .industry-card { background: #002244; }
     .dark .ind-glow-wrap:hover .industry-card { background: #002244; }
     .dark .form-input { background: #011a33; color: #fff; }
     *, *::before, *::after { box-sizing: border-box; }
@@ -76,7 +75,7 @@
     /* Animated glow border for hero-btn */
     .hero-btn::after{content:'';position:absolute;inset:-2px;border-radius:52px;padding:2px;background:var(--btn-glow,rgba(165,172,175,0.22));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
     .dark .hero-btn::after{background:var(--btn-glow,rgba(165,172,175,0.1));}
-    html:not(.dark) .hero-btn{box-shadow:none;}
+    html:not(.dark) .hero-btn{box-shadow:0 2px 10px rgba(0,34,68,0.18),0 4px 16px rgba(0,34,68,0.1);}
     html:not(.dark) .closing-cta-section .hero-btn::after{display:none;}
     html:not(.dark) .closing-cta-section .hero-btn{box-shadow:0 2px 8px rgba(0,34,68,0.12),0 1px 3px rgba(0,34,68,0.08);}
 
@@ -113,16 +112,16 @@
     .industry-card {
       display:flex; flex-direction:column;
       padding:32px 28px;
-      border-top:1px solid rgba(255,255,255,0.08); border-right:1px solid rgba(255,255,255,0.05);
-      border-bottom:1px solid rgba(0,0,0,0.12); border-left:1px solid rgba(255,255,255,0.05);
+      border:1px solid rgba(165,172,175,0.35);
       border-radius:12px;
-      background:#002244;
-      color:#fff; cursor:pointer;
-      transition: background-color 0.25s ease-out, border-color 0.25s ease-out, color 0.25s ease-out;
+      background:var(--surface);
+      color:var(--text); cursor:pointer;
+      transition: background-color 0.25s ease-out, border-color 0.25s ease-out, color 0.25s ease-out, box-shadow 0.25s ease-out;
       text-decoration:none;
       position:relative; overflow:hidden;
       flex:1;
     }
+    .dark .industry-card{background:#002244;color:#fff;border-color:rgba(255,255,255,0.08);}
     .industry-card::before {
       content:'';
       position:absolute; inset:0;
@@ -137,8 +136,7 @@
       border-bottom-color:rgba(105,190,40,0.08);
       border-left-color:rgba(105,190,40,0.22);
     }
-    /* Both modes: keep navy bg */
-    html:not(.dark) .ind-glow-wrap:hover .industry-card { background:#002244; color:#fff; }
+    html:not(.dark) .ind-glow-wrap:hover .industry-card { background:var(--navy); color:#fff; }
     .dark .ind-glow-wrap:hover .industry-card { background:#002244; color:#fff; }
     .industry-card:focus-visible { outline:none; }
 
