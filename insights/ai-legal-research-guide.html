@@ -82,7 +82,7 @@
     .mob-menu{position:fixed;inset:0;z-index:500;background:var(--bg);display:flex;flex-direction:column;padding:0 28px 36px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity 0.3s ease,transform 0.3s ease;}
     .mob-menu.open{opacity:1;pointer-events:auto;transform:translateY(0);}
     @media(min-width:768px){.mob-menu{display:none!important;}}
-    .mob-nav-link{font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(1.5rem,7vw,3rem);letter-spacing:-0.04em;color:var(--text);white-space:nowrap;text-transform:uppercase;line-height:1.05;display:block;padding:3px 0;opacity:0;transform:translateY(16px);transition:opacity 0.3s ease,transform 0.3s ease,color 0.2s ease;}
+    .mob-nav-link{font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(2rem,8vw,3.5rem);letter-spacing:-0.04em;color:var(--text);white-space:nowrap;text-transform:uppercase;line-height:1.05;display:block;padding:4px 0;opacity:0;transform:translateY(16px);transition:opacity 0.3s ease,transform 0.3s ease,color 0.2s ease;}
     .mob-menu.open .mob-nav-link{opacity:1;transform:translateY(0);}
     .mob-nav-link:hover,.mob-nav-link:focus-visible{color:#69BE28;outline:none;}
     .mob-close-btn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--text);background:rgba(0,34,68,0.08);border:1px solid rgba(0,34,68,0.15);border-radius:50%;cursor:pointer;flex-shrink:0;transition:background 0.2s ease,border-color 0.2s ease;}.dark .mob-close-btn{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);}
@@ -319,7 +319,7 @@
       </button>
     </div>
     <div style="height:1px;background:rgba(105,190,40,0.4);flex-shrink:0;"></div>
-    <nav style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:0;padding:28px 0 20px;" aria-label="Mobile navigation">
+    <nav style="flex:1;display:flex;flex-direction:column;justify-content:flex-start;gap:0;padding:32px 0 20px;" aria-label="Mobile navigation">
       <a href="../index.html" class="mob-nav-link" style="transition-delay:.04s;">Home</a>
       <a href="../law-firms.html" class="mob-nav-link" style="transition-delay:.08s;">Law Firms</a>
       <a href="../home-services.html" class="mob-nav-link" style="transition-delay:.12s;">Home Services</a>
