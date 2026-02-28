@@ -96,6 +96,7 @@
     .service-card{border-top:1px solid var(--border-t);border-right:1px solid var(--border-s);border-bottom:1px solid var(--border-b);border-left:1px solid var(--border-s);border-radius:12px;background:var(--surface);padding:32px 28px;position:relative;overflow:hidden;transition:transform 0.25s ease-out,box-shadow 0.25s ease-out,border-color 0.25s ease-out;}
     .service-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,34,68,0.12);border-top-color:rgba(105,190,40,0.55);border-right-color:rgba(105,190,40,0.22);border-bottom-color:rgba(105,190,40,0.08);border-left-color:rgba(105,190,40,0.22);}
     .dark .service-card:hover{box-shadow:0 16px 48px rgba(105,190,40,0.1);}
+    @media(max-width:767px){html:not(.dark) .service-card{border:1px solid rgba(165,172,175,0.45);box-shadow:0 2px 8px rgba(0,34,68,0.07);}}
 
     .stat-card{border:1px solid rgba(165,172,175,0.45);border-radius:12px;background:var(--surface);padding:40px 32px;text-align:center;box-shadow:0 2px 8px rgba(0,34,68,0.07);transition:transform 0.25s ease-out,box-shadow 0.25s ease-out,border-color 0.25s ease-out;}
     .stat-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,34,68,0.18),0 0 0 1px rgba(105,190,40,0.25);border-top-color:rgba(105,190,40,0.55);border-right-color:rgba(105,190,40,0.22);border-bottom-color:rgba(105,190,40,0.08);border-left-color:rgba(105,190,40,0.22);}
