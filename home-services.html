@@ -195,6 +195,53 @@
     .mob-close-btn:hover{background:rgba(105,190,40,0.2);border-color:rgba(105,190,40,0.5);}
     .mob-cta-wrap{opacity:0;transform:translateY(12px);transition:opacity 0.3s ease 0s,transform 0.3s ease 0s;}
     .mob-menu.open .mob-cta-wrap{opacity:1;transform:translateY(0);transition-delay:0.25s;}
+
+    /* ── Profit Leak Calculator ── */
+    .calc-slider-group{margin-bottom:28px;}
+    .calc-slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.05em;color:var(--text);}
+    .calc-slider-value{font-family:'Inter',sans-serif;font-weight:900;font-size:22px;color:var(--green);letter-spacing:-0.02em;}
+    .calc-slider-range{display:flex;justify-content:space-between;font-size:11px;color:var(--gray);font-family:'IBM Plex Mono',monospace;margin-top:4px;}
+    .calc-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:linear-gradient(to right,var(--green) 0%,var(--green) var(--fill,50%),rgba(165,172,175,0.3) var(--fill,50%),rgba(165,172,175,0.3) 100%);outline:none;cursor:pointer;}
+    .calc-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;background:var(--green);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(105,190,40,0.4);transition:transform 0.2s ease-out,box-shadow 0.2s ease-out;}
+    .calc-range::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0 4px 16px rgba(105,190,40,0.5);}
+    .calc-range::-webkit-slider-thumb:active{transform:scale(0.95);}
+    .dark .calc-range::-webkit-slider-thumb{border-color:var(--navy);}
+    .calc-range::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--green);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(105,190,40,0.4);}
+    .dark .calc-range::-moz-range-thumb{border-color:var(--navy);}
+    .calc-range:focus-visible{outline:2px solid var(--green);outline-offset:3px;}
+    .calc-metric{border-top:1px solid var(--border-t);border-right:1px solid var(--border-s);border-bottom:1px solid var(--border-b);border-left:1px solid var(--border-s);border-radius:12px;background:var(--surface);padding:20px 24px;margin-bottom:12px;transition:transform 0.25s ease-out,box-shadow 0.25s ease-out;}
+    .dark .calc-metric{background:#003270;}
+    .calc-metric-label{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);margin-bottom:8px;}
+    .calc-metric-amount{font-family:'Inter',sans-serif;font-weight:900;font-size:1.8rem;color:#dc2626;letter-spacing:-0.03em;line-height:1;text-shadow:0 0 20px rgba(220,38,38,0.12);}
+    .calc-metric-unit{font-size:0.4em;font-weight:500;color:var(--gray);letter-spacing:0;margin-left:2px;}
+    .calc-metric-sub{font-size:13px;color:var(--text-secondary);margin-top:8px;font-family:'Roboto',sans-serif;line-height:1.6;}
+    .calc-total-wrap{border-radius:12px;background:linear-gradient(135deg,rgba(220,38,38,0.05),rgba(220,38,38,0.02));border:2px solid rgba(220,38,38,0.18);padding:28px 24px;text-align:center;margin-top:8px;position:relative;overflow:hidden;}
+    .dark .calc-total-wrap{background:linear-gradient(135deg,rgba(220,38,38,0.1),rgba(220,38,38,0.03));border-color:rgba(220,38,38,0.25);}
+    .calc-total-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:8px;}
+    .calc-total-number{font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(2.5rem,5vw,3.5rem);color:#dc2626;letter-spacing:-0.04em;line-height:1;text-shadow:0 0 40px rgba(220,38,38,0.25),0 0 80px rgba(220,38,38,0.08);}
+    .calc-total-annual{font-family:'Roboto',sans-serif;font-size:14px;color:var(--text-secondary);margin-top:10px;}
+    .calc-total-annual strong{color:#dc2626;}
+    .calc-detail{border-top:1px solid var(--border-t);border-right:1px solid var(--border-s);border-bottom:1px solid var(--border-b);border-left:1px solid var(--border-s);border-radius:12px;background:var(--surface);padding:28px 24px;transition:transform 0.25s ease-out,box-shadow 0.25s ease-out;}
+    .dark .calc-detail{background:#003270;}
+    .calc-detail:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,34,68,0.1);}
+    .dark .calc-detail:hover{box-shadow:0 12px 36px rgba(105,190,40,0.08);}
+    .calc-detail-title{font-family:'Inter',sans-serif;font-weight:700;font-size:16px;color:var(--text);margin:0 0 16px;letter-spacing:-0.01em;}
+    .calc-detail-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:14px;line-height:1.6;color:var(--text-secondary);font-family:'Roboto',sans-serif;}
+    .calc-detail-item:last-child{margin-bottom:0;}
+    .calc-detail-badge{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:4px;line-height:1;margin-top:3px;white-space:nowrap;}
+    .badge-fact{background:rgba(105,190,40,0.12);color:var(--green);}
+    .badge-math{background:rgba(0,34,68,0.08);color:var(--navy);}
+    .dark .badge-math{background:rgba(165,172,175,0.15);color:var(--gray);}
+    .badge-fix{background:rgba(105,190,40,0.15);color:#5AA023;}
+    .calc-factoid{border-left:3px solid var(--green);background:var(--surface);padding:20px 24px;border-radius:0 8px 8px 0;transition:transform 0.2s ease-out;}
+    .dark .calc-factoid{background:#003270;}
+    .calc-factoid:hover{transform:translateX(4px);}
+    .calc-factoid-title{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;color:var(--text);margin:0 0 8px;}
+    .calc-factoid-text{font-size:14px;color:var(--text-secondary);line-height:1.65;margin:0;font-family:'Roboto',sans-serif;}
+    .calc-capacity-box{margin-top:24px;padding:16px 20px;border-radius:8px;background:rgba(105,190,40,0.06);border:1px solid rgba(105,190,40,0.15);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-secondary);line-height:1.6;}
+    .dark .calc-capacity-box{background:rgba(105,190,40,0.08);border-color:rgba(105,190,40,0.2);}
+    @keyframes calcPulse{0%{transform:scale(1);}50%{transform:scale(1.06);}100%{transform:scale(1);}}
+    .calc-pulse{animation:calcPulse 0.3s cubic-bezier(0.34,1.56,0.64,1);}
   </style>
 </head>
 <body>
@@ -391,6 +438,189 @@
         <button id="roiNext" class="roi-arrow" aria-label="Next">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
         </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROFIT LEAK CALCULATOR ═══ -->
+  <section class="section-divider" style="padding:80px 20px;" id="profit-calculator">
+    <div class="max-w-7xl mx-auto">
+      <span class="section-label">Calculate your leak</span>
+      <span class="accent-line"></span>
+      <div class="mb-8">
+        <h2 class="fade-in" style="font-size:clamp(1.8rem,4vw,3.2rem);">Seattle Business <span style="color:#dc2626;">&ldquo;Profit Leak&rdquo;</span> Calculator</h2>
+        <p class="fade-in mt-4" style="font-size:16px;color:var(--text-secondary);max-width:560px;transition-delay:0.1s;font-family:'Roboto',sans-serif;">Move the sliders to match your business. Watch how much revenue you may be losing each month to inefficiencies AI can fix.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
+        <!-- LEFT: Sliders -->
+        <div class="fade-in" style="transition-delay:0.15s;">
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Field Technicians</span>
+              <span class="calc-slider-value" id="techsVal">10</span>
+            </div>
+            <input type="range" min="5" max="50" value="10" id="techsSlider" class="calc-range" aria-label="Number of field technicians">
+            <div class="calc-slider-range"><span>5</span><span>50</span></div>
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Avg. Jobs / Day / Tech</span>
+              <span class="calc-slider-value" id="jobsVal">3</span>
+            </div>
+            <input type="range" min="1" max="5" value="3" id="jobsSlider" class="calc-range" aria-label="Average jobs per day per technician">
+            <div class="calc-slider-range"><span>1</span><span>5</span></div>
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Office / Admin Staff</span>
+              <span class="calc-slider-value" id="adminVal">2</span>
+            </div>
+            <input type="range" min="1" max="10" value="2" id="adminSlider" class="calc-range" aria-label="Number of office admin staff">
+            <div class="calc-slider-range"><span>1</span><span>10</span></div>
+          </div>
+
+          <div class="calc-slider-group" style="margin-bottom:0;">
+            <div class="calc-slider-label">
+              <span>Est. Missed Calls / Day</span>
+              <span class="calc-slider-value" id="missedVal">5</span>
+            </div>
+            <input type="range" min="1" max="20" value="5" id="missedSlider" class="calc-range" aria-label="Estimated missed calls per day">
+            <div class="calc-slider-range"><span>1</span><span>20</span></div>
+          </div>
+
+          <div class="calc-capacity-box">
+            Your team capacity: <strong style="color:var(--green);" id="capacityJobs">660</strong> jobs/month<br>
+            (~<strong style="color:var(--green);" id="capacityRevenue">$344,520</strong> in potential revenue)
+          </div>
+        </div>
+
+        <!-- RIGHT: Results -->
+        <div class="fade-in" style="transition-delay:0.25s;">
+          <div class="calc-metric">
+            <div class="calc-metric-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.29h3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              Missed Call Revenue Drain
+            </div>
+            <div class="calc-metric-amount"><span id="metric1Amount">$34,452</span><span class="calc-metric-unit">/mo</span></div>
+            <p class="calc-metric-sub">You are likely donating <strong id="metric1Inline" style="color:#dc2626;">$34,452</strong> to your competitors every month.</p>
+          </div>
+
+          <div class="calc-metric">
+            <div class="calc-metric-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Administrative Labor Loss
+            </div>
+            <div class="calc-metric-amount"><span id="metric2Amount">$3,870</span><span class="calc-metric-unit">/mo</span></div>
+            <p class="calc-metric-sub">You are paying <strong id="metric2Inline" style="color:#dc2626;">$3,870</strong>/mo for manual &ldquo;data chores&rdquo; &mdash; not growth.</p>
+          </div>
+
+          <div class="calc-metric">
+            <div class="calc-metric-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Unbillable Tech Time
+            </div>
+            <div class="calc-metric-amount"><span id="metric3Amount">$6,450</span><span class="calc-metric-unit">/mo</span></div>
+            <p class="calc-metric-sub">Your crew is wasting <strong id="metric3Hours" style="color:#dc2626;">37.5</strong> hours/week on paperwork instead of turning wrenches.</p>
+          </div>
+
+          <div class="calc-total-wrap">
+            <div class="calc-total-label">Estimated Monthly Profit Leak</div>
+            <div class="calc-total-number" id="totalLeak">$44,772</div>
+            <p class="calc-total-annual">That&rsquo;s <strong id="annualLeak">$537,264</strong>/year &mdash; <strong id="leakPercent">13.0%</strong> of your capacity revenue.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DETAIL BREAKDOWNS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-16">
+        <div class="calc-detail fade-in" style="transition-delay:0.05s;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.29h3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            <h3 class="calc-detail-title">The &ldquo;Missed Call&rdquo; Drain</h3>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-fact">Fact</span>
+            <span>Seattle homeowners have a zero-patience policy. <strong>85%</strong> will not leave a voicemail and <strong>62%</strong> move to a competitor after just one missed call.</span>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-math">Math</span>
+            <span>Missed Calls/Day &times; 22 workdays &times; 60% booking rate &times; $522 avg ticket</span>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-fix">AI Fix</span>
+            <span>An <strong>AI Voice Dispatcher</strong> captures 100% of calls and books them directly into your calendar.</span>
+          </div>
+        </div>
+
+        <div class="calc-detail fade-in" style="transition-delay:0.15s;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <h3 class="calc-detail-title">The &ldquo;Administrative Burn&rdquo;</h3>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-fact">Fact</span>
+            <span>The average Seattle Office Manager earns <strong>$45/hr</strong> ($93,323/yr). Manual data entry costs U.S. companies <strong>$28,500/employee</strong> annually in lost productivity.</span>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-math">Math</span>
+            <span>Admin Staff &times; 10 hrs/week &times; 4.3 weeks &times; $45/hr</span>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-fix">AI Fix</span>
+            <span>Automated <strong>&ldquo;PDF-to-CRM&rdquo; bridges</strong> eliminate manual entry entirely.</span>
+          </div>
+        </div>
+
+        <div class="calc-detail fade-in" style="transition-delay:0.25s;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <h3 class="calc-detail-title">The &ldquo;Unbillable Tech&rdquo; Leak</h3>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-fact">Fact</span>
+            <span>Seattle Technicians earn <strong>$38&ndash;$45/hr</strong>. Every minute spent typing notes into an iPad is &ldquo;Unbillable Time.&rdquo;</span>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-math">Math</span>
+            <span>Techs &times; 45 min/day &times; 5 days/week = wasted hours &times; $40/hr</span>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-fix">AI Fix</span>
+            <span><strong>Voice-to-Job summaries</strong> let techs finish documentation in 60 seconds while driving to the next site.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR FACTOIDS -->
+      <div class="mt-16 mb-4">
+        <span class="section-label">Seattle reality check</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="calc-factoid fade-in" style="transition-delay:0.05s;">
+          <h4 class="calc-factoid-title">The $126,000 Gap</h4>
+          <p class="calc-factoid-text">The average mid-sized service business in the U.S. loses <strong>$126,000/year</strong> to unanswered calls. In high-cost Seattle, that number is estimated to be <strong>15% higher</strong>.</p>
+        </div>
+        <div class="calc-factoid fade-in" style="transition-delay:0.15s;">
+          <h4 class="calc-factoid-title">The 1% Error Tax</h4>
+          <p class="calc-factoid-text">Manual data entry has a <strong>1% error rate</strong>. In a shop doing 1,000 invoices/month, that&rsquo;s 10 billing disputes, 10 frustrated customers, and 10 hours of &ldquo;fix-it&rdquo; labor.</p>
+        </div>
+        <div class="calc-factoid fade-in" style="transition-delay:0.25s;">
+          <h4 class="calc-factoid-title">The Talent Crisis</h4>
+          <p class="calc-factoid-text"><strong>56%</strong> of office employees report burnout from repetitive data tasks. In Seattle&rsquo;s competitive hiring market, &ldquo;tech-frustration&rdquo; is the #1 reason staff leave.</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="fade-in mt-16" style="text-align:center;max-width:640px;margin-left:auto;margin-right:auto;transition-delay:0.1s;">
+        <h3 style="font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-0.03em;color:var(--text);margin:0 0 16px;">See how you compare to other Seattle firms.</h3>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin:0 0 28px;font-family:'Roboto',sans-serif;">Nhat and I are currently auditing 100 local businesses. Book your 30-minute face-to-face assessment to see where your &ldquo;Profit Leak&rdquo; ranks against the local average and get a custom engineering roadmap to plug it.</p>
+        <a href="#contact" class="btn-primary" style="font-size:12px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Book Your 30-Min Assessment
+        </a>
       </div>
     </div>
   </section>
@@ -842,6 +1072,68 @@
         inner.style.transform = 'translateY(-' + (cur * 1.3) + 'em)';
       }
       setInterval(nextSlide, 2200);
+    })();
+
+    // Profit Leak Calculator
+    (function(){
+      var AVG_TICKET=522,ADMIN_WAGE=45,TECH_WAGE=40,BOOKING_RATE=0.60,WORK_DAYS=22,WPM=4.3;
+      var techsS=document.getElementById('techsSlider'),jobsS=document.getElementById('jobsSlider'),
+          adminS=document.getElementById('adminSlider'),missedS=document.getElementById('missedSlider');
+      if(!techsS)return;
+      var techsV=document.getElementById('techsVal'),jobsV=document.getElementById('jobsVal'),
+          adminV=document.getElementById('adminVal'),missedV=document.getElementById('missedVal');
+      var m1El=document.getElementById('metric1Amount'),m1In=document.getElementById('metric1Inline'),
+          m2El=document.getElementById('metric2Amount'),m2In=document.getElementById('metric2Inline'),
+          m3El=document.getElementById('metric3Amount'),m3Hr=document.getElementById('metric3Hours');
+      var totEl=document.getElementById('totalLeak'),annEl=document.getElementById('annualLeak'),
+          pctEl=document.getElementById('leakPercent');
+      var capJ=document.getElementById('capacityJobs'),capR=document.getElementById('capacityRevenue');
+      var prev={m1:0,m2:0,m3:0,total:0};
+
+      function fillSlider(s){
+        var pct=((s.value-s.min)/(s.max-s.min))*100;
+        s.style.setProperty('--fill',pct+'%');
+      }
+      function animateVal(el,start,end,dur){
+        var t0=performance.now();
+        function step(now){
+          var p=Math.min((now-t0)/dur,1);
+          var e=1-Math.pow(1-p,3);
+          el.textContent='$'+Math.round(start+(end-start)*e).toLocaleString();
+          if(p<1)requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      function pulse(el){
+        el.classList.remove('calc-pulse');
+        void el.offsetWidth;
+        el.classList.add('calc-pulse');
+      }
+      function calc(){
+        var t=parseInt(techsS.value),j=parseInt(jobsS.value),a=parseInt(adminS.value),mi=parseInt(missedS.value);
+        techsV.textContent=t;jobsV.textContent=j;adminV.textContent=a;missedV.textContent=mi;
+        [techsS,jobsS,adminS,missedS].forEach(fillSlider);
+        var cap=t*j*WORK_DAYS,capRev=cap*AVG_TICKET;
+        capJ.textContent=cap.toLocaleString();
+        capR.textContent='$'+capRev.toLocaleString();
+        var m1=Math.round(mi*WORK_DAYS*BOOKING_RATE*AVG_TICKET);
+        var m2=Math.round(a*10*WPM*ADMIN_WAGE);
+        var m3=Math.round(t*0.75*5*WPM*TECH_WAGE);
+        var wkHrs=t*0.75*5;
+        animateVal(m1El,prev.m1,m1,400);animateVal(m1In,prev.m1,m1,400);
+        animateVal(m2El,prev.m2,m2,400);animateVal(m2In,prev.m2,m2,400);
+        animateVal(m3El,prev.m3,m3,400);
+        m3Hr.textContent=wkHrs%1===0?wkHrs:wkHrs.toFixed(1);
+        var total=m1+m2+m3,annual=total*12;
+        var pct=capRev>0?((total/capRev)*100).toFixed(1):'0.0';
+        animateVal(totEl,prev.total,total,500);
+        annEl.textContent='$'+annual.toLocaleString();
+        pctEl.textContent=pct+'%';
+        pulse(m1El);pulse(m2El);pulse(m3El);pulse(totEl);
+        prev={m1:m1,m2:m2,m3:m3,total:total};
+      }
+      calc();
+      [techsS,jobsS,adminS,missedS].forEach(function(s){s.addEventListener('input',calc);});
     })();
   </script>
 
