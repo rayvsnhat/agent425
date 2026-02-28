@@ -653,13 +653,14 @@
     const fadeEls = document.querySelectorAll('.fade-in');
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.07 });
+    }, { threshold: 0, rootMargin: '0px 0px 120px 0px' });
     fadeEls.forEach(el => io.observe(el));
     setTimeout(() => {
       document.querySelectorAll('.fade-in').forEach(el => {
         if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
       });
-    }, 50);
+    }, 300);
+    setTimeout(() => { document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible')); }, 2500);
 
     // FAQ toggle
     function toggleFaq(btn) {

@@ -481,7 +481,7 @@
     const fadeEls = document.querySelectorAll('.fade-in');
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.08 });
+    }, { threshold: 0, rootMargin: '0px 0px 120px 0px' });
     fadeEls.forEach(el => io.observe(el));
 
     // Trigger visible on load for above-fold items
@@ -490,7 +490,8 @@
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight) el.classList.add('visible');
       });
-    }, 50);
+    }, 300);
+    setTimeout(() => { document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible')); }, 2500);
 
     // ── Email submit ───────────────────────────────────────────
     function handleEmail(e, btnId) {
