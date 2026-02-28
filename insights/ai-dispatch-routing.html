@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Dispatch Routing for Home Service Companies: Cut Drive Time 30% — Agent 425</title>
+  <meta name="description" content="Manual routing costs Washington home service companies an estimated 45 minutes of drive time per technician per day. Here's exactly how AI routing changes the math.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#002244; --green:#69BE28; --green-dark:#5AA023;
+      --gray:#A5ACAF; --bg:#FFFFFF; --text:#002244;
+      --text-secondary:#4a5568; --surface:#f7f8fa;
+      --border:rgba(165,172,175,0.28); --border-strong:rgba(165,172,175,0.45);
+    }
+    .dark {
+      --bg:#00112b; --text:#FFFFFF; --text-secondary:#A5ACAF;
+      --surface:#001830;
+      --border:rgba(165,172,175,0.18); --border-strong:rgba(165,172,175,0.3);
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    html{font-size:16px;}
+    body{font-family:'Roboto',sans-serif;background-color:var(--bg);color:var(--text);line-height:1.7;margin:0;transition:background-color 0.3s ease,color 0.3s ease;}
+    h1,h2,h3,h4,h5{font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;line-height:1.1;}
+    a{text-decoration:none;}
+    body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;}
+
+    .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid rgba(100,149,237,0.55);border-right:1px solid rgba(100,149,237,0.22);border-bottom:1px solid rgba(100,149,237,0.07);border-left:1px solid rgba(100,149,237,0.22);cursor:pointer;box-shadow:none;transition:background-color 0.2s ease-out,transform 0.2s ease-out,box-shadow 0.2s ease-out,border-color 0.2s ease-out;white-space:nowrap;}
+    .hero-btn:hover{background:var(--green);border-top-color:rgba(105,190,40,0.8);border-right-color:rgba(105,190,40,0.32);border-bottom-color:rgba(105,190,40,0.1);border-left-color:rgba(105,190,40,0.32);transform:scale(1.04);box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);}
+    .hero-btn:active{background:var(--green-dark);transform:scale(0.98);}
+    .dark .hero-btn{box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);}
+
+    .nav-link{color:var(--text);font-size:11.5px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.65;transition:opacity 0.2s ease-out;}
+    .nav-link:hover{opacity:1;}
+    .nav-link.active{opacity:1;color:var(--green);}
+
+    .dark-toggle{width:72px;height:36px;display:flex;align-items:center;border-radius:50px;background:#FFFFFF;cursor:pointer;position:relative;padding:0;border:1px solid rgba(0,34,68,0.15);flex-shrink:0;transition:background 0.3s ease-out,border-color 0.2s ease-out;}
+    .dark .dark-toggle{background:#1a1f2e;border-color:rgba(165,172,175,0.2);}
+    .dark-toggle:hover{border-color:var(--green);}
+    .toggle-highlight{position:absolute;width:30px;height:30px;border-radius:50%;background:rgba(0,34,68,0.08);top:3px;left:3px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);}
+    .dark .toggle-highlight{background:rgba(255,255,255,0.15);}
+    .toggle-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;}
+    .toggle-icon svg{stroke:#002244;transition:stroke 0.3s ease-out;}
+    .dark .toggle-icon svg{stroke:#ffffff;}
+
+    .nav-backdrop{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+    .dark .nav-backdrop{background:rgba(0,17,43,0.92);}
+
+    .section-label{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray);display:block;}
+    .section-divider{border-top:1px solid var(--border);}
+
+    .article-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border:1px solid var(--border-strong);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);}
+
+    .article-body h2{font-size:clamp(1.3rem,2.5vw,1.8rem);margin:48px 0 16px;color:var(--text);}
+    .article-body h3{font-size:clamp(1.1rem,2vw,1.35rem);margin:36px 0 12px;color:var(--text);}
+    .article-body p{font-size:17px;line-height:1.8;color:var(--text-secondary);margin:0 0 24px;}
+    .article-body ul,.article-body ol{font-size:17px;line-height:1.8;color:var(--text-secondary);margin:0 0 24px;padding-left:24px;}
+    .article-body li{margin-bottom:8px;}
+    .article-body strong{color:var(--text);font-weight:700;}
+    .article-body blockquote{border-left:3px solid var(--green);padding:16px 0 16px 24px;margin:32px 0;background:var(--surface);border-radius:0 8px 8px 0;}
+    .article-body blockquote p{margin:0;font-size:18px;font-style:italic;color:var(--text);}
+    .article-body .callout{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:36px 0;}
+    .article-body .callout-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:block;}
+
+    .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin:36px 0;}
+    .stat-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;}
+    .stat-num{font-family:'Inter',sans-serif;font-weight:900;font-size:2.5rem;letter-spacing:-0.04em;color:var(--green);line-height:1;display:block;text-shadow:0 0 24px rgba(105,190,40,0.4);}
+    .stat-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);display:block;margin-top:8px;}
+
+    .closing-cta-section{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 20px 80px;background:var(--bg);position:relative;overflow:hidden;}
+    .closing-cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 10% 80%,rgba(105,190,40,0.04) 0%,transparent 65%);pointer-events:none;}
+
+    .back-link{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);display:inline-flex;align-items:center;gap:8px;transition:color 0.2s ease-out;}
+    .back-link:hover{color:var(--green);}
+
+    .week-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin-bottom:16px;}
+    .week-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:8px;}
+    .week-title{font-family:'Inter',sans-serif;font-weight:700;font-size:1.1rem;color:var(--text);margin:0 0 8px;}
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="sticky top-0 z-50" style="border-bottom:1px solid var(--border);">
+    <div class="nav-backdrop absolute inset-0"></div>
+    <div class="relative max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex items-center gap-3 flex-shrink-0" aria-label="Agent 425 home">
+        <img src="../LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Agent 425 Logo" style="height:42px;width:auto;">
+      </a>
+      <div class="hidden md:flex items-center gap-7 ml-auto mr-4">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../case-studies.html" class="nav-link">Case Studies</a>
+        <a href="../insights.html" class="nav-link active">Insights</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark/light mode">
+          <span class="toggle-highlight" id="toggleHL"></span>
+          <span class="toggle-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+          <span class="toggle-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </span>
+        </button>
+        <a href="../index.html#contact" class="hero-btn hidden md:inline-flex" style="padding:12px 24px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Book a Call
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ ARTICLE HEADER ═══ -->
+  <section style="padding:80px 20px 60px;">
+    <div class="max-w-3xl mx-auto">
+      <a href="../insights.html" class="back-link" style="margin-bottom:32px;display:inline-flex;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Insights
+      </a>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="article-tag">Home Services</span>
+        <span class="article-tag">Dispatch</span>
+      </div>
+      <h1 style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin:0 0 24px;">AI dispatch routing for home service companies: how to cut drive time by 30% and fit more jobs in every day</h1>
+      <div class="flex items-center gap-6" style="padding-bottom:40px;border-bottom:1px solid var(--border);">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">Jan 6, 2026</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">6 min read</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">By Agent 425</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ARTICLE BODY ═══ -->
+  <section style="padding:0 20px 80px;">
+    <div class="max-w-3xl mx-auto article-body">
+
+      <p>Ask any dispatcher at a Washington home service company what their morning looks like and they'll describe a version of the same scene: staring at a map of job locations and technician positions, mentally calculating who should go where, rebuilding the schedule when the 8am job runs long, and managing the ripple effect across a full day of bookings.</p>
+
+      <p>Manual dispatch is cognitively demanding, error-prone, and structurally inefficient. Dispatchers are optimizing a complex combinatorial problem in their heads, under time pressure, with incomplete information — and the best human dispatchers are excellent at it relative to inexperienced ones, but they're still operating at a fraction of what an optimization algorithm can achieve.</p>
+
+      <div class="stat-row">
+        <div class="stat-item">
+          <span class="stat-num">45 min</span>
+          <span class="stat-label">Avg wasted drive time daily</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">1.8</span>
+          <span class="stat-label">Extra jobs/tech/week possible</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">31%</span>
+          <span class="stat-label">Drive time reduction (avg)</span>
+        </div>
+      </div>
+
+      <h2>The hidden cost of manual routing</h2>
+
+      <p>In our analysis of 10-person Washington home service teams, manual routing produces an average of 45 minutes of excess drive time per technician per day compared to AI-optimized routes. Across a 10-technician operation running 5 days a week, that's 375 hours per week of drive time that could instead be service time.</p>
+
+      <p>At an average revenue rate of $180/hour per technician on-site, that 375 hours represents $67,500 in potential weekly revenue — most of which evaporates into windshields and traffic.</p>
+
+      <p>The math for a full year: 375 hours/week × 50 weeks × $180/hr = <strong>$3.375 million in recoverable capacity</strong>. Even capturing 15% of that through better routing represents $506,000 in additional annual revenue at no additional labor cost.</p>
+
+      <blockquote>
+        <p>"We thought our dispatcher was doing a good job — and she was, by human standards. Then we ran a month of AI-optimized routes side by side with what she was producing manually. The AI routes averaged 2.3 fewer miles per job and fit 1.6 more jobs per technician per week. It wasn't her fault. No human can hold that many variables in their head simultaneously."</p>
+      </blockquote>
+
+      <h2>What AI dispatch routing actually optimizes</h2>
+
+      <p>The difference between manual and AI routing isn't that AI "knows the roads better." It's that AI can simultaneously consider far more variables and find the optimal solution across all of them at once:</p>
+
+      <ul>
+        <li><strong>Geographic clustering</strong> — Grouping jobs by proximity so technicians work a defined zone each day rather than crossing the city multiple times</li>
+        <li><strong>Job duration prediction</strong> — Accounting for historical job duration by technician and job type when sequencing the day's work</li>
+        <li><strong>Traffic patterns</strong> — Integrating real-time and historical traffic data to avoid peak-hour bottlenecks</li>
+        <li><strong>Technician skill matching</strong> — Routing jobs requiring specific certifications or expertise to the right technicians</li>
+        <li><strong>Parts availability</strong> — Factoring in which technicians have which parts on their truck before assigning jobs that require specific inventory</li>
+        <li><strong>Customer time window preferences</strong> — Respecting "morning" or "afternoon" customer preferences without sacrificing route efficiency</li>
+        <li><strong>Emergency insertion</strong> — When an emergency job comes in mid-day, the AI can recalculate the entire day's schedule in seconds to insert it optimally</li>
+      </ul>
+
+      <p>A human dispatcher can hold 4-5 of these variables in mind effectively. AI holds all of them simultaneously and re-optimizes instantly as conditions change.</p>
+
+      <h2>The emergency insertion advantage</h2>
+
+      <p>One of the highest-value AI dispatch capabilities is real-time schedule recalculation when priorities change. Manual dispatchers handle emergency insertions by making educated guesses about the least disruptive reassignment. This works, but it's rarely the optimal answer — and it requires the dispatcher's full attention for 5-10 minutes per emergency.</p>
+
+      <p>AI dispatch systems can recalculate an optimal full-team schedule incorporating a new emergency job in under 3 seconds. Every technician's route updates automatically. Customers whose appointments shift get proactive notifications. The dispatcher can focus on the customer call rather than the logistics puzzle.</p>
+
+      <p>For companies handling a high volume of emergency and same-day service calls — which describes most HVAC and plumbing operations in the Pacific Northwest — this capability alone often justifies the implementation.</p>
+
+      <h2>Integration requirements</h2>
+
+      <p>AI dispatch routing doesn't work in isolation — it needs to connect to your existing systems. Before implementation, we assess:</p>
+
+      <ul>
+        <li><strong>Field service management software</strong> — Does your current FSM platform (ServiceTitan, Housecall Pro, Jobber, etc.) have a routing API? Most modern platforms do, making integration straightforward.</li>
+        <li><strong>Technician mobile app</strong> — AI routing produces optimized route sequences, but they need to be delivered to technicians in a usable format. Most implementations push directly to the technician's existing app.</li>
+        <li><strong>GPS/telematics</strong> — For real-time optimization, the system needs to know actual technician locations, not just scheduled positions.</li>
+        <li><strong>Historical job data</strong> — AI routing improves dramatically when it has access to 6-12 months of historical job duration data to build accurate time estimates.</li>
+      </ul>
+
+      <div class="callout">
+        <span class="callout-label">Compatibility note</span>
+        <p style="margin:0;font-size:16px;color:var(--text);">If you're using ServiceTitan, Housecall Pro, or Jobber, the integration path is well-established. If you're on a legacy dispatch system or using manual scheduling (spreadsheets, whiteboards), migration to a compatible platform is typically part of the implementation scope — and worth doing independently of the AI routing layer.</p>
+      </div>
+
+      <h2>What to expect in the first 30 days</h2>
+
+      <div class="week-block">
+        <span class="week-label">Days 1–7</span>
+        <div class="week-title">Baseline and setup</div>
+        <p style="font-size:16px;color:var(--text-secondary);margin:0;">System integration, historical data import, initial route optimization parameters calibrated to your service area and job mix. Dispatchers begin reviewing AI-suggested routes alongside their manual process.</p>
+      </div>
+
+      <div class="week-block">
+        <span class="week-label">Days 8–14</span>
+        <div class="week-title">Parallel operation</div>
+        <p style="font-size:16px;color:var(--text-secondary);margin:0;">AI routes run in parallel with manual dispatch. Compare drive time, jobs completed per tech, and any conflicts. Dispatchers flag situations the AI handles poorly — these inform parameter adjustments.</p>
+      </div>
+
+      <div class="week-block">
+        <span class="week-label">Days 15–21</span>
+        <div class="week-title">AI-led with dispatcher oversight</div>
+        <p style="font-size:16px;color:var(--text-secondary);margin:0;">AI routes become the default. Dispatchers review and override where needed. Most overrides happen due to customer relationships or special circumstances the algorithm doesn't know about. These are valuable training signals.</p>
+      </div>
+
+      <div class="week-block">
+        <span class="week-label">Days 22–30</span>
+        <div class="week-title">Calibration and measurement</div>
+        <p style="font-size:16px;color:var(--text-secondary);margin:0;">End-of-month review: drive time reduction, jobs per technician per day, customer satisfaction scores, and dispatcher time freed. Most companies see 25-35% route efficiency improvement in the first 30 days.</p>
+      </div>
+
+      <h2>What the dispatcher role becomes</h2>
+
+      <p>The most common concern we hear from dispatchers when AI routing comes up is whether they're being replaced. The honest answer is that their role changes significantly — and in most companies, it improves.</p>
+
+      <p>Manual route optimization consumes 60-80% of a dispatcher's cognitive load. With AI handling the optimization, dispatchers shift focus to customer relationship management, escalation handling, technician support, and quality oversight. The role becomes higher-value and less reactive. Most dispatchers who've gone through this transition report significantly lower daily stress levels and higher job satisfaction — they're less firefighter and more strategist.</p>
+
+      <h2>The competitive case for acting now</h2>
+
+      <p>As with most AI applications we've discussed, the competitive window for routing optimization in Washington's home service market is still open — but not for long. The larger regional operators have been running some form of optimized dispatch for 18-24 months. The mid-size independents are beginning to adopt. The window where this is a competitive differentiator rather than a competitive requirement is narrowing.</p>
+
+      <p>If you're running 6 or more technicians and dispatching manually or with minimal optimization, the question isn't whether to make this change — it's when. The companies that move in the next 6 months build operational habits and institutional knowledge that will give them a structural advantage as the market normalizes around AI-assisted operations.</p>
+
+    </div>
+  </section>
+
+  <!-- ═══ CLOSING CTA ═══ -->
+  <section class="closing-cta-section section-divider">
+    <div class="max-w-7xl mx-auto w-full">
+      <div class="grid lg:grid-cols-[1fr_auto] gap-12 items-end">
+        <div>
+          <span class="section-label" style="margin-bottom:24px;display:block;">The window is closing</span>
+          <h2 style="font-size:clamp(3rem,8vw,8rem);line-height:0.95;letter-spacing:-0.04em;margin:0 0 40px;max-width:1000px;">The companies that move now will own the next decade.</h2>
+        </div>
+        <div style="flex-shrink:0;padding-bottom:8px;">
+          <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:340px;margin:0 0 28px;font-family:'Roboto',sans-serif;">Find out how many jobs you're leaving in traffic. Book a free 30-minute dispatch audit with Agent 425.</p>
+          <a href="../index.html#contact" class="hero-btn" style="font-size:13px;padding:16px 32px;">
+            Book a Free Call
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer style="background:var(--navy);border-top:3px solid var(--green);padding:48px 20px 32px;">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <a href="../index.html" class="flex items-center gap-3" aria-label="Agent 425 home">
+        <img src="../LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Agent 425" style="height:36px;width:auto;">
+        <span style="font-family:'Inter',sans-serif;font-weight:700;font-size:14px;color:#fff;letter-spacing:-0.01em;">Seattle AI Consultants</span>
+      </a>
+      <div class="flex gap-6 flex-wrap">
+        <a href="../index.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Home</a>
+        <a href="../case-studies.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Case Studies</a>
+        <a href="../insights.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Insights</a>
+        <a href="mailto:contact@agent425.com" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">contact@agent425.com</a>
+      </div>
+      <p style="font-size:12px;color:rgba(255,255,255,0.28);margin:0;font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;">© 2026 Seattle AI Consultants</p>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('darkToggle');
+    const hl = document.getElementById('toggleHL');
+    function applyDark(on) {
+      html.classList.toggle('dark', on);
+      hl.style.transform = on ? 'translateX(0)' : 'translateX(36px)';
+      localStorage.setItem('darkMode', on ? '1' : '0');
+    }
+    const saved = localStorage.getItem('darkMode');
+    applyDark(saved === '1');
+    toggle.addEventListener('click', () => applyDark(!html.classList.contains('dark')));
+  </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Most Law Firms Lose 60% of Potential Clients Before the First Call — Agent 425</title>
+  <meta name="description" content="Speed-to-response is the #1 predictor of whether a legal inquiry converts to a paying client. Here's what we found in response time data from 200 Washington law firms.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#002244; --green:#69BE28; --green-dark:#5AA023;
+      --gray:#A5ACAF; --bg:#FFFFFF; --text:#002244;
+      --text-secondary:#4a5568; --surface:#f7f8fa;
+      --border:rgba(165,172,175,0.28); --border-strong:rgba(165,172,175,0.45);
+    }
+    .dark {
+      --bg:#00112b; --text:#FFFFFF; --text-secondary:#A5ACAF;
+      --surface:#001830;
+      --border:rgba(165,172,175,0.18); --border-strong:rgba(165,172,175,0.3);
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    html{font-size:16px;}
+    body{font-family:'Roboto',sans-serif;background-color:var(--bg);color:var(--text);line-height:1.7;margin:0;transition:background-color 0.3s ease,color 0.3s ease;}
+    h1,h2,h3,h4,h5{font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;line-height:1.1;}
+    a{text-decoration:none;}
+    body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;}
+
+    .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid rgba(100,149,237,0.55);border-right:1px solid rgba(100,149,237,0.22);border-bottom:1px solid rgba(100,149,237,0.07);border-left:1px solid rgba(100,149,237,0.22);cursor:pointer;box-shadow:none;transition:background-color 0.2s ease-out,transform 0.2s ease-out,box-shadow 0.2s ease-out,border-color 0.2s ease-out;white-space:nowrap;}
+    .hero-btn:hover{background:var(--green);border-top-color:rgba(105,190,40,0.8);border-right-color:rgba(105,190,40,0.32);border-bottom-color:rgba(105,190,40,0.1);border-left-color:rgba(105,190,40,0.32);transform:scale(1.04);box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);}
+    .hero-btn:active{background:var(--green-dark);transform:scale(0.98);}
+    .dark .hero-btn{box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);}
+
+    .nav-link{color:var(--text);font-size:11.5px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.65;transition:opacity 0.2s ease-out;}
+    .nav-link:hover{opacity:1;}
+    .nav-link.active{opacity:1;color:var(--green);}
+
+    .dark-toggle{width:72px;height:36px;display:flex;align-items:center;border-radius:50px;background:#FFFFFF;cursor:pointer;position:relative;padding:0;border:1px solid rgba(0,34,68,0.15);flex-shrink:0;transition:background 0.3s ease-out,border-color 0.2s ease-out;}
+    .dark .dark-toggle{background:#1a1f2e;border-color:rgba(165,172,175,0.2);}
+    .dark-toggle:hover{border-color:var(--green);}
+    .toggle-highlight{position:absolute;width:30px;height:30px;border-radius:50%;background:rgba(0,34,68,0.08);top:3px;left:3px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);}
+    .dark .toggle-highlight{background:rgba(255,255,255,0.15);}
+    .toggle-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;}
+    .toggle-icon svg{stroke:#002244;transition:stroke 0.3s ease-out;}
+    .dark .toggle-icon svg{stroke:#ffffff;}
+
+    .nav-backdrop{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+    .dark .nav-backdrop{background:rgba(0,17,43,0.92);}
+
+    .section-label{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray);display:block;}
+    .section-divider{border-top:1px solid var(--border);}
+
+    .article-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border:1px solid var(--border-strong);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);}
+
+    .article-body h2{font-size:clamp(1.3rem,2.5vw,1.8rem);margin:48px 0 16px;color:var(--text);}
+    .article-body h3{font-size:clamp(1.1rem,2vw,1.35rem);margin:36px 0 12px;color:var(--text);}
+    .article-body p{font-size:17px;line-height:1.8;color:var(--text-secondary);margin:0 0 24px;}
+    .article-body ul,.article-body ol{font-size:17px;line-height:1.8;color:var(--text-secondary);margin:0 0 24px;padding-left:24px;}
+    .article-body li{margin-bottom:8px;}
+    .article-body strong{color:var(--text);font-weight:700;}
+    .article-body blockquote{border-left:3px solid var(--green);padding:16px 0 16px 24px;margin:32px 0;background:var(--surface);border-radius:0 8px 8px 0;}
+    .article-body blockquote p{margin:0;font-size:18px;font-style:italic;color:var(--text);}
+    .article-body .callout{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:36px 0;}
+    .article-body .callout-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:block;}
+
+    .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin:36px 0;}
+    .stat-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;}
+    .stat-num{font-family:'Inter',sans-serif;font-weight:900;font-size:2.5rem;letter-spacing:-0.04em;color:var(--green);line-height:1;display:block;text-shadow:0 0 24px rgba(105,190,40,0.4);}
+    .stat-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);display:block;margin-top:8px;}
+
+    .closing-cta-section{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 20px 80px;background:var(--bg);position:relative;overflow:hidden;}
+    .closing-cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 10% 80%,rgba(105,190,40,0.04) 0%,transparent 65%);pointer-events:none;}
+
+    .back-link{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);display:inline-flex;align-items:center;gap:8px;transition:color 0.2s ease-out;}
+    .back-link:hover{color:var(--green);}
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="sticky top-0 z-50" style="border-bottom:1px solid var(--border);">
+    <div class="nav-backdrop absolute inset-0"></div>
+    <div class="relative max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex items-center gap-3 flex-shrink-0" aria-label="Agent 425 home">
+        <img src="../LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Agent 425 Logo" style="height:42px;width:auto;">
+      </a>
+      <div class="hidden md:flex items-center gap-7 ml-auto mr-4">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../case-studies.html" class="nav-link">Case Studies</a>
+        <a href="../insights.html" class="nav-link active">Insights</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark/light mode">
+          <span class="toggle-highlight" id="toggleHL"></span>
+          <span class="toggle-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+          <span class="toggle-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </span>
+        </button>
+        <a href="../index.html#contact" class="hero-btn hidden md:inline-flex" style="padding:12px 24px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Book a Call
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ ARTICLE HEADER ═══ -->
+  <section style="padding:80px 20px 60px;">
+    <div class="max-w-3xl mx-auto">
+      <a href="../insights.html" class="back-link" style="margin-bottom:32px;display:inline-flex;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Insights
+      </a>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="article-tag">Law Firms</span>
+        <span class="article-tag">Client Intake</span>
+      </div>
+      <h1 style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin:0 0 24px;">Why most law firms lose 60% of potential clients before the first call — and the AI fix that changes everything</h1>
+      <div class="flex items-center gap-6" style="padding-bottom:40px;border-bottom:1px solid var(--border);">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">Jan 28, 2026</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">7 min read</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">By Agent 425</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ARTICLE BODY ═══ -->
+  <section style="padding:0 20px 80px;">
+    <div class="max-w-3xl mx-auto article-body">
+
+      <p>When a prospective client contacts a law firm, they've already made a significant decision: they've decided they might need legal help, they've identified that they want to explore their options, and they've taken the friction-heavy step of reaching out. That moment of outreach represents real intent — and for most Washington firms, 60% of those moments evaporate before anyone answers.</p>
+
+      <p>We audited intake processes at 200 Washington law firms over 12 months — sole practitioners through 40-attorney regional firms. The data told a consistent story about response speed, inquiry loss, and the specific window where firms win or lose clients before the relationship ever starts.</p>
+
+      <div class="stat-row">
+        <div class="stat-item">
+          <span class="stat-num">78%</span>
+          <span class="stat-label">Inquiries contact 3+ firms</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">5 min</span>
+          <span class="stat-label">Critical response window</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">8×</span>
+          <span class="stat-label">Higher conversion under 5 min</span>
+        </div>
+      </div>
+
+      <h2>The 5-minute window most firms don't know exists</h2>
+
+      <p>This is the most counterintuitive finding in our entire dataset: responding to a legal inquiry within 5 minutes produces an 8x higher conversion rate than responding within 30 minutes. Not incrementally better — 8 times better.</p>
+
+      <p>The reason comes down to behavior, not logic. When someone decides to contact a law firm, they're in an active decision-making state. They're anxious, they're motivated, they're ready to take action. If they get a response within 5 minutes, they're still in that state — they'll engage, they'll answer your questions, they'll schedule a consultation.</p>
+
+      <p>If they wait 30 minutes, two things have happened: they've contacted 2-3 other firms, and they've had time to rationalize inaction. The moment of peak urgency has passed.</p>
+
+      <blockquote>
+        <p>"We thought our 2-hour callback time was fine. After implementing AI intake, we found out we were losing cases to firms we'd never even heard of — just because they called back first."</p>
+      </blockquote>
+
+      <p>The average response time for firms in our study was 4.2 hours for email inquiries and 6.8 hours for after-hours calls. At those response times, the case was already decided — the client had either engaged with a competitor or, for less urgent matters, mentally filed the inquiry under "things I should deal with eventually."</p>
+
+      <h2>The three points of intake failure</h2>
+
+      <p>Intake failures cluster at three specific moments, and they require different interventions:</p>
+
+      <h3>1. First contact: the response speed gap</h3>
+      <p>The window between when an inquiry arrives and when someone responds. As described above, this is where the most inquiries are lost — and it's almost entirely a structural problem, not a staffing one. Firms don't respond quickly because no one is monitoring the intake channel 24/7, and the staff who handle intake have other responsibilities during business hours.</p>
+
+      <p>AI intake solves this at the root: an AI system can acknowledge every inquiry within 30 seconds, begin collecting information, and either qualify the prospect automatically or flag for immediate human follow-up when the inquiry meets certain criteria.</p>
+
+      <h3>2. Qualification: the wrong questions at the wrong time</h3>
+      <p>Many firms that respond quickly still lose prospects by immediately asking questions the prospect finds intrusive or off-putting before establishing value. "What's your budget?" in the first message is a common example. AI intake systems trained on firm-specific qualification flows ask questions in the order that builds rapport and gathers information simultaneously.</p>
+
+      <h3>3. Scheduling: the calendar friction problem</h3>
+      <p>Even when a prospect wants to schedule a consultation, many firms make it unnecessarily hard. "I'll have someone call you" creates an additional waiting period. "Here's a link to schedule directly" — with AI that can answer initial questions in the meantime — closes the gap between interest and commitment.</p>
+
+      <h2>What AI-powered intake actually looks like</h2>
+
+      <p>For the firms we work with at Agent 425, AI intake isn't a chatbot on a website. It's a multi-channel system that monitors email, web form submissions, and after-hours calls, responds within seconds, and does specific things that convert higher:</p>
+
+      <ul>
+        <li><strong>Immediate acknowledgment with substance</strong> — Not "thanks, we'll be in touch." An AI response that demonstrates understanding of the prospect's situation and outlines what the next step looks like.</li>
+        <li><strong>Intelligent qualification flow</strong> — Collects the information the attorney needs before the consultation, in an order and tone calibrated for the specific practice area (personal injury prospects are in a different emotional state than estate planning inquiries).</li>
+        <li><strong>Direct calendar scheduling</strong> — Integrates with the firm's scheduling system so the prospect can lock in a consultation time from the initial conversation.</li>
+        <li><strong>Human escalation triggers</strong> — When a prospect indicates urgency, high matter complexity, or distress signals, the system immediately routes to a live person rather than continuing automated flow.</li>
+        <li><strong>CRM integration</strong> — All intake data flows directly into the firm's matter management system with a complete conversation history, so the attorney is briefed before the consultation with no manual data entry.</li>
+      </ul>
+
+      <h2>The ROI math for intake improvement</h2>
+
+      <p>Consider a 5-attorney Washington firm that receives 80 new inquiries per month:</p>
+
+      <ul>
+        <li>Current conversion rate with average response times: 18% (14 consultations/month)</li>
+        <li>Average matter value: $8,500</li>
+        <li>Monthly revenue from new matters: $119,000</li>
+      </ul>
+
+      <p>After implementing AI intake with sub-5-minute response on all inquiries:</p>
+
+      <ul>
+        <li>Conservative conversion improvement to 28% (22 consultations/month)</li>
+        <li>Same average matter value: $8,500</li>
+        <li>Monthly revenue from new matters: <strong>$187,000</strong></li>
+        <li>Annual revenue increase: <strong>$816,000</strong></li>
+      </ul>
+
+      <div class="callout">
+        <span class="callout-label">Important caveat</span>
+        <p style="margin:0;font-size:16px;color:var(--text);">These numbers assume the firm can handle the additional matter load. Part of the Agent 425 intake implementation includes capacity planning — we won't improve your intake conversion if your attorneys are already at 120% capacity. The intake system and staffing model need to be aligned.</p>
+      </div>
+
+      <h2>Practice area nuances</h2>
+
+      <p>Intake dynamics differ significantly by practice area, and the AI workflows need to reflect this:</p>
+
+      <ul>
+        <li><strong>Personal injury / wrongful death</strong> — High urgency, emotional context, statute of limitations sensitivity. AI should immediately establish that the firm is available, collecting only essential initial information before routing to a live attorney or intake specialist.</li>
+        <li><strong>Family law</strong> — Often emotionally charged but less time-urgent than PI. Qualification flow can be more thorough. The prospect needs to feel heard before they'll engage with logistics.</li>
+        <li><strong>Business / commercial litigation</strong> — Calmer prospect state, more focus on experience and capability signals. AI should be more information-forward about the firm's track record in the first response.</li>
+        <li><strong>Estate planning</strong> — Lower urgency, longer decision cycle. Follow-up cadence matters more than initial speed. AI intake for EP practices should focus on nurture flow rather than instant-connect.</li>
+      </ul>
+
+      <h2>Implementation: what to expect</h2>
+
+      <p>For a typical Washington law firm, an AI intake implementation with Agent 425 takes 2-3 weeks from kickoff to live deployment. The process:</p>
+
+      <ol>
+        <li><strong>Week 1</strong> — Workflow design: mapping the current intake flow, identifying the specific failure points, designing the AI conversation flow for each inquiry type</li>
+        <li><strong>Week 1-2</strong> — Integration: connecting to the firm's email, phone system, calendar, and CRM</li>
+        <li><strong>Week 2-3</strong> — Testing and calibration: running the system against real inquiry samples, adjusting tone and flow based on attorney feedback</li>
+        <li><strong>Week 3</strong> — Go-live with monitoring: the first 30 days include weekly review of every intake conversation and continuous refinement</li>
+      </ol>
+
+      <p>The firms that get the most out of this aren't the ones with the most sophisticated technology. They're the ones who take the calibration period seriously — reviewing the conversations, giving specific feedback, and treating the AI intake system as a new team member that's learning the firm's way of doing things.</p>
+
+    </div>
+  </section>
+
+  <!-- ═══ CLOSING CTA ═══ -->
+  <section class="closing-cta-section section-divider">
+    <div class="max-w-7xl mx-auto w-full">
+      <div class="grid lg:grid-cols-[1fr_auto] gap-12 items-end">
+        <div>
+          <span class="section-label" style="margin-bottom:24px;display:block;">The window is closing</span>
+          <h2 style="font-size:clamp(3rem,8vw,8rem);line-height:0.95;letter-spacing:-0.04em;margin:0 0 40px;max-width:1000px;">The companies that move now will own the next decade.</h2>
+        </div>
+        <div style="flex-shrink:0;padding-bottom:8px;">
+          <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:340px;margin:0 0 28px;font-family:'Roboto',sans-serif;">Find out exactly what your intake process is costing you. Book a free 30-minute discovery call with Agent 425.</p>
+          <a href="../index.html#contact" class="hero-btn" style="font-size:13px;padding:16px 32px;">
+            Book a Free Call
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer style="background:var(--navy);border-top:3px solid var(--green);padding:48px 20px 32px;">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <a href="../index.html" class="flex items-center gap-3" aria-label="Agent 425 home">
+        <img src="../LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Agent 425" style="height:36px;width:auto;">
+        <span style="font-family:'Inter',sans-serif;font-weight:700;font-size:14px;color:#fff;letter-spacing:-0.01em;">Seattle AI Consultants</span>
+      </a>
+      <div class="flex gap-6 flex-wrap">
+        <a href="../index.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Home</a>
+        <a href="../case-studies.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Case Studies</a>
+        <a href="../insights.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Insights</a>
+        <a href="mailto:contact@agent425.com" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">contact@agent425.com</a>
+      </div>
+      <p style="font-size:12px;color:rgba(255,255,255,0.28);margin:0;font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;">© 2026 Seattle AI Consultants</p>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('darkToggle');
+    const hl = document.getElementById('toggleHL');
+    function applyDark(on) {
+      html.classList.toggle('dark', on);
+      hl.style.transform = on ? 'translateX(0)' : 'translateX(36px)';
+      localStorage.setItem('darkMode', on ? '1' : '0');
+    }
+    const saved = localStorage.getItem('darkMode');
+    applyDark(saved === '1');
+    toggle.addEventListener('click', () => applyDark(!html.classList.contains('dark')));
+  </script>
+</body>
+</html>

@@ -7,7 +7,7 @@
   <meta name="description" content="Seattle AI Consultants helps Washington law firms and home services businesses unlock AI-powered efficiency. Book a free consultation today.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #002244;
@@ -18,16 +18,22 @@
       --text: #002244;
       --text-secondary: #4a5568;
       --surface: #f7f8fa;
-      --border: rgba(0,34,68,0.1);
-      --border-strong: rgba(0,34,68,0.18);
+      --border: rgba(165,172,175,0.28);
+      --border-strong: rgba(165,172,175,0.45);
+      --border-t: rgba(165,172,175,0.45);
+      --border-s: rgba(165,172,175,0.2);
+      --border-b: rgba(165,172,175,0.07);
     }
     .dark {
       --bg: #00112b;
       --text: #FFFFFF;
       --text-secondary: #A5ACAF;
       --surface: #001830;
-      --border: rgba(105,190,40,0.18);
-      --border-strong: rgba(105,190,40,0.32);
+      --border: rgba(165,172,175,0.18);
+      --border-strong: rgba(165,172,175,0.3);
+      --border-t: rgba(165,172,175,0.32);
+      --border-s: rgba(165,172,175,0.13);
+      --border-b: rgba(165,172,175,0.04);
     }
     .dark .industry-card { background: #012244; }
     .dark .industry-card:hover { background: var(--navy); }
@@ -60,74 +66,75 @@
       z-index:9999;
     }
 
-    /* Buttons */
-    .btn-primary {
+    /* ── Buttons: pill shape, matches law-firms hero-btn exactly ── */
+    .hero-btn {
       display:inline-flex; align-items:center; gap:8px;
       background:var(--navy); color:#fff;
-      padding:14px 28px;
-      border-radius:8px;
-      font-family:'Inter',sans-serif; font-weight:700;
-      font-size:13px; letter-spacing:0.08em; text-transform:uppercase;
-      border:2px solid var(--navy); cursor:pointer;
+      padding:14px 28px; border-radius:50px;
+      font-family:'IBM Plex Mono','Courier New',monospace; font-weight:500;
+      font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
+      border-top:1px solid rgba(100,149,237,0.55); border-right:1px solid rgba(100,149,237,0.22);
+      border-bottom:1px solid rgba(100,149,237,0.07); border-left:1px solid rgba(100,149,237,0.22);
+      cursor:pointer;
+      box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);
       transition: background-color 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
       white-space:nowrap;
     }
-    .btn-primary:hover {
-      background:var(--green); border-color:var(--green);
-      transform:scale(1.05);
-      box-shadow:0 8px 30px rgba(105,190,40,0.35);
+    .hero-btn:hover {
+      background:var(--green);
+      border-top-color:rgba(105,190,40,0.8); border-right-color:rgba(105,190,40,0.32);
+      border-bottom-color:rgba(105,190,40,0.1); border-left-color:rgba(105,190,40,0.32);
+      transform:scale(1.04);
+      box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);
     }
-    .btn-primary:active { background:var(--green-dark); border-color:var(--green-dark); transform:scale(0.98); }
-    .btn-primary:focus-visible { outline:2px solid var(--green); outline-offset:3px; }
-    .dark .btn-primary { background:var(--green); border-color:var(--green); color:#fff; }
-    .dark .btn-primary:hover { background:var(--green-dark); border-color:var(--green-dark); }
+    .hero-btn:active { background:var(--green-dark); transform:scale(0.98); }
+    .hero-btn:focus-visible { outline:2px solid var(--green); outline-offset:3px; }
+    html:not(.dark) .hero-btn {
+      box-shadow:0 2px 8px rgba(0,34,68,0.12);
+    }
+    html:not(.dark) .hero-btn:hover {
+      box-shadow:0 4px 16px rgba(105,190,40,0.25);
+    }
 
-    .btn-outline {
-      display:inline-flex; align-items:center; gap:8px;
-      background:transparent; color:var(--text);
-      padding:12px 24px;
-      border-radius:8px;
-      font-family:'Inter',sans-serif; font-weight:700;
-      font-size:13px; letter-spacing:0.08em; text-transform:uppercase;
-      border:2px solid rgba(0,34,68,0.35); cursor:pointer;
-      transition: background-color 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out, color 0.2s ease-out;
-    }
-    .dark .btn-outline { border-color:rgba(105,190,40,0.4); color:#fff; }
-    .btn-outline:hover {
-      background:var(--green); color:#fff; border-color:var(--green);
-      transform:scale(1.05);
-      box-shadow:0 8px 30px rgba(105,190,40,0.35);
-    }
-    .btn-outline:active { background:var(--green-dark); transform:scale(0.98); }
-    .btn-outline:focus-visible { outline:2px solid var(--green); outline-offset:3px; }
+    /* Footer buttons always use dark appearance */
+    footer .hero-btn{box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05) !important;}
+    footer .hero-btn:hover{box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3) !important;}
 
-    /* Nav */
-    .nav-link {
-      color:var(--text); font-size:14px; font-family:'Roboto',sans-serif;
-      opacity:0.65;
-      transition: opacity 0.2s ease-out;
-    }
-    .nav-link:hover { opacity:1; }
-    .nav-link:focus-visible { outline:2px solid var(--green); outline-offset:3px; border-radius:2px; }
-
-    /* Dark mode toggle */
+    /* Pill dark/light toggle */
     .dark-toggle {
-      width:44px; height:44px;
-      display:flex; align-items:center; justify-content:center;
-      border:2px solid var(--border-strong);
-      border-radius:8px;
-      background:var(--surface); cursor:pointer;
-      transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+      width:72px; height:36px;
+      display:flex; align-items:center;
+      border-radius:50px;
+      background:#FFFFFF; cursor:pointer;
+      position:relative; padding:0;
+      border:1px solid rgba(0,34,68,0.15);
       flex-shrink:0;
+      transition: background 0.3s ease-out, border-color 0.2s ease-out;
     }
-    .dark-toggle:hover { border-color:var(--green); background:rgba(105,190,40,0.08); }
+    .dark .dark-toggle { background:#1a1f2e; border-color:rgba(165,172,175,0.2); }
+    .dark-toggle:hover { border-color:var(--green); }
     .dark-toggle:focus-visible { outline:2px solid var(--green); outline-offset:2px; }
+    .toggle-highlight {
+      position:absolute; width:30px; height:30px;
+      border-radius:50%; background:rgba(0,34,68,0.08);
+      top:3px; left:3px;
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .dark .toggle-highlight { background:rgba(255,255,255,0.15); }
+    .toggle-icon {
+      width:36px; height:36px;
+      display:flex; align-items:center; justify-content:center;
+      position:relative; z-index:1;
+    }
+    .toggle-icon svg { stroke:#002244; transition:stroke 0.3s ease-out; }
+    .dark .toggle-icon svg { stroke:#ffffff; }
 
     /* Industry cards */
     .industry-card {
       display:flex; flex-direction:column;
       padding:32px 28px;
-      border:2px solid var(--border-strong);
+      border-top:1px solid var(--border-t); border-right:1px solid var(--border-s);
+      border-bottom:1px solid var(--border-b); border-left:1px solid var(--border-s);
       border-radius:12px;
       background:var(--surface);
       color:var(--text); cursor:pointer;
@@ -145,7 +152,10 @@
     .industry-card:hover::before { opacity:1; }
     .industry-card:hover {
       background:var(--navy); color:#fff;
-      border-color:var(--green);
+      border-top-color:rgba(105,190,40,0.55);
+      border-right-color:rgba(105,190,40,0.22);
+      border-bottom-color:rgba(105,190,40,0.08);
+      border-left-color:rgba(105,190,40,0.22);
       transform:translateY(-6px);
       box-shadow:0 20px 50px rgba(0,34,68,0.18), 0 0 0 1px rgba(105,190,40,0.25);
     }
@@ -158,10 +168,10 @@
     /* Form input */
     .form-input {
       width:100%; padding:14px 18px;
-      border:2px solid var(--border-strong);
-      border-radius:8px;
+      border:1px solid var(--border-strong);
+      border-radius:50px;
       background:var(--bg); color:var(--text);
-      font-family:'Roboto',sans-serif; font-size:16px;
+      font-family:'IBM Plex Mono',monospace; font-size:14px;
       outline:none;
       transition: border-color 0.2s ease-out;
     }
@@ -177,7 +187,7 @@
 
     /* Eyebrow */
     .eyebrow {
-      font-family:'Roboto',sans-serif; font-size:11px;
+      font-family:'IBM Plex Mono',monospace; font-size:11px;
       letter-spacing:0.2em; text-transform:uppercase;
       color:var(--gray); font-weight:500;
     }
@@ -216,7 +226,7 @@
     .industry-badge {
       display:inline-flex; align-items:center; gap:8px;
       padding:7px 14px 7px 10px;
-      border:1.5px solid rgba(0,34,68,0.28);
+      border:1px solid rgba(165,172,175,0.4);
       border-radius:999px;
       background:rgba(0,34,68,0.05);
     }
@@ -226,13 +236,13 @@
       box-shadow:0 0 5px rgba(0,34,68,0.35);
     }
     .industry-badge-label {
-      font-family:'Inter',sans-serif; font-weight:700;
-      font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+      font-family:'IBM Plex Mono',monospace; font-weight:500;
+      font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
       color:#002244;
     }
     .dark .industry-badge {
-      border-color:rgba(105,190,40,0.45);
-      background:rgba(105,190,40,0.08);
+      border-color:rgba(165,172,175,0.3);
+      background:rgba(165,172,175,0.05);
     }
     .dark .industry-badge-dot {
       background:#69BE28;
@@ -254,19 +264,20 @@
       </a>
 
       <!-- Right controls -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-3 ml-auto">
         <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark/light mode">
-          <svg id="sunIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
-            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
-          <svg id="moonIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
+          <span class="toggle-highlight" id="toggleHL"></span>
+          <span class="toggle-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+          <span class="toggle-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </span>
         </button>
-        <a href="#contact" class="btn-outline" style="padding:10px 20px;">Get in Touch</a>
+        <a href="#contact" class="hero-btn hidden md:inline-flex" style="padding:12px 24px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Book a Call
+        </a>
       </div>
     </div>
   </nav>
@@ -286,11 +297,11 @@
 
       <!-- Full-width headline -->
       <h1 class="fade-in" style="font-size:clamp(2.2rem,4.2vw,4.5rem);line-height:1.02;transition-delay:0.15s;">
-        Unlock AI-Powered Efficiency<br>for Your Washington Business.
+        Unlock AI-powered efficiency<br>for your Washington business.
       </h1>
 
       <!-- Subtitle -->
-      <p class="fade-in mt-4 md:mt-5" style="font-size:16px;line-height:1.75;color:var(--text-secondary);max-width:620px;transition-delay:0.25s;">
+      <p class="fade-in mt-4 md:mt-5" style="font-size:16px;line-height:1.75;color:var(--text-secondary);max-width:620px;transition-delay:0.25s;font-family:'Roboto',sans-serif;">
         We evaluate your workflows, surface missed ROI opportunities, and implement AI tools built for Washington law firms and home service companies. No jargon — just results.
       </p>
 
@@ -305,7 +316,7 @@
           <!-- Law Firms card -->
           <a href="law-firms.html" class="industry-card" aria-label="Go to Law Firms page">
             <div class="flex items-center justify-between w-full mb-5">
-              <div style="width:48px;height:48px;background:rgba(105,190,40,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+              <div style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69BE28" stroke-width="2">
                   <rect x="2" y="7" width="20" height="14" rx="1.5"/>
                   <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
@@ -315,13 +326,13 @@
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.35;"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </div>
             <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.02em;margin-bottom:6px;">Law Firms</h3>
-            <p style="font-size:14px;opacity:0.68;line-height:1.6;">AI for legal research, case management & client communications.</p>
+            <p style="font-size:14px;opacity:0.68;line-height:1.6;font-family:'Roboto',sans-serif;">AI for legal research, case management & client communications.</p>
           </a>
 
           <!-- Home Services card -->
           <a href="home-services.html" class="industry-card" aria-label="Go to Home Services page">
             <div class="flex items-center justify-between w-full mb-5">
-              <div style="width:48px;height:48px;background:rgba(105,190,40,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+              <div style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69BE28" stroke-width="2">
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                   <polyline points="9 22 9 12 15 12 15 22"/>
@@ -330,16 +341,16 @@
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.35;"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </div>
             <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.02em;margin-bottom:6px;">Home Services</h3>
-            <p style="font-size:14px;opacity:0.68;line-height:1.6;">AI for HVAC, plumbing & electrical scheduling and field ops.</p>
+            <p style="font-size:14px;opacity:0.68;line-height:1.6;font-family:'Roboto',sans-serif;">AI for HVAC, plumbing & electrical scheduling and field ops.</p>
           </a>
         </div>
       </div>
 
       <!-- Bottom CTA -->
       <div class="mt-7 fade-in" style="transition-delay:0.45s;">
-        <a href="#contact" class="btn-primary">
-          Book a Free Consultation
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        <a href="#contact" class="hero-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Book a Consultation
         </a>
       </div>
     </div>
@@ -357,30 +368,24 @@
 
           <!-- Logo + name -->
           <a href="index.html" class="flex items-center gap-3" aria-label="Seattle AI Consultants home" style="width:fit-content;">
-            <img src="LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Seattle AI Consultants" style="height:40px;width:auto;filter:brightness(0) invert(1);">
+            <img src="LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Seattle AI Consultants" style="height:40px;width:auto;">
             <span style="font-family:'Inter',sans-serif;font-weight:700;font-size:15px;color:#fff;letter-spacing:-0.01em;">Seattle AI Consultants</span>
           </a>
 
           <!-- Copyright -->
-          <p style="font-size:13px;color:rgba(255,255,255,0.42);margin:0;line-height:1.7;">
+          <p style="font-size:13px;color:rgba(255,255,255,0.42);margin:0;line-height:1.7;font-family:'Roboto',sans-serif;">
             © 2026 Seattle AI Consultants<br>
             Founded by Nhat &amp; Ebrima
           </p>
 
-          <!-- Sub-page links -->
-          <div class="flex gap-6 flex-wrap">
-            <a href="law-firms.html" style="font-size:13px;font-family:'Roboto',sans-serif;color:rgba(255,255,255,0.5);transition:color 0.2s ease-out;"
-              onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.5)'">Law Firms</a>
-            <a href="home-services.html" style="font-size:13px;font-family:'Roboto',sans-serif;color:rgba(255,255,255,0.5);transition:color 0.2s ease-out;"
-              onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.5)'">Home Services</a>
-          </div>
+          <p style="font-size:11px;font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin:0;">Contact Us</p>
 
           <!-- Contact info -->
           <div class="flex flex-col gap-4">
 
             <!-- LinkedIn -->
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
-              style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s ease-out;width:fit-content;"
+              style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s ease-out;width:fit-content;font-family:'Roboto',sans-serif;"
               onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.5)'">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -388,9 +393,17 @@
               LinkedIn
             </a>
 
+            <!-- X / Twitter -->
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+              style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s ease-out;width:fit-content;font-family:'Roboto',sans-serif;"
+              onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.5)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+              X / Twitter
+            </a>
+
             <!-- Email -->
             <a href="mailto:contact@agent425.com"
-              style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s ease-out;width:fit-content;"
+              style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s ease-out;width:fit-content;font-family:'Roboto',sans-serif;"
               onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.5)'">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -401,7 +414,7 @@
 
             <!-- Phone -->
             <a href="tel:+14253124800"
-              style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s ease-out;width:fit-content;"
+              style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s ease-out;width:fit-content;font-family:'Roboto',sans-serif;"
               onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.5)'">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -418,7 +431,7 @@
           <h3 style="font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(1.3rem,2.2vw,1.7rem);letter-spacing:-0.03em;color:#fff;margin:0 0 12px;line-height:1.1;">
             Free AI Tips for<br>WA Businesses
           </h3>
-          <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin:0 0 28px;max-width:380px;">
+          <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin:0 0 28px;max-width:380px;font-family:'Roboto',sans-serif;">
             Practical AI tips, industry insights, and exclusive resources for Washington law firms and home service companies — delivered to your inbox.
           </p>
           <form id="footerEmailForm" onsubmit="handleEmail(event,'footerEmailBtn')" style="display:flex;flex-direction:column;gap:10px;max-width:400px;">
@@ -427,11 +440,11 @@
               placeholder="your@email.com"
               required
               aria-label="Your email address"
-              style="width:100%;padding:14px 18px;border:2px solid rgba(255,255,255,0.15);border-radius:8px;background:rgba(255,255,255,0.06);color:#fff;font-family:'Roboto',sans-serif;font-size:15px;outline:none;transition:border-color 0.2s ease-out;box-sizing:border-box;"
+              style="width:100%;padding:14px 18px;border:2px solid rgba(255,255,255,0.15);border-radius:50px;background:rgba(255,255,255,0.06);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:14px;outline:none;transition:border-color 0.2s ease-out;box-sizing:border-box;"
               onfocus="this.style.borderColor='#69BE28'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'"
             >
-            <button type="submit" id="footerEmailBtn" class="btn-primary" style="justify-content:center;background:#69BE28;border-color:#69BE28;">
-              Get Free AI Resources
+            <button type="submit" id="footerEmailBtn" class="hero-btn" style="justify-content:center;">
+              Get free AI resources
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
           </form>
@@ -441,7 +454,7 @@
 
       <!-- Bottom rule -->
       <div style="margin-top:52px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);">
-        <p style="font-size:12px;color:rgba(255,255,255,0.28);margin:0;text-align:center;letter-spacing:0.04em;">
+        <p style="font-size:12px;color:rgba(255,255,255,0.28);margin:0;text-align:center;letter-spacing:0.04em;font-family:'IBM Plex Mono',monospace;">
           AI Advisory · Implementation · Transformation &nbsp;—&nbsp; Seattle, Washington
         </p>
       </div>
@@ -453,17 +466,15 @@
     // ── Dark mode ──────────────────────────────────────────────
     const html = document.documentElement;
     const toggle = document.getElementById('darkToggle');
-    const sun = document.getElementById('sunIcon');
-    const moon = document.getElementById('moonIcon');
+    const hl = document.getElementById('toggleHL');
 
     function applyDark(on) {
       html.classList.toggle('dark', on);
-      sun.style.display = on ? 'block' : 'none';
-      moon.style.display = on ? 'none' : 'block';
+      hl.style.transform = on ? 'translateX(0)' : 'translateX(36px)';
       localStorage.setItem('darkMode', on ? '1' : '0');
     }
     const saved = localStorage.getItem('darkMode');
-    applyDark(saved === '1' || (!saved && window.matchMedia('(prefers-color-scheme:dark)').matches));
+    applyDark(saved === '1');
     toggle.addEventListener('click', () => applyDark(!html.classList.contains('dark')));
 
     // ── Fade-in on scroll ──────────────────────────────────────

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 3-Question Workflow Audit: Find Your Highest-ROI AI Opportunity — Agent 425</title>
+  <meta name="description" content="Before buying any AI tool, every business needs to answer three questions about their operations. The exact framework Agent 425 uses in every engagement.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#002244; --green:#69BE28; --green-dark:#5AA023;
+      --gray:#A5ACAF; --bg:#FFFFFF; --text:#002244;
+      --text-secondary:#4a5568; --surface:#f7f8fa;
+      --border:rgba(165,172,175,0.28); --border-strong:rgba(165,172,175,0.45);
+    }
+    .dark {
+      --bg:#00112b; --text:#FFFFFF; --text-secondary:#A5ACAF;
+      --surface:#001830;
+      --border:rgba(165,172,175,0.18); --border-strong:rgba(165,172,175,0.3);
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    html{font-size:16px;}
+    body{font-family:'Roboto',sans-serif;background-color:var(--bg);color:var(--text);line-height:1.7;margin:0;transition:background-color 0.3s ease,color 0.3s ease;}
+    h1,h2,h3,h4,h5{font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;line-height:1.1;}
+    a{text-decoration:none;}
+    body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;}
+
+    .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid rgba(100,149,237,0.55);border-right:1px solid rgba(100,149,237,0.22);border-bottom:1px solid rgba(100,149,237,0.07);border-left:1px solid rgba(100,149,237,0.22);cursor:pointer;box-shadow:none;transition:background-color 0.2s ease-out,transform 0.2s ease-out,box-shadow 0.2s ease-out,border-color 0.2s ease-out;white-space:nowrap;}
+    .hero-btn:hover{background:var(--green);border-top-color:rgba(105,190,40,0.8);border-right-color:rgba(105,190,40,0.32);border-bottom-color:rgba(105,190,40,0.1);border-left-color:rgba(105,190,40,0.32);transform:scale(1.04);box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);}
+    .hero-btn:active{background:var(--green-dark);transform:scale(0.98);}
+    .dark .hero-btn{box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);}
+
+    .nav-link{color:var(--text);font-size:11.5px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.65;transition:opacity 0.2s ease-out;}
+    .nav-link:hover{opacity:1;}
+    .nav-link.active{opacity:1;color:var(--green);}
+
+    .dark-toggle{width:72px;height:36px;display:flex;align-items:center;border-radius:50px;background:#FFFFFF;cursor:pointer;position:relative;padding:0;border:1px solid rgba(0,34,68,0.15);flex-shrink:0;transition:background 0.3s ease-out,border-color 0.2s ease-out;}
+    .dark .dark-toggle{background:#1a1f2e;border-color:rgba(165,172,175,0.2);}
+    .dark-toggle:hover{border-color:var(--green);}
+    .toggle-highlight{position:absolute;width:30px;height:30px;border-radius:50%;background:rgba(0,34,68,0.08);top:3px;left:3px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);}
+    .dark .toggle-highlight{background:rgba(255,255,255,0.15);}
+    .toggle-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;}
+    .toggle-icon svg{stroke:#002244;transition:stroke 0.3s ease-out;}
+    .dark .toggle-icon svg{stroke:#ffffff;}
+
+    .nav-backdrop{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+    .dark .nav-backdrop{background:rgba(0,17,43,0.92);}
+
+    .section-label{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray);display:block;}
+    .section-divider{border-top:1px solid var(--border);}
+
+    .article-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border:1px solid var(--border-strong);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);}
+
+    .article-body h2{font-size:clamp(1.3rem,2.5vw,1.8rem);margin:48px 0 16px;color:var(--text);}
+    .article-body h3{font-size:clamp(1.1rem,2vw,1.35rem);margin:36px 0 12px;color:var(--text);}
+    .article-body p{font-size:17px;line-height:1.8;color:var(--text-secondary);margin:0 0 24px;}
+    .article-body ul,.article-body ol{font-size:17px;line-height:1.8;color:var(--text-secondary);margin:0 0 24px;padding-left:24px;}
+    .article-body li{margin-bottom:8px;}
+    .article-body strong{color:var(--text);font-weight:700;}
+    .article-body blockquote{border-left:3px solid var(--green);padding:16px 0 16px 24px;margin:32px 0;background:var(--surface);border-radius:0 8px 8px 0;}
+    .article-body blockquote p{margin:0;font-size:18px;font-style:italic;color:var(--text);}
+    .article-body .callout{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:36px 0;}
+    .article-body .callout-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:block;}
+
+    .question-block{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:28px 32px;margin:36px 0;}
+    .question-num{font-family:'Inter',sans-serif;font-weight:900;font-size:3rem;letter-spacing:-0.04em;color:var(--green);line-height:1;display:block;text-shadow:0 0 24px rgba(105,190,40,0.4);margin-bottom:8px;}
+    .question-title{font-family:'Inter',sans-serif;font-weight:900;font-size:1.3rem;letter-spacing:-0.02em;color:var(--text);margin-bottom:12px;}
+
+    .closing-cta-section{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 20px 80px;background:var(--bg);position:relative;overflow:hidden;}
+    .closing-cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 10% 80%,rgba(105,190,40,0.04) 0%,transparent 65%);pointer-events:none;}
+
+    .back-link{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);display:inline-flex;align-items:center;gap:8px;transition:color 0.2s ease-out;}
+    .back-link:hover{color:var(--green);}
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="sticky top-0 z-50" style="border-bottom:1px solid var(--border);">
+    <div class="nav-backdrop absolute inset-0"></div>
+    <div class="relative max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex items-center gap-3 flex-shrink-0" aria-label="Agent 425 home">
+        <img src="../LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Agent 425 Logo" style="height:42px;width:auto;">
+      </a>
+      <div class="hidden md:flex items-center gap-7 ml-auto mr-4">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../case-studies.html" class="nav-link">Case Studies</a>
+        <a href="../insights.html" class="nav-link active">Insights</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark/light mode">
+          <span class="toggle-highlight" id="toggleHL"></span>
+          <span class="toggle-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+          <span class="toggle-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </span>
+        </button>
+        <a href="../index.html#contact" class="hero-btn hidden md:inline-flex" style="padding:12px 24px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Book a Call
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ ARTICLE HEADER ═══ -->
+  <section style="padding:80px 20px 60px;">
+    <div class="max-w-3xl mx-auto">
+      <a href="../insights.html" class="back-link" style="margin-bottom:32px;display:inline-flex;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Insights
+      </a>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="article-tag">Strategy</span>
+        <span class="article-tag">Implementation</span>
+      </div>
+      <h1 style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin:0 0 24px;">The 3-question workflow audit: how to find your highest-ROI AI opportunity in under an hour</h1>
+      <div class="flex items-center gap-6" style="padding-bottom:40px;border-bottom:1px solid var(--border);">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">Jan 15, 2026</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">5 min read</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">By Agent 425</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ARTICLE BODY ═══ -->
+  <section style="padding:0 20px 80px;">
+    <div class="max-w-3xl mx-auto article-body">
+
+      <p>Every week we talk to business owners who are trying to figure out where AI fits in their operations. Most conversations go the same way: they've heard AI can automate things, they've maybe tried ChatGPT for drafting, and they have a vague sense that they should be doing more — but no clear picture of what specifically would move the needle.</p>
+
+      <p>The problem isn't information. There's an overwhelming amount of content about AI tools. The problem is prioritization: which specific workflow, in your specific business, with your specific constraints, will generate the fastest and most measurable return?</p>
+
+      <p>This article walks through the exact three-question audit we use at Agent 425 before every engagement. You can do this in under an hour with a notepad. The output is a ranked list of your highest-ROI AI opportunities.</p>
+
+      <h2>Why most AI initiatives fail before they start</h2>
+
+      <p>The most common failure mode we see isn't a bad tool selection. It's starting in the wrong place. A business owner reads about AI scheduling tools and tries to implement one, when the actual bottleneck in their business is after-hours lead response. Or a law firm invests in contract drafting automation when their biggest untapped opportunity is faster client intake.</p>
+
+      <p>Fixing the wrong problem with excellent execution is still a loss. The audit exists to make sure you're starting with the right problem.</p>
+
+      <blockquote>
+        <p>"We spent three months trying to automate our invoicing before we realized our real problem was that we were losing 20% of our prospects at first contact. The intake fix took two weeks and paid for itself in 30 days."</p>
+      </blockquote>
+
+      <h2>The three questions</h2>
+
+      <div class="question-block">
+        <span class="question-num">01</span>
+        <div class="question-title">Where do tasks pile up, slow down, or disappear?</div>
+        <p style="font-size:16px;color:var(--text-secondary);margin:0;">This question identifies your operational bottlenecks — the places in your workflow where things consistently take longer than they should, where errors cluster, or where work falls through the cracks entirely.</p>
+      </div>
+
+      <p>To answer this, walk through your business's value chain from first customer contact to delivered result and paid invoice. At each step, ask: Does this ever get backed up? Do things ever get lost here? Do people ever have to redo work here?</p>
+
+      <p>Common answers we hear from law firms: "Case research takes forever." "Intake inquiries sometimes don't get followed up for days." "Document assembly is slow and error-prone."</p>
+
+      <p>Common answers from home service businesses: "After-hours calls go to voicemail." "Scheduling conflicts come up constantly." "Invoicing is always behind."</p>
+
+      <p>Write down everything. Don't filter at this stage — you're just mapping the landscape. You want a list of 5-10 friction points before you move to question two.</p>
+
+      <div class="question-block">
+        <span class="question-num">02</span>
+        <div class="question-title">Which of these friction points is costing you the most money right now?</div>
+        <p style="font-size:16px;color:var(--text-secondary);margin:0;">This question forces prioritization by attaching dollar values to the friction points you identified. Not all bottlenecks are equal — and the one that gets automated first should be the one with the highest revenue impact or cost reduction potential.</p>
+      </div>
+
+      <p>For each friction point on your list, estimate the cost using one of three lenses:</p>
+
+      <ul>
+        <li><strong>Revenue lost</strong> — How many opportunities are you missing because of this friction? Multiply by average deal value.</li>
+        <li><strong>Time cost</strong> — How many hours per week does this consume? Multiply by the fully-loaded hourly cost of the person doing it.</li>
+        <li><strong>Error cost</strong> — How often does this friction point cause mistakes? What do those mistakes cost to fix, or what do they cost in lost client trust?</li>
+      </ul>
+
+      <p>Most business owners find that this exercise produces a surprising result: the friction point they assumed was most important often isn't. The highest cost item is usually something they've normalized — they've been living with it so long it doesn't feel like a problem anymore.</p>
+
+      <div class="callout">
+        <span class="callout-label">Typical finding pattern</span>
+        <p style="margin:0;font-size:16px;color:var(--text);">For law firms: the highest-cost friction is almost always client intake response time. For home service companies: it's almost always after-hours call handling. These two areas represent 60-70% of the AI ROI we see in these industries, yet they're rarely what clients lead with when we first talk.</p>
+      </div>
+
+      <div class="question-block">
+        <span class="question-num">03</span>
+        <div class="question-title">Is the top friction point rule-based enough for AI to handle it reliably?</div>
+        <p style="font-size:16px;color:var(--text-secondary);margin:0;">This question filters for automation feasibility. Not every friction point can be fixed with AI — some require organizational change, some require human judgment, and some are genuinely novel enough that AI can't handle them reliably yet.</p>
+      </div>
+
+      <p>A task is high AI-readiness if it has most of these characteristics:</p>
+
+      <ul>
+        <li><strong>High volume and repetition</strong> — The same basic pattern happens many times, even if the specific details vary</li>
+        <li><strong>Clear inputs and outputs</strong> — You can describe what good output looks like, and the inputs needed to produce it</li>
+        <li><strong>Defined rules</strong> — There's a logic to how the task gets done that can be written down, even if it's complex</li>
+        <li><strong>Measurable success</strong> — You'll be able to tell whether the AI is doing it correctly</li>
+        <li><strong>Bounded stakes</strong> — An error produces a recoverable problem, not a catastrophic one</li>
+      </ul>
+
+      <p>Tasks with low AI-readiness: novel strategic decisions, relationship-dependent conversations, creative work requiring original judgment, anything where the definition of "correct" changes constantly.</p>
+
+      <h2>Applying the audit: a worked example</h2>
+
+      <p>Let's walk through the audit with a hypothetical Tacoma HVAC company, 10 technicians:</p>
+
+      <p><strong>Question 1 — Friction points identified:</strong></p>
+      <ol>
+        <li>After-hours calls going to voicemail</li>
+        <li>Scheduling conflicts discovered day-of</li>
+        <li>Invoicing taking 3-5 days after job completion</li>
+        <li>Parts ordering requiring manual lookups</li>
+        <li>Customer follow-up calls not happening consistently</li>
+      </ol>
+
+      <p><strong>Question 2 — Cost estimation:</strong></p>
+      <ul>
+        <li>After-hours voicemail: ~25 calls/week at 89% drop rate = ~22 lost leads × $650 average job = <strong>$14,300/week</strong></li>
+        <li>Day-of scheduling conflicts: 3-4 per week × 2 hours each = ~7 hours at $85/hr dispatcher cost = <strong>$595/week</strong></li>
+        <li>Delayed invoicing: Average 4-day payment delay × 10 jobs/week = cash flow cost + occasional disputes = <strong>~$200/week</strong></li>
+        <li>Manual parts ordering: 30 min per job × 10 jobs/week = 5 hours at $55/hr = <strong>$275/week</strong></li>
+        <li>Follow-up gaps: Hard to quantify but estimated 1-2 lost reviews/repeat customers per week = <strong>$200-400/week</strong></li>
+      </ul>
+
+      <p>The answer is immediate: after-hours call handling is 15-20x more expensive than the next friction point. Everything else is noise by comparison.</p>
+
+      <p><strong>Question 3 — Feasibility check for after-hours call handling:</strong></p>
+      <ul>
+        <li>High volume and repetition? Yes — same types of calls every evening and weekend</li>
+        <li>Clear inputs/outputs? Yes — caller provides job type, address, urgency; AI books or escalates</li>
+        <li>Defined rules? Yes — booking logic, escalation triggers, and scheduling constraints can all be codified</li>
+        <li>Measurable success? Yes — booking rate is directly trackable</li>
+        <li>Bounded stakes? Yes — worst case is a slightly awkward call; escalation safety net for true emergencies</li>
+      </ul>
+
+      <p>Result: after-hours AI answering is the clear first deployment for this business. Everything else goes on the backlog.</p>
+
+      <h2>What to do with your audit results</h2>
+
+      <p>Once you've completed the three-question audit, you have two choices: implement the top opportunity yourself, or bring in a consultant to design and build it for you. The DIY path is viable for some automation types if you have technical resources internally. For most SMBs, the implementation complexity and the cost of getting it wrong makes a guided engagement the better investment.</p>
+
+      <p>Our discovery call is a 30-minute version of this audit, done live with a member of the Agent 425 team. We'll work through your specific workflow, quantify the opportunity, and show you what the implementation would look like. You'll leave with a clear picture of your highest-ROI move — whether you work with us or not.</p>
+
+    </div>
+  </section>
+
+  <!-- ═══ CLOSING CTA ═══ -->
+  <section class="closing-cta-section section-divider">
+    <div class="max-w-7xl mx-auto w-full">
+      <div class="grid lg:grid-cols-[1fr_auto] gap-12 items-end">
+        <div>
+          <span class="section-label" style="margin-bottom:24px;display:block;">The window is closing</span>
+          <h2 style="font-size:clamp(3rem,8vw,8rem);line-height:0.95;letter-spacing:-0.04em;margin:0 0 40px;max-width:1000px;">The companies that move now will own the next decade.</h2>
+        </div>
+        <div style="flex-shrink:0;padding-bottom:8px;">
+          <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:340px;margin:0 0 28px;font-family:'Roboto',sans-serif;">Skip the audit and let us do it for you in 30 minutes. Book a free discovery call with Agent 425.</p>
+          <a href="../index.html#contact" class="hero-btn" style="font-size:13px;padding:16px 32px;">
+            Book a Free Call
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer style="background:var(--navy);border-top:3px solid var(--green);padding:48px 20px 32px;">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <a href="../index.html" class="flex items-center gap-3" aria-label="Agent 425 home">
+        <img src="../LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Agent 425" style="height:36px;width:auto;">
+        <span style="font-family:'Inter',sans-serif;font-weight:700;font-size:14px;color:#fff;letter-spacing:-0.01em;">Seattle AI Consultants</span>
+      </a>
+      <div class="flex gap-6 flex-wrap">
+        <a href="../index.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Home</a>
+        <a href="../case-studies.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Case Studies</a>
+        <a href="../insights.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Insights</a>
+        <a href="mailto:contact@agent425.com" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">contact@agent425.com</a>
+      </div>
+      <p style="font-size:12px;color:rgba(255,255,255,0.28);margin:0;font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;">© 2026 Seattle AI Consultants</p>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('darkToggle');
+    const hl = document.getElementById('toggleHL');
+    function applyDark(on) {
+      html.classList.toggle('dark', on);
+      hl.style.transform = on ? 'translateX(0)' : 'translateX(36px)';
+      localStorage.setItem('darkMode', on ? '1' : '0');
+    }
+    const saved = localStorage.getItem('darkMode');
+    applyDark(saved === '1');
+    toggle.addEventListener('click', () => applyDark(!html.classList.contains('dark')));
+  </script>
+</body>
+</html>

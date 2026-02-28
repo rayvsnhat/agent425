@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Washington Law Firms Are Cutting Research Time by 40% with AI — Agent 425</title>
+  <meta name="description" content="The case for AI legal research isn't about replacing billable hours — it's about multiplying them. A breakdown of which research tasks are automation-ready today.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#002244; --green:#69BE28; --green-dark:#5AA023;
+      --gray:#A5ACAF; --bg:#FFFFFF; --text:#002244;
+      --text-secondary:#4a5568; --surface:#f7f8fa;
+      --border:rgba(165,172,175,0.28); --border-strong:rgba(165,172,175,0.45);
+    }
+    .dark {
+      --bg:#00112b; --text:#FFFFFF; --text-secondary:#A5ACAF;
+      --surface:#001830;
+      --border:rgba(165,172,175,0.18); --border-strong:rgba(165,172,175,0.3);
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    html{font-size:16px;}
+    body{font-family:'Roboto',sans-serif;background-color:var(--bg);color:var(--text);line-height:1.7;margin:0;transition:background-color 0.3s ease,color 0.3s ease;}
+    h1,h2,h3,h4,h5{font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;line-height:1.1;}
+    a{text-decoration:none;}
+    body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;}
+
+    .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid rgba(100,149,237,0.55);border-right:1px solid rgba(100,149,237,0.22);border-bottom:1px solid rgba(100,149,237,0.07);border-left:1px solid rgba(100,149,237,0.22);cursor:pointer;box-shadow:none;transition:background-color 0.2s ease-out,transform 0.2s ease-out,box-shadow 0.2s ease-out,border-color 0.2s ease-out;white-space:nowrap;}
+    .hero-btn:hover{background:var(--green);border-top-color:rgba(105,190,40,0.8);border-right-color:rgba(105,190,40,0.32);border-bottom-color:rgba(105,190,40,0.1);border-left-color:rgba(105,190,40,0.32);transform:scale(1.04);box-shadow:0 0 30px rgba(105,190,40,0.5),0 6px 20px rgba(105,190,40,0.3);}
+    .hero-btn:active{background:var(--green-dark);transform:scale(0.98);}
+    .dark .hero-btn{box-shadow:0 0 30px rgba(0,17,43,0.9),0 4px 18px rgba(0,17,43,0.7),inset 0 1px 0 rgba(255,255,255,0.05);}
+
+    .nav-link{color:var(--text);font-size:11.5px;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.65;transition:opacity 0.2s ease-out;}
+    .nav-link:hover{opacity:1;}
+    .nav-link.active{opacity:1;color:var(--green);}
+
+    .dark-toggle{width:72px;height:36px;display:flex;align-items:center;border-radius:50px;background:#FFFFFF;cursor:pointer;position:relative;padding:0;border:1px solid rgba(0,34,68,0.15);flex-shrink:0;transition:background 0.3s ease-out,border-color 0.2s ease-out;}
+    .dark .dark-toggle{background:#1a1f2e;border-color:rgba(165,172,175,0.2);}
+    .dark-toggle:hover{border-color:var(--green);}
+    .toggle-highlight{position:absolute;width:30px;height:30px;border-radius:50%;background:rgba(0,34,68,0.08);top:3px;left:3px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);}
+    .dark .toggle-highlight{background:rgba(255,255,255,0.15);}
+    .toggle-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;}
+    .toggle-icon svg{stroke:#002244;transition:stroke 0.3s ease-out;}
+    .dark .toggle-icon svg{stroke:#ffffff;}
+
+    .nav-backdrop{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+    .dark .nav-backdrop{background:rgba(0,17,43,0.92);}
+
+    .section-label{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray);display:block;}
+    .accent-line{display:block;width:48px;height:3px;border-radius:2px;background:var(--green);margin:16px 0 24px;}
+    .section-divider{border-top:1px solid var(--border);}
+
+    .article-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border:1px solid var(--border-strong);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);}
+
+    .article-body h2{font-size:clamp(1.3rem,2.5vw,1.8rem);margin:48px 0 16px;color:var(--text);}
+    .article-body h3{font-size:clamp(1.1rem,2vw,1.35rem);margin:36px 0 12px;color:var(--text);}
+    .article-body p{font-size:17px;line-height:1.8;color:var(--text-secondary);margin:0 0 24px;}
+    .article-body ul,.article-body ol{font-size:17px;line-height:1.8;color:var(--text-secondary);margin:0 0 24px;padding-left:24px;}
+    .article-body li{margin-bottom:8px;}
+    .article-body strong{color:var(--text);font-weight:700;}
+    .article-body blockquote{border-left:3px solid var(--green);padding:16px 0 16px 24px;margin:32px 0;background:var(--surface);border-radius:0 8px 8px 0;}
+    .article-body blockquote p{margin:0;font-size:18px;font-style:italic;color:var(--text);}
+    .article-body .callout{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:36px 0;}
+    .article-body .callout-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:block;}
+
+    .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin:36px 0;}
+    .stat-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;}
+    .stat-num{font-family:'Inter',sans-serif;font-weight:900;font-size:2.5rem;letter-spacing:-0.04em;color:var(--green);line-height:1;display:block;text-shadow:0 0 24px rgba(105,190,40,0.4);}
+    .stat-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);display:block;margin-top:8px;}
+
+    .closing-cta-section{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 20px 80px;background:var(--bg);position:relative;overflow:hidden;}
+    .closing-cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 10% 80%,rgba(105,190,40,0.04) 0%,transparent 65%);pointer-events:none;}
+
+    .back-link{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);display:inline-flex;align-items:center;gap:8px;transition:color 0.2s ease-out;}
+    .back-link:hover{color:var(--green);}
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="sticky top-0 z-50" style="border-bottom:1px solid var(--border);">
+    <div class="nav-backdrop absolute inset-0"></div>
+    <div class="relative max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex items-center gap-3 flex-shrink-0" aria-label="Agent 425 home">
+        <img src="../LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Agent 425 Logo" style="height:42px;width:auto;">
+      </a>
+      <div class="hidden md:flex items-center gap-7 ml-auto mr-4">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../case-studies.html" class="nav-link">Case Studies</a>
+        <a href="../insights.html" class="nav-link active">Insights</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark/light mode">
+          <span class="toggle-highlight" id="toggleHL"></span>
+          <span class="toggle-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+          <span class="toggle-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </span>
+        </button>
+        <a href="../index.html#contact" class="hero-btn hidden md:inline-flex" style="padding:12px 24px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Book a Call
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ ARTICLE HEADER ═══ -->
+  <section style="padding:80px 20px 60px;">
+    <div class="max-w-3xl mx-auto">
+      <a href="../insights.html" class="back-link" style="margin-bottom:32px;display:inline-flex;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Insights
+      </a>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="article-tag">Law Firms</span>
+        <span class="article-tag">Research</span>
+      </div>
+      <h1 style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin:0 0 24px;">How Washington law firms are cutting research time by 40% with AI — without replacing their associates</h1>
+      <div class="flex items-center gap-6" style="padding-bottom:40px;border-bottom:1px solid var(--border);">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">Feb 14, 2026</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">8 min read</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gray);">By Agent 425</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ARTICLE BODY ═══ -->
+  <section style="padding:0 20px 80px;">
+    <div class="max-w-3xl mx-auto article-body">
+
+      <p>Every attorney knows the feeling: three hours into a research task, and you're still refining your search terms, wading through case summaries that are almost relevant but not quite. Legal research is the highest-leverage skill in the profession — and also one of the most time-consuming. For most Washington firms, it accounts for between 20 and 35 percent of all billable and non-billable hours.</p>
+
+      <p>AI isn't going to replace that work. But it's already transforming how fast attorneys can do it — and the firms that understand the difference between what AI does well and what it doesn't are the ones pulling ahead right now.</p>
+
+      <div class="stat-row">
+        <div class="stat-item">
+          <span class="stat-num">40%</span>
+          <span class="stat-label">Research time reduction</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">3.2×</span>
+          <span class="stat-label">More cases reviewed/hour</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">87%</span>
+          <span class="stat-label">Citation accuracy rate</span>
+        </div>
+      </div>
+
+      <h2>The research problem AI actually solves</h2>
+
+      <p>The instinct when attorneys hear "AI for legal research" is to think about hallucination risk — and that's a real concern. Early tools got embarrassingly wrong answers. But current AI research assistants have changed the calculus significantly, because they've learned to do something different: they don't generate legal conclusions. They organize and surface existing ones.</p>
+
+      <p>The highest-value use case isn't asking AI "what does the law say about X?" It's using AI to rapidly triage the volume problem. A Pacific Northwest employment law firm we work with handles roughly 60 active matters at any given time. For each case, an associate might spend two to three hours doing initial case law research to confirm the basic landscape. With an AI pre-screening layer, that same initial survey takes under 45 minutes — because the AI has already flagged the fifteen most relevant cases out of thousands, ranked by citation frequency, jurisdiction match, and fact pattern similarity.</p>
+
+      <blockquote>
+        <p>"The AI doesn't tell us what to argue. It tells us where to look. That's the difference between a junior researcher and a brilliant paralegal who's already read everything."</p>
+      </blockquote>
+
+      <p>The attorney still reads the cases. Still makes the judgment calls. But they're not wading through 200 pages of marginally relevant results to find the three cases that actually matter.</p>
+
+      <h2>Which research tasks are automation-ready today</h2>
+
+      <p>Not all research tasks are equally suited to AI assistance. After working with firms across Seattle, Bellevue, and Tacoma, here's the breakdown we use with clients:</p>
+
+      <h3>High automation readiness</h3>
+      <ul>
+        <li><strong>Initial case law surveys</strong> — Finding the leading cases in a practice area, jurisdiction, and time window. AI excels at this because it's fundamentally a retrieval and ranking problem.</li>
+        <li><strong>Citation checking and Shepardizing</strong> — Confirming that cases are still good law and haven't been overturned or distinguished. This is tedious, rule-based, and perfect for automation.</li>
+        <li><strong>Statutory and regulatory cross-referencing</strong> — Finding all the places a statute is referenced across related regulations, agency guidance, and enforcement history.</li>
+        <li><strong>Document review triage</strong> — In discovery, AI can pre-classify documents by relevance, privilege likelihood, and category, dramatically reducing the time attorneys spend on first-pass review.</li>
+        <li><strong>Deposition and hearing transcript analysis</strong> — Pulling every instance a witness made a particular type of statement across dozens of hours of transcript.</li>
+      </ul>
+
+      <h3>Medium automation readiness</h3>
+      <ul>
+        <li><strong>Contract review for standard clauses</strong> — AI can flag non-standard language, missing boilerplate, and deviation from firm templates with reasonable accuracy. Still needs attorney review.</li>
+        <li><strong>Jurisdiction-specific research</strong> — Useful for identifying relevant state law differences, but requires careful verification because court system nuances matter enormously.</li>
+        <li><strong>Memo drafting from research</strong> — AI can produce a solid first draft of a research memo given a set of cases. The draft will need significant revision, but it saves the blank-page problem.</li>
+      </ul>
+
+      <h3>Low automation readiness (keep human-led)</h3>
+      <ul>
+        <li><strong>Novel legal questions</strong> — Where there's no established case law or the question is genuinely unprecedented, AI adds little value.</li>
+        <li><strong>Strategic legal judgment</strong> — Which arguments to lead with, how to frame a motion, whether a case is worth pursuing. This is attorney work, full stop.</li>
+        <li><strong>Client communication</strong> — Explaining legal strategy, setting expectations, managing the relationship. AI can draft, but the attorney owns this.</li>
+      </ul>
+
+      <h2>The Westlaw and LexisNexis integration question</h2>
+
+      <p>The first question most attorneys ask is whether AI tools work with their existing research platforms. The answer is nuanced. Both Westlaw and LexisNexis now have native AI features — Westlaw's AI-Assisted Research and Lexis+ AI respectively — and these are worth evaluating because they're integrated directly into the platforms attorneys already use.</p>
+
+      <p>We generally recommend a two-layer approach:</p>
+
+      <div class="callout">
+        <span class="callout-label">Agent 425 Framework</span>
+        <p style="margin:0 0 12px;font-size:16px;color:var(--text);">Use platform-native AI for all citation verification and case-law retrieval (where the database integration matters most). Use a separate reasoning layer — Claude or a similar model — for document analysis, memo drafting, and synthesis tasks where you're working with your own documents rather than published case law.</p>
+        <p style="margin:0;font-size:16px;color:var(--text);">This separation also manages hallucination risk more cleanly: the platform AI is restricted to verified legal databases, while the reasoning layer works only on documents you've already retrieved and verified.</p>
+      </div>
+
+      <h2>The ROI math for Washington firms</h2>
+
+      <p>Let's run actual numbers. A mid-sized Seattle litigation firm with 8 associates, each billing at $325/hour, and each spending an average of 25% of their time on research tasks that are "automation-ready" using our framework:</p>
+
+      <ul>
+        <li>Annual research hours per associate: ~500 hours</li>
+        <li>Billable rate: $325/hour</li>
+        <li>Revenue impact per associate if 40% of research time is recaptured: <strong>$65,000/year</strong></li>
+        <li>Firm-wide impact across 8 associates: <strong>$520,000/year</strong></li>
+      </ul>
+
+      <p>Even capturing 20% of that — which is a very conservative estimate from firms we've implemented this with — represents $260,000 in either recovered billing capacity or associate time freed for higher-value work. The average annual cost of the AI tooling we'd recommend for a firm this size is $18,000 to $24,000.</p>
+
+      <p>The math isn't complicated. The implementation is where most firms get stuck.</p>
+
+      <h2>Why implementation matters more than tool selection</h2>
+
+      <p>We've seen the same pattern repeatedly: a firm tries a free trial of an AI research tool, an associate uses it incorrectly for a week, gets a few bad results, and the whole initiative gets shelved as "not ready yet." The problem isn't the tool. The problem is that no one designed the workflow.</p>
+
+      <p>Effective AI legal research requires three things most firms don't have in place on day one:</p>
+
+      <ol>
+        <li><strong>Clear task boundaries</strong> — Associates need to know which research tasks are appropriate for AI pre-screening and which aren't. Without this, they either over-rely on it or never use it at all.</li>
+        <li><strong>A verification protocol</strong> — Every AI-surfaced case needs to be confirmed in the primary database before it goes into a document. This sounds obvious but it breaks down under deadline pressure without a written protocol.</li>
+        <li><strong>Feedback loops</strong> — The tools that produce the best results are the ones that have been tuned based on what worked and what didn't. This requires someone (usually a senior associate or the firm's designated AI lead) tracking outcomes and adjusting prompts and workflows monthly.</li>
+      </ol>
+
+      <h2>What to do this week</h2>
+
+      <p>If you're a Washington law firm and you haven't started this yet, the lowest-risk entry point is document review triage. Pick your next large discovery matter and run the document set through an AI classification layer before your associates touch it. Track the hours. Compare the first-pass accuracy to your usual process. You'll have concrete data within 30 days.</p>
+
+      <p>If you want a structured assessment of which research tasks in your specific practice areas are highest-priority for automation, that's exactly what our discovery call covers. We'll look at your current workflow, your practice areas, and your billing structure, and come back with a ranked list of where AI will move the needle fastest.</p>
+
+    </div>
+  </section>
+
+  <!-- ═══ CLOSING CTA ═══ -->
+  <section class="closing-cta-section section-divider">
+    <div class="max-w-7xl mx-auto w-full">
+      <div class="grid lg:grid-cols-[1fr_auto] gap-12 items-end">
+        <div>
+          <span class="section-label" style="margin-bottom:24px;display:block;">The window is closing</span>
+          <h2 style="font-size:clamp(3rem,8vw,8rem);line-height:0.95;letter-spacing:-0.04em;margin:0 0 40px;max-width:1000px;">The companies that move now will own the next decade.</h2>
+        </div>
+        <div style="flex-shrink:0;padding-bottom:8px;">
+          <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:340px;margin:0 0 28px;font-family:'Roboto',sans-serif;">Ready to find out exactly where AI research tools would move the needle for your firm? Book a free 30-minute discovery call.</p>
+          <a href="../index.html#contact" class="hero-btn" style="font-size:13px;padding:16px 32px;">
+            Book a Free Call
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer style="background:var(--navy);border-top:3px solid var(--green);padding:48px 20px 32px;">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <a href="../index.html" class="flex items-center gap-3" aria-label="Agent 425 home">
+        <img src="../LOGO/Gemini_Generated_Image_jc95v2jc95v2jc95.png" alt="Agent 425" style="height:36px;width:auto;">
+        <span style="font-family:'Inter',sans-serif;font-weight:700;font-size:14px;color:#fff;letter-spacing:-0.01em;">Seattle AI Consultants</span>
+      </a>
+      <div class="flex gap-6 flex-wrap">
+        <a href="../index.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Home</a>
+        <a href="../case-studies.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Case Studies</a>
+        <a href="../insights.html" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">Insights</a>
+        <a href="mailto:contact@agent425.com" style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.45);transition:color 0.2s ease-out;letter-spacing:0.06em;" onmouseenter="this.style.color='#69BE28'" onmouseleave="this.style.color='rgba(255,255,255,0.45)'">contact@agent425.com</a>
+      </div>
+      <p style="font-size:12px;color:rgba(255,255,255,0.28);margin:0;font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;">© 2026 Seattle AI Consultants</p>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('darkToggle');
+    const hl = document.getElementById('toggleHL');
+    function applyDark(on) {
+      html.classList.toggle('dark', on);
+      hl.style.transform = on ? 'translateX(0)' : 'translateX(36px)';
+      localStorage.setItem('darkMode', on ? '1' : '0');
+    }
+    const saved = localStorage.getItem('darkMode');
+    applyDark(saved === '1');
+    toggle.addEventListener('click', () => applyDark(!html.classList.contains('dark')));
+  </script>
+</body>
+</html>
