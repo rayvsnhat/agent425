@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" style="background-color:#00112b">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -494,6 +494,7 @@
       hl.style.transform = on ? 'translateX(0)' : 'translateX(36px)';
       localStorage.setItem('darkMode', on ? '1' : '0');
       document.querySelector('meta[name="theme-color"]').setAttribute('content', on ? '#00112b' : '#ffffff');
+      html.style.backgroundColor = on ? '#00112b' : '#ffffff';
     }
     const saved = localStorage.getItem('darkMode');
     applyDark(saved === '1');
