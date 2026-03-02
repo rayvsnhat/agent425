@@ -150,23 +150,17 @@
     .calc-range::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--green);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(105,190,40,0.4);}
     .dark .calc-range::-moz-range-thumb{border-color:var(--navy);}
     .calc-range:focus-visible{outline:2px solid var(--green);outline-offset:3px;}
-    .calc-card-carousel{position:relative;border:1px solid rgba(0,34,68,0.1);border-radius:12px;background:#f0f2f4;padding:20px 24px 16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,34,68,0.06),0 4px 16px rgba(0,34,68,0.03);transition:box-shadow 0.25s ease-out;}
-    .calc-card-carousel:hover{box-shadow:0 6px 20px rgba(0,34,68,0.1),0 8px 28px rgba(0,34,68,0.05);}
-    .dark .calc-card-carousel{background:#003270;border-color:rgba(165,172,175,0.12);box-shadow:0 2px 8px rgba(0,5,20,0.3),0 4px 16px rgba(0,5,20,0.15);}
-    .dark .calc-card-carousel:hover{box-shadow:0 6px 20px rgba(0,5,20,0.4),0 8px 28px rgba(0,5,20,0.2);}
-    .calc-slide{display:none;}
-    .calc-slide.active{display:block;}
-    .calc-nav{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(165,172,175,0.15);}
-    .calc-nav-arrow{width:28px;height:28px;border-radius:50%;border:none;cursor:pointer;background:rgba(165,172,175,0.22);box-shadow:0 2px 6px rgba(0,0,0,0.08),inset 0 1px 0 rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;transition:transform 0.2s ease-out,background 0.2s ease-out;}
-    .calc-nav-arrow svg{stroke:var(--navy);width:14px;height:14px;}
-    .calc-nav-arrow:hover{transform:scale(1.1);background:rgba(165,172,175,0.35);}
-    .calc-nav-arrow:active{transform:scale(0.95);}
-    .calc-nav-arrow:focus-visible{outline:2px solid var(--green);outline-offset:2px;}
-    .dark .calc-nav-arrow{background:rgba(0,34,68,0.6);box-shadow:0 2px 8px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.06);}
-    .dark .calc-nav-arrow svg{stroke:#fff;}
-    .dark .calc-nav-arrow:hover{background:rgba(0,34,68,0.8);}
-    .calc-nav-dot{width:8px;height:8px;border-radius:50%;background:var(--gray);transition:background 0.2s ease-out,transform 0.2s ease-out;}
-    .calc-nav-dot.active{background:var(--green);transform:scale(1.25);}
+    .calc-card{border:1px solid rgba(0,34,68,0.1);border-radius:12px;background:#f0f2f4;padding:20px 24px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,34,68,0.06),0 4px 16px rgba(0,34,68,0.03);transition:box-shadow 0.25s ease-out;}
+    .calc-card:hover{box-shadow:0 6px 20px rgba(0,34,68,0.1),0 8px 28px rgba(0,34,68,0.05);}
+    .dark .calc-card{background:#003270;border-color:rgba(165,172,175,0.12);box-shadow:0 2px 8px rgba(0,5,20,0.3),0 4px 16px rgba(0,5,20,0.15);}
+    .dark .calc-card:hover{box-shadow:0 6px 20px rgba(0,5,20,0.4),0 8px 28px rgba(0,5,20,0.2);}
+    .calc-expand-btn{display:flex;align-items:center;gap:6px;margin-top:12px;padding:0;border:none;background:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);transition:opacity 0.2s ease-out;}
+    .calc-expand-btn:hover{opacity:0.8;}
+    .calc-expand-btn:focus-visible{outline:2px solid var(--green);outline-offset:2px;}
+    .calc-expand-btn svg{transition:transform 0.3s ease-out;width:14px;height:14px;}
+    .calc-expand-btn.open svg{transform:rotate(180deg);}
+    .calc-expand-detail{overflow:hidden;max-height:0;transition:max-height 0.4s ease-out;margin-top:0;}
+    .calc-expand-detail.open{max-height:300px;margin-top:12px;}
     .calc-metric{border:1px solid rgba(0,34,68,0.1);border-radius:12px;background:#f0f2f4;padding:20px 24px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,34,68,0.06),0 4px 16px rgba(0,34,68,0.03);transition:transform 0.25s ease-out,box-shadow 0.25s ease-out;}
     .calc-metric:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,34,68,0.1),0 8px 28px rgba(0,34,68,0.05);}
     .dark .calc-metric{background:#003270;border-color:rgba(165,172,175,0.12);box-shadow:0 2px 8px rgba(0,5,20,0.3),0 4px 16px rgba(0,5,20,0.15);}
@@ -406,78 +400,45 @@
 
         <!-- RIGHT: Results -->
         <div class="fade-in" style="transition-delay:0.25s;">
-          <div class="calc-card-carousel">
-            <div class="calc-slide active">
-              <div class="calc-metric-label">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Lost Billable Hours
-              </div>
-              <div class="calc-metric-amount"><span id="metric1Amount">$72,240</span><span class="calc-metric-unit">/mo</span></div>
-              <p class="calc-metric-sub">Your attorneys are losing <strong id="metric1Inline" style="color:#dc2626;">$72,240</strong>/mo on research, drafting, and intake tasks AI can handle.</p>
+          <div class="calc-card">
+            <div class="calc-metric-label">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Lost Billable Hours
             </div>
-            <div class="calc-slide">
-              <div class="calc-metric-label" style="margin-bottom:12px;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Lost Billable Hours
-              </div>
+            <div class="calc-metric-amount"><span id="metric1Amount">$72,240</span><span class="calc-metric-unit">/mo</span></div>
+            <p class="calc-metric-sub">Your attorneys are losing <strong id="metric1Inline" style="color:#dc2626;">$72,240</strong>/mo on research, drafting, and intake tasks AI can handle.</p>
+            <button class="calc-expand-btn" aria-expanded="false">See more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="calc-expand-detail">
               <div class="calc-detail-item"><span class="calc-detail-badge badge-fact">Fact</span><span>Attorneys spend <strong>40%</strong> of their time on non-billable tasks like research, document review, and contract drafting that AI can accelerate or automate.</span></div>
               <div class="calc-detail-item"><span class="calc-detail-badge badge-math">Math</span><span>Attorneys &times; Hrs Lost/Week &times; 4.3 weeks &times; Billable Rate</span></div>
             </div>
-            <div class="calc-nav">
-              <button class="calc-nav-arrow calc-nav-left" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-              <span class="calc-nav-dot active"></span>
-              <span class="calc-nav-dot"></span>
-              <button class="calc-nav-arrow calc-nav-right" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-            </div>
           </div>
 
-          <div class="calc-card-carousel">
-            <div class="calc-slide active">
-              <div class="calc-metric-label">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                Administrative Overhead
-              </div>
-              <div class="calc-metric-amount"><span id="metric2Amount">$5,805</span><span class="calc-metric-unit">/mo</span></div>
-              <p class="calc-metric-sub">You are paying <strong id="metric2Inline" style="color:#dc2626;">$5,805</strong>/mo for manual document handling, scheduling, and data entry.</p>
+          <div class="calc-card">
+            <div class="calc-metric-label">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Administrative Overhead
             </div>
-            <div class="calc-slide">
-              <div class="calc-metric-label" style="margin-bottom:12px;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                Administrative Overhead
-              </div>
+            <div class="calc-metric-amount"><span id="metric2Amount">$5,805</span><span class="calc-metric-unit">/mo</span></div>
+            <p class="calc-metric-sub">You are paying <strong id="metric2Inline" style="color:#dc2626;">$5,805</strong>/mo for manual document handling, scheduling, and data entry.</p>
+            <button class="calc-expand-btn" aria-expanded="false">See more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="calc-expand-detail">
               <div class="calc-detail-item"><span class="calc-detail-badge badge-fact">Fact</span><span>The average Seattle paralegal earns <strong>$45/hr</strong>. Manual intake, scheduling, and document management eat <strong>10+ hrs/week</strong> per staff member.</span></div>
               <div class="calc-detail-item"><span class="calc-detail-badge badge-math">Math</span><span>Paralegals/Admin &times; 10 hrs/week &times; 4.3 weeks &times; $45/hr</span></div>
             </div>
-            <div class="calc-nav">
-              <button class="calc-nav-arrow calc-nav-left" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-              <span class="calc-nav-dot active"></span>
-              <span class="calc-nav-dot"></span>
-              <button class="calc-nav-arrow calc-nav-right" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-            </div>
           </div>
 
-          <div class="calc-card-carousel">
-            <div class="calc-slide active">
-              <div class="calc-metric-label">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.29h3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                Missed Client Intake Revenue
-              </div>
-              <div class="calc-metric-amount"><span id="metric3Amount">$15,840</span><span class="calc-metric-unit">/mo</span></div>
-              <p class="calc-metric-sub">Slow response times are costing you an estimated <strong id="metric3Inline" style="color:#dc2626;">$15,840</strong>/mo in lost leads.</p>
+          <div class="calc-card">
+            <div class="calc-metric-label">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.29h3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              Missed Client Intake Revenue
             </div>
-            <div class="calc-slide">
-              <div class="calc-metric-label" style="margin-bottom:12px;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.29h3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                Missed Client Intake Revenue
-              </div>
+            <div class="calc-metric-amount"><span id="metric3Amount">$15,840</span><span class="calc-metric-unit">/mo</span></div>
+            <p class="calc-metric-sub">Slow response times are costing you an estimated <strong id="metric3Inline" style="color:#dc2626;">$15,840</strong>/mo in lost leads.</p>
+            <button class="calc-expand-btn" aria-expanded="false">See more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="calc-expand-detail">
               <div class="calc-detail-item"><span class="calc-detail-badge badge-fact">Fact</span><span><strong>79%</strong> of legal consumers expect a response within 24 hours. Firms that respond in under 1 hour are <strong>7&times;</strong> more likely to sign the client.</span></div>
               <div class="calc-detail-item"><span class="calc-detail-badge badge-math">Math</span><span>Attorneys &times; 2.2 lost leads/mo &times; $1,200 avg case value</span></div>
-            </div>
-            <div class="calc-nav">
-              <button class="calc-nav-arrow calc-nav-left" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-              <span class="calc-nav-dot active"></span>
-              <span class="calc-nav-dot"></span>
-              <button class="calc-nav-arrow calc-nav-right" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
             </div>
           </div>
 
@@ -985,27 +946,16 @@
       [techsS,jobsS,adminS,missedS].forEach(function(s){s.addEventListener('input',calc);});
     })();
 
-    // Carousel toggle on calc cards — equalize height + bottom nav
-    document.querySelectorAll('.calc-card-carousel').forEach(function(card){
-      var slides=card.querySelectorAll('.calc-slide');
-      var dots=card.querySelectorAll('.calc-nav-dot');
-      var leftBtn=card.querySelector('.calc-nav-left');
-      var rightBtn=card.querySelector('.calc-nav-right');
-      if(!leftBtn||!rightBtn||slides.length<2)return;
-      // Equalize slide heights
-      slides[0].style.display='block';slides[1].style.display='block';
-      var h0=slides[0].offsetHeight,h1=slides[1].offsetHeight;
-      var maxH=Math.max(h0,h1);
-      slides[0].style.minHeight=maxH+'px';slides[1].style.minHeight=maxH+'px';
-      slides[1].style.display='';
-      function goTo(idx){
-        slides[0].classList.toggle('active',idx===0);
-        slides[1].classList.toggle('active',idx===1);
-        dots[0].classList.toggle('active',idx===0);
-        dots[1].classList.toggle('active',idx===1);
-      }
-      rightBtn.onclick=function(){goTo(1);};
-      leftBtn.onclick=function(){goTo(0);};
+    // "See more" accordion on calc cards
+    document.querySelectorAll('.calc-expand-btn').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var detail=btn.nextElementSibling;
+        var isOpen=detail.classList.contains('open');
+        detail.classList.toggle('open');
+        btn.classList.toggle('open');
+        btn.setAttribute('aria-expanded',!isOpen);
+        btn.firstChild.textContent=isOpen?'See more ':'See less ';
+      });
     });
 
     // Email form
