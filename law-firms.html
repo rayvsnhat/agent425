@@ -137,10 +137,61 @@
     .faq-answer.open{max-height:400px;}
     .faq-answer p{padding:0 20px 18px;font-size:14px;line-height:1.75;color:var(--text-secondary);margin:0;font-family:'Roboto',sans-serif;}
 
-    /* ── Carousel ── */
-    .carousel-track{display:flex;gap:0;transition:transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);}
-    .carousel-slide{flex:0 0 100%;min-width:100%;box-sizing:border-box;padding:0 4px;}
-    #roiCarouselWrap{padding:12px 0 0 !important;margin:-12px 0 0 !important;}
+    /* ── Profit Leak Calculator ── */
+    .calc-slider-group{margin-bottom:28px;}
+    .calc-slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.1em;color:var(--text);}
+    .calc-slider-value{font-family:'Inter',sans-serif;font-weight:900;font-size:22px;color:var(--green);letter-spacing:-0.02em;}
+    .calc-slider-range{display:flex;justify-content:space-between;font-size:11px;color:var(--gray);font-family:'IBM Plex Mono',monospace;margin-top:4px;}
+    .calc-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:linear-gradient(to right,var(--green) 0%,var(--green) var(--fill,50%),rgba(165,172,175,0.3) var(--fill,50%),rgba(165,172,175,0.3) 100%);outline:none;cursor:pointer;}
+    .calc-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;background:var(--green);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(105,190,40,0.4);transition:transform 0.2s ease-out,box-shadow 0.2s ease-out;}
+    .calc-range::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0 4px 16px rgba(105,190,40,0.5);}
+    .calc-range::-webkit-slider-thumb:active{transform:scale(0.95);}
+    .dark .calc-range::-webkit-slider-thumb{border-color:var(--navy);}
+    .calc-range::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--green);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(105,190,40,0.4);}
+    .dark .calc-range::-moz-range-thumb{border-color:var(--navy);}
+    .calc-range:focus-visible{outline:2px solid var(--green);outline-offset:3px;}
+    .calc-metric{border:1px solid rgba(0,34,68,0.1);border-radius:12px;background:#f0f2f4;padding:20px 24px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,34,68,0.06),0 4px 16px rgba(0,34,68,0.03);transition:transform 0.25s ease-out,box-shadow 0.25s ease-out;}
+    .calc-metric:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,34,68,0.1),0 8px 28px rgba(0,34,68,0.05);}
+    .dark .calc-metric{background:#003270;border-color:rgba(165,172,175,0.12);box-shadow:0 2px 8px rgba(0,5,20,0.3),0 4px 16px rgba(0,5,20,0.15);}
+    .dark .calc-metric:hover{box-shadow:0 6px 20px rgba(0,5,20,0.4),0 8px 28px rgba(0,5,20,0.2);}
+    .calc-metric-label{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;}
+    .dark .calc-metric-label{color:#fff;}
+    .calc-metric-amount{font-family:'Inter',sans-serif;font-weight:900;font-size:1.8rem;color:#dc2626;letter-spacing:-0.03em;line-height:1;text-shadow:0 0 20px rgba(220,38,38,0.12);}
+    .calc-metric-unit{font-size:0.4em;font-weight:500;color:var(--gray);letter-spacing:0;margin-left:2px;}
+    .calc-metric-sub{font-size:13px;color:var(--text-secondary);margin-top:8px;font-family:'Roboto',sans-serif;line-height:1.6;}
+    .calc-total-wrap{border-radius:12px;background:linear-gradient(135deg,rgba(220,38,38,0.06),rgba(220,38,38,0.03));border:2px solid rgba(220,38,38,0.22);padding:32px 24px;text-align:center;margin-top:64px;position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(220,38,38,0.08),0 8px 32px rgba(0,34,68,0.06);}
+    .dark .calc-total-wrap{background:linear-gradient(135deg,rgba(220,38,38,0.12),rgba(220,38,38,0.04));border-color:rgba(220,38,38,0.3);box-shadow:0 4px 24px rgba(220,38,38,0.1),0 8px 40px rgba(0,0,0,0.2);}
+    .calc-total-label{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:8px;}
+    .calc-total-number{font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(2.5rem,5vw,3.5rem);color:#dc2626;letter-spacing:-0.04em;line-height:1;text-shadow:0 0 40px rgba(220,38,38,0.25),0 0 80px rgba(220,38,38,0.08);}
+    .calc-total-annual{font-family:'Roboto',sans-serif;font-size:14px;color:var(--text-secondary);margin-top:10px;}
+    .calc-total-annual strong{color:#dc2626;}
+    .calc-detail{border:1px solid rgba(0,34,68,0.1);border-radius:12px;background:#f0f2f4;padding:28px 24px;box-shadow:0 2px 8px rgba(0,34,68,0.06),0 4px 16px rgba(0,34,68,0.03);transition:transform 0.25s ease-out,box-shadow 0.25s ease-out;}
+    .dark .calc-detail{background:#003270;border-color:rgba(165,172,175,0.12);box-shadow:0 2px 8px rgba(0,5,20,0.3),0 4px 16px rgba(0,5,20,0.15);}
+    .calc-detail:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,34,68,0.1),0 8px 28px rgba(0,34,68,0.05);}
+    .dark .calc-detail:hover{box-shadow:0 6px 20px rgba(0,5,20,0.4),0 8px 28px rgba(0,5,20,0.2);}
+    .calc-detail-title{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);margin:0;line-height:1;}
+    .dark .calc-detail-title{color:#fff;}
+    .calc-detail-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:14px;line-height:1.6;color:var(--text-secondary);font-family:'Roboto',sans-serif;}
+    .calc-detail-item strong{color:var(--navy);}
+    .dark .calc-detail-item strong{color:#fff;}
+    .calc-detail-item:last-child{margin-bottom:0;}
+    .calc-detail-badge{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:4px;line-height:1;margin-top:3px;white-space:nowrap;}
+    .badge-fact{background:rgba(105,190,40,0.12);color:var(--green);}
+    .badge-math{background:rgba(0,34,68,0.08);color:var(--navy);}
+    .dark .badge-math{background:rgba(165,172,175,0.15);color:var(--gray);}
+    .calc-factoid{border-left:3px solid var(--green);background:#f0f2f4;padding:20px 24px;border-radius:0 8px 8px 0;box-shadow:0 2px 8px rgba(0,34,68,0.06),0 4px 16px rgba(0,34,68,0.03);transition:transform 0.25s ease-out,box-shadow 0.25s ease-out;}
+    .dark .calc-factoid{background:#003270;box-shadow:0 2px 8px rgba(0,5,20,0.3),0 4px 16px rgba(0,5,20,0.15);}
+    .calc-factoid:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,34,68,0.1),0 8px 28px rgba(0,34,68,0.05);}
+    .dark .calc-factoid:hover{box-shadow:0 6px 20px rgba(0,5,20,0.4),0 8px 28px rgba(0,5,20,0.2);}
+    .calc-factoid-title{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);margin:0 0 8px;line-height:1;}
+    .dark .calc-factoid-title{color:#fff;}
+    .calc-factoid-text{font-size:14px;color:var(--text-secondary);line-height:1.65;margin:0;font-family:'Roboto',sans-serif;}
+    .calc-factoid-text strong{color:var(--navy);}
+    .dark .calc-factoid-text strong{color:#fff;}
+    .calc-capacity-box{margin-top:24px;padding:16px 20px;border-radius:8px;background:rgba(105,190,40,0.06);border:1px solid rgba(105,190,40,0.15);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-secondary);line-height:1.6;}
+    .dark .calc-capacity-box{background:rgba(105,190,40,0.08);border-color:rgba(105,190,40,0.2);}
+    @keyframes calcPulse{0%{transform:scale(1);}50%{transform:scale(1.06);}100%{transform:scale(1);}}
+    .calc-pulse{animation:calcPulse 0.3s cubic-bezier(0.34,1.56,0.64,1);}
 
     /* ── Glow ── */
     .glow-green{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(105,190,40,0.08) 0%,transparent 65%);}
@@ -284,139 +335,166 @@
     <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green) 0%,transparent 100%);"></div>
   </section>
 
-  <!-- ═══ 2. MISSION STATEMENT ═══ -->
-  <section style="padding:80px 20px;background:var(--bg);position:relative;">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-      <div>
-        <span class="section-label">The reality</span>
-        <span class="accent-line"></span>
-        <h2 class="fade-in" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">Your time is the most valuable asset in the firm.</h2>
-        <p class="fade-in mt-6" style="font-size:16px;line-height:1.75;color:var(--text-secondary);transition-delay:0.1s;font-family:'Roboto',sans-serif;">
-          Law firms are drowning in manual work: hours spent on case research, document review, drafting standard contracts, and chasing clients for intake forms. Every minute spent on these tasks is a billable hour lost.
-        </p>
-        <p class="fade-in mt-4" style="font-size:16px;line-height:1.75;color:var(--text-secondary);transition-delay:0.2s;font-family:'Roboto',sans-serif;">
-          Seattle AI Consultants audits your firm's operations, identifies the highest-ROI automation opportunities, and implements AI tools that integrate with your existing workflows — without disrupting how your team works.
-        </p>
-        <div class="fade-in mt-8 flex gap-4" style="transition-delay:0.3s;">
-          <div style="text-align:center;">
-            <p class="mission-stat">40%</p>
-            <p style="font-size:13px;color:var(--text-secondary);font-family:'Roboto',sans-serif;">Avg. research time saved</p>
+  <!-- ═══ 2. PROFIT LEAK CALCULATOR ═══ -->
+  <section class="section-divider" style="padding:80px 20px;" id="calculator">
+    <div class="max-w-7xl mx-auto">
+      <span class="section-label">Calculate your leak</span>
+      <span class="accent-line"></span>
+      <div class="mb-8">
+        <h2 class="fade-in" style="font-size:clamp(1.8rem,4vw,3.2rem);">Law Firm <span style="color:#dc2626;">&ldquo;Profit Leak&rdquo;</span> Calculator</h2>
+        <p class="fade-in mt-4" style="font-size:16px;color:var(--text-secondary);max-width:560px;transition-delay:0.1s;font-family:'Roboto',sans-serif;">Move the sliders to match your firm. Watch how much revenue you may be losing each month to inefficiencies AI can fix.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
+        <!-- LEFT: Sliders -->
+        <div class="fade-in" style="transition-delay:0.15s;">
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Attorneys</span>
+              <span class="calc-slider-value" id="techsVal">6</span>
+            </div>
+            <input type="range" min="1" max="30" value="6" id="techsSlider" class="calc-range" aria-label="Number of attorneys">
+            <div class="calc-slider-range"><span>1</span><span>30</span></div>
           </div>
-          <div style="width:1px;background:var(--border);margin:0 8px;"></div>
-          <div style="text-align:center;">
-            <p class="mission-stat">3×</p>
-            <p style="font-size:13px;color:var(--text-secondary);font-family:'Roboto',sans-serif;">Faster contract drafting</p>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Avg. Billable Rate ($/hr)</span>
+              <span class="calc-slider-value" id="jobsVal">$350</span>
+            </div>
+            <input type="range" min="150" max="800" value="350" step="25" id="jobsSlider" class="calc-range" aria-label="Average billable rate per hour">
+            <div class="calc-slider-range"><span>$150</span><span>$800</span></div>
           </div>
-          <div style="width:1px;background:var(--border);margin:0 8px;"></div>
-          <div style="text-align:center;">
-            <p class="mission-stat">$80k+</p>
-            <p style="font-size:13px;color:var(--text-secondary);font-family:'Roboto',sans-serif;">Avg. annual ROI recovery</p>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-label">
+              <span>Paralegals / Admin Staff</span>
+              <span class="calc-slider-value" id="adminVal">3</span>
+            </div>
+            <input type="range" min="1" max="20" value="3" id="adminSlider" class="calc-range" aria-label="Number of paralegals and admin staff">
+            <div class="calc-slider-range"><span>1</span><span>20</span></div>
+          </div>
+
+          <div class="calc-slider-group" style="margin-bottom:0;">
+            <div class="calc-slider-label">
+              <span>Hrs Lost to Manual Tasks / Atty / Week</span>
+              <span class="calc-slider-value" id="missedVal">8</span>
+            </div>
+            <input type="range" min="2" max="25" value="8" id="missedSlider" class="calc-range" aria-label="Hours lost to manual tasks per attorney per week">
+            <div class="calc-slider-range"><span>2</span><span>25</span></div>
+          </div>
+
+          <div class="calc-capacity-box">
+            Your firm capacity: <strong style="color:var(--green);" id="capacityJobs">1,032</strong> billable hrs/month<br>
+            (~<strong style="color:var(--green);" id="capacityRevenue">$361,200</strong> in potential revenue)
+          </div>
+        </div>
+
+        <!-- RIGHT: Results -->
+        <div class="fade-in" style="transition-delay:0.25s;">
+          <div class="calc-metric">
+            <div class="calc-metric-label">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Lost Billable Hours
+            </div>
+            <div class="calc-metric-amount"><span id="metric1Amount">$72,240</span><span class="calc-metric-unit">/mo</span></div>
+            <p class="calc-metric-sub">Your attorneys are losing <strong id="metric1Inline" style="color:#dc2626;">$72,240</strong>/mo on research, drafting, and intake tasks AI can handle.</p>
+          </div>
+
+          <div class="calc-metric">
+            <div class="calc-metric-label">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Administrative Overhead
+            </div>
+            <div class="calc-metric-amount"><span id="metric2Amount">$5,805</span><span class="calc-metric-unit">/mo</span></div>
+            <p class="calc-metric-sub">You are paying <strong id="metric2Inline" style="color:#dc2626;">$5,805</strong>/mo for manual document handling, scheduling, and data entry.</p>
+          </div>
+
+          <div class="calc-metric">
+            <div class="calc-metric-label">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.29h3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              Missed Client Intake Revenue
+            </div>
+            <div class="calc-metric-amount"><span id="metric3Amount">$15,840</span><span class="calc-metric-unit">/mo</span></div>
+            <p class="calc-metric-sub">Slow response times are costing you an estimated <strong id="metric3Inline" style="color:#dc2626;">$15,840</strong>/mo in lost leads.</p>
+          </div>
+
+          <div class="calc-total-wrap">
+            <div class="calc-total-label">Estimated Monthly Profit Leak</div>
+            <div class="calc-total-number" id="totalLeak">$93,885</div>
+            <p class="calc-total-annual">That&rsquo;s <strong id="annualLeak">$1,126,620</strong>/year &mdash; <strong id="leakPercent">26.0%</strong> of your capacity revenue.</p>
           </div>
         </div>
       </div>
-      <div class="fade-in" style="transition-delay:0.15s;">
-        <div style="border:2px solid var(--border);border-radius:12px;overflow:hidden;position:relative;">
-          <img src="https://placehold.co/640x460/002244/69BE28?text=Law+Firm+AI" alt="Law firm AI consultation" loading="lazy" style="width:100%;display:block;">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,34,68,0.6) 0%,transparent 50%);"></div>
-          <div style="position:absolute;bottom:20px;left:24px;right:24px;">
-            <p style="color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:15px;margin:0 0 4px;">"We cut research time by half in the first month."</p>
-            <p style="color:rgba(255,255,255,0.65);font-size:13px;margin:0;font-family:'Roboto',sans-serif;">— Managing Partner, Seattle Litigation Firm</p>
+
+      <!-- DETAIL BREAKDOWNS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-16">
+        <div class="calc-detail fade-in" style="transition-delay:0.05s;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <h3 class="calc-detail-title">The &ldquo;Billable Hour&rdquo; Drain</h3>
           </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-fact">Fact</span>
+            <span>Attorneys spend <strong>40%</strong> of their time on non-billable tasks like research, document review, and contract drafting that AI can accelerate or automate.</span>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-math">Math</span>
+            <span>Attorneys &times; Hrs Lost/Week &times; 4.3 weeks &times; Billable Rate</span>
+          </div>
+        </div>
+
+        <div class="calc-detail fade-in" style="transition-delay:0.15s;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <h3 class="calc-detail-title">The &ldquo;Admin Overhead&rdquo; Burn</h3>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-fact">Fact</span>
+            <span>The average Seattle paralegal earns <strong>$45/hr</strong>. Manual intake, scheduling, and document management eat <strong>10+ hrs/week</strong> per staff member.</span>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-math">Math</span>
+            <span>Paralegals/Admin &times; 10 hrs/week &times; 4.3 weeks &times; $45/hr</span>
+          </div>
+        </div>
+
+        <div class="calc-detail fade-in" style="transition-delay:0.25s;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.29h3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            <h3 class="calc-detail-title">The &ldquo;Missed Intake&rdquo; Leak</h3>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-fact">Fact</span>
+            <span><strong>79%</strong> of legal consumers expect a response within 24 hours. Firms that respond in under 1 hour are <strong>7&times;</strong> more likely to sign the client.</span>
+          </div>
+          <div class="calc-detail-item">
+            <span class="calc-detail-badge badge-math">Math</span>
+            <span>Attorneys &times; 2.2 lost leads/mo &times; $1,200 avg case value</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FACTOIDS -->
+      <div class="mt-16 mb-4">
+        <span class="section-label">Seattle legal reality check</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="calc-factoid fade-in" style="transition-delay:0.05s;">
+          <h4 class="calc-factoid-title">The $80,000 Savings</h4>
+          <p class="calc-factoid-text">Small to mid-size law firms implementing AI automation save an average of <strong>$80,000/year</strong> in operational costs. Early adopters see ROI within <strong>6 months</strong>.</p>
+        </div>
+        <div class="calc-factoid fade-in" style="transition-delay:0.15s;">
+          <h4 class="calc-factoid-title">The $23B Market</h4>
+          <p class="calc-factoid-text">The legal AI market is projected to reach <strong>$23B by 2027</strong>, growing at 32% CAGR. Firms that delay adoption risk falling behind competitors who move now.</p>
+        </div>
+        <div class="calc-factoid fade-in" style="transition-delay:0.25s;">
+          <h4 class="calc-factoid-title">The Intake Gap</h4>
+          <p class="calc-factoid-text"><strong>68%</strong> of law firms report losing clients due to slow intake response. AI-powered intake handles <strong>80%</strong> of routine onboarding &mdash; 24/7, without staff involvement.</p>
         </div>
       </div>
     </div>
     <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 0%,var(--green) 50%,transparent 100%);"></div>
-  </section>
-
-  <!-- ═══ 3. DATA / ROI CAROUSEL ═══ -->
-  <section class="section-divider" style="background:var(--surface);padding:80px 20px;position:relative;" id="data">
-    <div class="max-w-7xl mx-auto">
-      <span class="section-label">The numbers</span>
-      <span class="accent-line"></span>
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-        <div>
-          <h2 class="fade-in" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">The ROI is real. The data proves it.</h2>
-          <p class="fade-in mt-4" style="font-size:16px;color:var(--text-secondary);max-width:480px;transition-delay:0.1s;font-family:'Roboto',sans-serif;">Key facts about AI adoption in legal practices across the US.</p>
-        </div>
-        <div class="flex items-center gap-3" id="roiDots" style="flex-shrink:0;"></div>
-      </div>
-
-      <div style="overflow:hidden;padding:12px 16px 0;margin:-12px -16px 0;" id="roiCarouselWrap">
-        <div class="carousel-track" id="roiTrack">
-          <!-- Slide 1 -->
-          <div class="carousel-slide">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-6">
-              <div class="stat-card fade-in" style="transition-delay:0.0s;">
-                <p class="stat-number">40%</p>
-                <p style="font-family:'Inter',sans-serif;font-weight:700;font-size:16px;margin:0 0 8px;">Research Time Reduction</p>
-                <p style="font-size:14px;color:var(--text-secondary);margin:0;line-height:1.6;font-family:'Roboto',sans-serif;">AI legal research tools reduce average case research time by 40%, freeing attorneys for billable strategy work.</p>
-              </div>
-              <div class="stat-card fade-in" style="transition-delay:0.1s;">
-                <p class="stat-number">$23B</p>
-                <p style="font-family:'Inter',sans-serif;font-weight:700;font-size:16px;margin:0 0 8px;">Legal AI Market by 2027</p>
-                <p style="font-size:14px;color:var(--text-secondary);margin:0;line-height:1.6;font-family:'Roboto',sans-serif;">The legal AI market is growing at 32% CAGR. Early adopters capture competitive advantage before it becomes table stakes.</p>
-              </div>
-            </div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="carousel-slide">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-6">
-              <div class="stat-card fade-in" style="transition-delay:0.0s;">
-                <p class="stat-number">3×</p>
-                <p style="font-family:'Inter',sans-serif;font-weight:700;font-size:16px;margin:0 0 8px;">Faster Contract Review</p>
-                <p style="font-size:14px;color:var(--text-secondary);margin:0;line-height:1.6;font-family:'Roboto',sans-serif;">AI contract analysis tools review and flag issues in standard agreements 3× faster than manual review.</p>
-              </div>
-              <div class="stat-card fade-in" style="transition-delay:0.1s;">
-                <p class="stat-number">68%</p>
-                <p style="font-family:'Inter',sans-serif;font-weight:700;font-size:16px;margin:0 0 8px;">Firms Report Higher ROI</p>
-                <p style="font-size:14px;color:var(--text-secondary);margin:0;line-height:1.6;font-family:'Roboto',sans-serif;">68% of law firms using AI tools report measurable ROI within 6 months of implementation. (Thomson Reuters, 2024)</p>
-              </div>
-            </div>
-          </div>
-          <!-- Slide 3 -->
-          <div class="carousel-slide">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-6">
-              <div class="stat-card fade-in" style="transition-delay:0.0s;">
-                <p class="stat-number">80%</p>
-                <p style="font-family:'Inter',sans-serif;font-weight:700;font-size:16px;margin:0 0 8px;">Client intake automation</p>
-                <p style="font-size:14px;color:var(--text-secondary);margin:0;line-height:1.6;font-family:'Roboto',sans-serif;">AI-powered intake forms and chatbots handle up to 80% of routine client onboarding tasks without staff involvement.</p>
-              </div>
-              <div class="stat-card fade-in" style="transition-delay:0.1s;">
-                <p class="stat-number">$80k</p>
-                <p style="font-family:'Inter',sans-serif;font-weight:700;font-size:16px;margin:0 0 8px;">Average annual savings</p>
-                <p style="font-size:14px;color:var(--text-secondary);margin:0;line-height:1.6;font-family:'Roboto',sans-serif;">Small to mid-size law firms implementing AI automation save an average of $80,000 annually in operational costs.</p>
-              </div>
-            </div>
-          </div>
-          <!-- Slide 4 -->
-          <div class="carousel-slide">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-6">
-              <div class="stat-card fade-in" style="transition-delay:0.0s;">
-                <p class="stat-number">24/7</p>
-                <p style="font-family:'Inter',sans-serif;font-weight:700;font-size:16px;margin:0 0 8px;">Client communication</p>
-                <p style="font-size:14px;color:var(--text-secondary);margin:0;line-height:1.6;font-family:'Roboto',sans-serif;">AI client communication tools respond to inquiries around the clock, reducing missed leads and improving client satisfaction.</p>
-              </div>
-              <div class="stat-card fade-in" style="transition-delay:0.1s;">
-                <p class="stat-number">92%</p>
-                <p style="font-family:'Inter',sans-serif;font-weight:700;font-size:16px;margin:0 0 8px;">Accuracy in doc review</p>
-                <p style="font-size:14px;color:var(--text-secondary);margin:0;line-height:1.6;font-family:'Roboto',sans-serif;">Leading AI document review tools achieve 92%+ accuracy on standard legal document analysis — on par with junior associates.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-center justify-center gap-4 mt-8">
-        <button id="roiPrev" class="roi-arrow" aria-label="Previous">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <div id="roiDotsInline" class="flex gap-2"></div>
-        <button id="roiNext" class="roi-arrow" aria-label="Next">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-    </div>
-    <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 0%,var(--green) 100%);"></div>
   </section>
 
   <!-- ═══ 4. SERVICES ═══ -->
@@ -841,26 +919,63 @@
       }
     }
 
-    // ROI Carousel
+    // Profit Leak Calculator (Law Firms)
     (function(){
-      const track = document.getElementById('roiTrack');
-      const slides = track.querySelectorAll('.carousel-slide');
-      const dotsEl = document.getElementById('roiDotsInline');
-      let cur = 0;
-      slides.forEach((_,i) => {
-        const d = document.createElement('button');
-        d.className = 'dot' + (i===0?' active':'');
-        d.setAttribute('aria-label','Slide '+(i+1));
-        d.addEventListener('click', () => goTo(i));
-        dotsEl.appendChild(d);
-      });
-      function goTo(n) {
-        cur = (n + slides.length) % slides.length;
-        track.style.transform = 'translateX(-'+cur*100+'%)';
-        dotsEl.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i===cur));
+      var ADMIN_WAGE=45,WPM=4.3,LOST_LEADS_PER_ATTY=2.2,AVG_CASE_VALUE=1200,BILLABLE_HRS_PER_WEEK=40;
+      var techsS=document.getElementById('techsSlider'),jobsS=document.getElementById('jobsSlider'),
+          adminS=document.getElementById('adminSlider'),missedS=document.getElementById('missedSlider');
+      if(!techsS)return;
+      var techsV=document.getElementById('techsVal'),jobsV=document.getElementById('jobsVal'),
+          adminV=document.getElementById('adminVal'),missedV=document.getElementById('missedVal');
+      var m1El=document.getElementById('metric1Amount'),m1In=document.getElementById('metric1Inline'),
+          m2El=document.getElementById('metric2Amount'),m2In=document.getElementById('metric2Inline'),
+          m3El=document.getElementById('metric3Amount'),m3In=document.getElementById('metric3Inline');
+      var totEl=document.getElementById('totalLeak'),annEl=document.getElementById('annualLeak'),
+          pctEl=document.getElementById('leakPercent');
+      var capJ=document.getElementById('capacityJobs'),capR=document.getElementById('capacityRevenue');
+      var prev={m1:0,m2:0,m3:0,total:0};
+      function fillSlider(s){
+        var pct=((s.value-s.min)/(s.max-s.min))*100;
+        s.style.setProperty('--fill',pct+'%');
       }
-      document.getElementById('roiPrev').addEventListener('click', () => goTo(cur-1));
-      document.getElementById('roiNext').addEventListener('click', () => goTo(cur+1));
+      function animateVal(el,start,end,dur){
+        var t0=performance.now();
+        function step(now){
+          var p=Math.min((now-t0)/dur,1);
+          var e=1-Math.pow(1-p,3);
+          el.textContent='$'+Math.round(start+(end-start)*e).toLocaleString();
+          if(p<1)requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      function pulse(el){
+        el.classList.remove('calc-pulse');
+        void el.offsetWidth;
+        el.classList.add('calc-pulse');
+      }
+      function calc(){
+        var attys=parseInt(techsS.value),rate=parseInt(jobsS.value),admin=parseInt(adminS.value),hrsLost=parseInt(missedS.value);
+        techsV.textContent=attys;jobsV.textContent='$'+rate;adminV.textContent=admin;missedV.textContent=hrsLost;
+        [techsS,jobsS,adminS,missedS].forEach(fillSlider);
+        var capHrs=Math.round(attys*BILLABLE_HRS_PER_WEEK*WPM),capRev=capHrs*rate;
+        capJ.textContent=capHrs.toLocaleString();
+        capR.textContent='$'+capRev.toLocaleString();
+        var m1=Math.round(attys*hrsLost*WPM*rate);
+        var m2=Math.round(admin*10*WPM*ADMIN_WAGE);
+        var m3=Math.round(attys*LOST_LEADS_PER_ATTY*AVG_CASE_VALUE);
+        animateVal(m1El,prev.m1,m1,400);animateVal(m1In,prev.m1,m1,400);
+        animateVal(m2El,prev.m2,m2,400);animateVal(m2In,prev.m2,m2,400);
+        animateVal(m3El,prev.m3,m3,400);animateVal(m3In,prev.m3,m3,400);
+        var total=m1+m2+m3,annual=total*12;
+        var pct=capRev>0?((total/capRev)*100).toFixed(1):'0.0';
+        animateVal(totEl,prev.total,total,500);
+        annEl.textContent='$'+annual.toLocaleString();
+        pctEl.textContent=pct+'%';
+        pulse(m1El);pulse(m2El);pulse(m3El);pulse(totEl);
+        prev={m1:m1,m2:m2,m3:m3,total:total};
+      }
+      calc();
+      [techsS,jobsS,adminS,missedS].forEach(function(s){s.addEventListener('input',calc);});
     })();
 
     // Email form
