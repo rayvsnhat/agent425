@@ -100,7 +100,7 @@
 <body>
 
   <!-- ═══ NAVBAR ═══ -->
-  <nav class="sticky top-0 z-50" style="border-bottom:1px solid var(--border);">
+  <nav id="mainNav" class="sticky top-0 z-50" style="border-bottom:1px solid var(--border);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);">
     <div class="nav-backdrop absolute inset-0" ></div>
     <div class="relative max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between" style="height:72px;">
       <a href="../index.html" class="flex items-center gap-3 flex-shrink-0" aria-label="Agent 425 home">
@@ -366,5 +366,16 @@
       menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
     })();
   </script>
+<script>
+(function(){
+  var nav=document.getElementById('mainNav');if(!nav)return;
+  var timer=null;
+  window.addEventListener('scroll',function(){
+    nav.style.transform='translateY(-100%)';
+    clearTimeout(timer);
+    timer=setTimeout(function(){nav.style.transform='translateY(0)';},150);
+  },{passive:true});
+})();
+</script>
 </body>
 </html>
