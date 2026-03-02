@@ -1081,17 +1081,5 @@
       });
     })();
   </script>
-<script>
-(function(){
-  var nav=document.getElementById('mainNav');if(!nav)return;
-  var timer=null;
-  window.addEventListener('scroll',function(){
-    if(window.innerWidth>=768)return;
-    nav.style.transform='translateY(-100%)';
-    clearTimeout(timer);
-    timer=setTimeout(function(){nav.style.transform='translateY(0)';},150);
-  },{passive:true});
-})();
-</script>
 </body>
 </html>
